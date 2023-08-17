@@ -15,6 +15,7 @@ Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo de
 * Geraldo Homero do Couto Neto
 * Gustavo Silva Diniz
 * Hugo César Candian Ferreira
+* Junia Marina Campos
 
 ## Orientador
 
