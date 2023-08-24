@@ -14,7 +14,6 @@ Nosso principal objetivo é criar um aplicativo de tarefas pré determinadas e a
 - Permitir aos gestores criar projetos e, dentro deles, suas respectivas tarefas padrão, podendo ser replicados infinitamente. 
 - Permitir aos funcionários ver como está caminhando cada um dos projetos em que ele foi alocado
 
-
 ## Justificativa
 
 Como foi dito anteriormente, a organização é primordial para uma gestão de qualidade, seja ela qualitativa ou quantitativa. Essa aplicação, por ser um otimizador de tarefas “diminui a sobrecarga de pensamento com as informações de o que fazer, como fazer e o prazo de uma demanda” (RunRun.it, 2022)[1]. 
