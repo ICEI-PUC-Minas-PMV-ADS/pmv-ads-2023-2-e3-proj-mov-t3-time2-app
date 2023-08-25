@@ -1,7 +1,5 @@
 # Referências
 
-Inclua todas as referências (livros, artigos, sites, etc) utilizados no desenvolvimento do trabalho.
+ROSA, José Antônio. O que é checklist? In: MOKI,   dez. 2020. Disponível em: https://www.site.moki.com.br/post/checklist-como-fazer
 
-> **Links Úteis**:
-> - [Formato ABNT](https://www.normastecnicas.com/abnt/trabalhos-academicos/referencias/)
-> - [Referências Bibliográficas da ABNT](https://comunidade.rockcontent.com/referencia-bibliografica-abnt/)
+RUNRUN.IT To do list: boas práticas para desengavetar suas tarefas. RunRun.it, ago. 2022. Disponível em: https://blog.runrun.it/listas-alem-da-sua-lista-de-tarefas/
