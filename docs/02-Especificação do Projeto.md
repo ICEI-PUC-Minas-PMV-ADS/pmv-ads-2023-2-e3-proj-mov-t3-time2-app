@@ -73,7 +73,7 @@ Obs.: todas as informações para gerar os indicadores devem estar no diagrama d
 
 ## Requisitos
 
-As tabelas que se seguem apresentam os requisitos funcionais e não funcionais que detalham o escopo do projeto. Para determinar a prioridade de requisitos, aplicar uma técnica de priorização de requisitos e detalhar como a técnica foi aplicada.
+As tabelas que se seguem apresentam os requisitos funcionais e não funcionais que detalham o escopo do projeto. 
 
 ### Requisitos Funcionais
 
@@ -94,20 +94,6 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RNF-002| O sistema deve suportar documentação em PDF, JPEG, JPG, BMP  | MÉDIA |
 |RNF-003| Deve processar requisições do usuário em no máximo 3s |  BAIXA |
 
-Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
-
-- [Requisitos Funcionais
- (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
- correspondem a uma funcionalidade que deve estar presente na
-  plataforma (ex: cadastro de usuário).
-- [Requisitos Não Funcionais
-  (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
-  correspondem a uma característica técnica, seja de usabilidade,
-  desempenho, confiabilidade, segurança ou outro (ex: suporte a
-  dispositivos iOS e Android).
-Lembre-se que cada requisito deve corresponder à uma e somente uma
-característica alvo da sua solução. Além disso, certifique-se de que
-todos os aspectos capturados nas Histórias de Usuário foram cobertos.
 
 ## Restrições
 
@@ -118,11 +104,6 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |01| O projeto deverá ser entregue até o final do semestre |
 |02| Não pode ser desenvolvido um módulo de backend        |
 
-Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
-
-> **Links Úteis**:
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
 
 ## Diagrama de Casos de Uso
 
@@ -152,11 +133,44 @@ De acordo com o PMBoK v6 as dez áreas que constituem os pilares para gerenciar 
 
 Com diagramas bem organizados que permitem gerenciar o tempo nos projetos, o gerente de projetos agenda e coordena tarefas dentro de um projeto para estimar o tempo necessário de conclusão.
 
-![Diagrama de rede simplificado notação francesa (método francês)](img/02-diagrama-rede-simplificado.png)
+Com base no cronograma estipulado pela Intituição PUC Minas, a divisão das tarefas em relação as datas ficaram da seguinte forma (Demonstrado a partir da Planilha e Gráfico de Gannt):
 
-O gráfico de Gantt ou diagrama de Gantt também é uma ferramenta visual utilizada para controlar e gerenciar o cronograma de atividades de um projeto. Com ele, é possível listar tudo que precisa ser feito para colocar o projeto em prática, dividir em atividades e estimar o tempo necessário para executá-las.
+**Etapa 1 do Projeto:**
 
-![Gráfico de Gantt](img/02-grafico-gantt.png)
+![Tabela Gantt Etapa 1](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/60390440-9065-42be-aeb9-836d775583ca)
+
+![Grafico Gantt Etapa 1](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/a606a582-9e3b-40cf-8b90-06dce2516184)
+
+
+**Etapa 2 do Projeto:**
+
+![Tabela Gantt Etapa 2](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/f3bd55b6-4e17-4182-867d-9c8aeee940d4)
+
+![Grafico Gantt Etapa 2](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/7f0f61e6-0f6c-4f31-90b2-ded8ee282068)
+
+
+**Etapa 3 do Projeto:**
+
+![Tabela Gantt Etapa 3](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/b0402464-95d0-4cc0-9d22-3392012d17ef)
+
+![Grafico Gantt Etapa 3](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/53f8fe8a-6271-45ab-8740-d2bafc2a134e)
+
+
+**Etapa 4 do Projeto:**
+
+![Tabela Gantt Etapa 4](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/20b7947e-4297-4118-87ff-d99677ecaae9)
+
+![Grafico Gantt Etapa 4](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/999415eb-3e56-4324-a548-5b5eed4356a4)
+
+
+**Etapa 5 do Projeto:**
+
+![Tabela Gantt Etapa 5](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/cd9d7332-24a9-448c-9b80-5b2977a28984)
+
+![Grafico Gantt Etapa 5](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/e3e42f17-4540-4c45-ad76-9f4c7f2747c6)
+
+
+A partir do desenvolvimento de cada etapa, as atividades seguintes ficarão mais detalhadas, seguindo os Requisitos estabelecidos pela equipe e sua ordem de prioridade para execução.
 
 ## Gerenciamento de Equipe
 
