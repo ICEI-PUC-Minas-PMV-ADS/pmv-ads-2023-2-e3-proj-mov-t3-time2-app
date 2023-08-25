@@ -176,7 +176,8 @@ A partir do desenvolvimento de cada etapa, as atividades seguintes ficarão mais
 
 O gerenciamento adequado de tarefas contribuirá para que o projeto alcance altos níveis de produtividade. Por isso, é fundamental que ocorra a gestão de tarefas e de pessoas, de modo que os times envolvidos no projeto possam ser facilmente gerenciados. 
 
-![Simple Project Timeline](img/02-project-timeline.png)
+![Gerenciamento de Equipe](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/90e8cfd0-c43b-4e54-be07-fe5d42abf004)
+
 
 ## Gestão de Orçamento
 
