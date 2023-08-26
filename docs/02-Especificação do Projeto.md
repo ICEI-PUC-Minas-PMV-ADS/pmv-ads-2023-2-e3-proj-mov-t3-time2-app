@@ -1,10 +1,6 @@
 # Especificações do Projeto
 
-<span style="color:red">Pré-requisitos: <a href="1-Documentação de Contexto.md"> Documentação de Contexto</a></span>
-
-Definição do problema e ideia de solução a partir da perspectiva do usuário. É composta pela definição do  diagrama de personas, histórias de usuários, requisitos funcionais e não funcionais além das restrições do projeto.
-
-Apresente uma visão geral do que será abordado nesta parte do documento, enumerando as técnicas e/ou ferramentas utilizadas para realizar a especificações do projeto
+O nosso projeto visa ajudar empresas a organizarem e acompanharem as tarefas dos trabalhos da melhor forma possível, com a possibilidade de o líder de projetos criar um espaço onde os colaboradores consigam colocar o que já foi feito, o que está em progresso e o que ainda falta.
 
 ## Personas
 
