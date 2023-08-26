@@ -1,22 +1,16 @@
 # Especificações do Projeto
 
-O nosso projeto visa ajudar empresas a organizarem e acompanharem as tarefas dos trabalhos da melhor forma possível, com a possibilidade de o líder de projetos criar um espaço onde os colaboradores consigam colocar o que já foi feito, o que está em progresso e o que ainda falta.
+O nosso projeto visa ajudar empresas a organizarem e acompanharem as tarefas dos trabalhos da melhor forma possível, com a possibilidade de o gerente de projetos criar um espaço onde os colaboradores consigam colocar o que já foi feito, o que está em progresso e o que ainda falta.
 
 ## Personas
 
-Pedro Paulo tem 26 anos, é arquiteto recém-formado e autônomo. Pensa em se desenvolver profissionalmente através de um mestrado fora do país, pois adora viajar, é solteiro e sempre quis fazer um intercâmbio. Está buscando uma agência que o ajude a encontrar universidades na Europa que aceitem alunos estrangeiros.
+Gabriel tem 30 anos, é formado em TI e está atuando como gerente de projetos em uma grande empresa, ele busca uma plataforma onde consiga colocar todos os projetos que está liderando e consiga acompanhar quem está responsável por cada tarefa, quanto tempo demorou e quais tarefas ainda estão pendentes de fazer.
 
-Enumere e detalhe as personas da sua solução. Para tanto, baseie-se tanto nos documentos disponibilizados na disciplina e/ou nos seguintes links:
+Marcela, tem 25 anos, formada em Análise e desenvolvimento de sistemas, ela atua como UX em projetos de uma grande empresa, e gostaria de ter uma plataforma onde conseguisse acompanhar todas as tarefas que tem que fazer em cada projeto, e assim, conseguir gerenciar o seu tempo em cada uma.
 
-> **Links Úteis**:
-> - [Rock Content](https://rockcontent.com/blog/personas/)
-> - [Hotmart](https://blog.hotmart.com/pt-br/como-criar-persona-negocio/)
-> - [O que é persona?](https://resultadosdigitais.com.br/blog/persona-o-que-e/)
-> - [Persona x Público-alvo](https://flammo.com.br/blog/persona-e-publico-alvo-qual-a-diferenca/)
-> - [Mapa de Empatia](https://resultadosdigitais.com.br/blog/mapa-da-empatia/)
-> - [Mapa de Stalkeholders](https://www.racecomunicacao.com.br/blog/como-fazer-o-mapeamento-de-stakeholders/)
->
-Lembre-se que você deve ser enumerar e descrever precisamente e personalizada todos os clientes ideais que sua solução almeja.
+Carol, 27 anos, formada em Análise e desenvolvimento de sistemas, atua na parte de testes em um novo software em uma empresa, gostaria de ter uma plataforma onde conseguisse acompanhar quais os softwares ela já pode fazer o teste e também conseguisse documentar que já foi feito.
+
+João Pedro, 32 anos, formado em TI, atua como Desenvolvedor de sistemas em uma empresa, gostaria de ter um lugar onde ele e todos os seus colegas de trabalho conseguissem colocar quais partes do trabalho já foram feitas e quais ainda não, assim, eles evitariam duplicidade e também fazer algo que o colega é o responsável.
 
 ## Histórias de Usuários
 
@@ -24,17 +18,11 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
-|Usuário do sistema  | Registrar minhas tarefas           | Não esquecer de fazê-las               |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
+|Gerente de projetos | ter um local onde consigo acompanha de perto o projeto   | Que tudo saia conforme pedido pelo cliente       |
+|Gerente de projetos | Ter um local que consiga delegar as tarefas aos funcionários e consiga colocar e retirar quem terá acesso | Verificar quanto tempo os colaboradores demoram por tarefas, quem já fez quais tarefas, entre outros |
+|Desenvolvedor | Local onde consiga ver quem fez as atividades, e o que falta fazer| Para que façam tudo que foi pedido e entreguem no tempo estipulado |
+|Tester | Verificar quais partes do software já podem ser testadas, e ver quais ainda faltam.  | Para que seja entregue com tudo funcioando  |
 
-Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
-
-> **Links Úteis**:
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
-> - [User Stories: requisitos que humanos entendem](https://www.luiztools.com.br/post/user-stories-descricao-de-requisitos-que-humanos-entendem/)
-> - [Histórias de Usuários: mais exemplos](https://www.reqview.com/doc/user-stories-example.html)
-> - [9 Common User Story Mistakes](https://airfocus.com/blog/user-story-mistakes/)
 
 ## Modelagem do Processo de Negócio 
 
