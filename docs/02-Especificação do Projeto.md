@@ -1,26 +1,16 @@
 # Especificações do Projeto
 
-<span style="color:red">Pré-requisitos: <a href="1-Documentação de Contexto.md"> Documentação de Contexto</a></span>
-
-Definição do problema e ideia de solução a partir da perspectiva do usuário. É composta pela definição do  diagrama de personas, histórias de usuários, requisitos funcionais e não funcionais além das restrições do projeto.
-
-Apresente uma visão geral do que será abordado nesta parte do documento, enumerando as técnicas e/ou ferramentas utilizadas para realizar a especificações do projeto
+O nosso projeto visa ajudar empresas a organizarem e acompanharem as tarefas dos trabalhos da melhor forma possível, com a possibilidade de o gerente de projetos criar um espaço onde os colaboradores consigam colocar o que já foi feito, o que está em progresso e o que ainda falta.
 
 ## Personas
 
-Pedro Paulo tem 26 anos, é arquiteto recém-formado e autônomo. Pensa em se desenvolver profissionalmente através de um mestrado fora do país, pois adora viajar, é solteiro e sempre quis fazer um intercâmbio. Está buscando uma agência que o ajude a encontrar universidades na Europa que aceitem alunos estrangeiros.
+Gabriel tem 30 anos, é formado em TI e está atuando como gerente de projetos em uma grande empresa, ele busca uma plataforma onde consiga colocar todos os projetos que está liderando e consiga acompanhar quem está responsável por cada tarefa, quanto tempo demorou e quais tarefas ainda estão pendentes de fazer.
 
-Enumere e detalhe as personas da sua solução. Para tanto, baseie-se tanto nos documentos disponibilizados na disciplina e/ou nos seguintes links:
+Marcela, tem 25 anos, formada em Análise e desenvolvimento de sistemas, ela atua como UX em projetos de uma grande empresa, e gostaria de ter uma plataforma onde conseguisse acompanhar todas as tarefas que tem que fazer em cada projeto, e assim, conseguir gerenciar o seu tempo em cada uma.
 
-> **Links Úteis**:
-> - [Rock Content](https://rockcontent.com/blog/personas/)
-> - [Hotmart](https://blog.hotmart.com/pt-br/como-criar-persona-negocio/)
-> - [O que é persona?](https://resultadosdigitais.com.br/blog/persona-o-que-e/)
-> - [Persona x Público-alvo](https://flammo.com.br/blog/persona-e-publico-alvo-qual-a-diferenca/)
-> - [Mapa de Empatia](https://resultadosdigitais.com.br/blog/mapa-da-empatia/)
-> - [Mapa de Stalkeholders](https://www.racecomunicacao.com.br/blog/como-fazer-o-mapeamento-de-stakeholders/)
->
-Lembre-se que você deve ser enumerar e descrever precisamente e personalizada todos os clientes ideais que sua solução almeja.
+Carol, 27 anos, formada em Análise e desenvolvimento de sistemas, atua na parte de testes em um novo software em uma empresa, gostaria de ter uma plataforma onde conseguisse acompanhar quais os softwares ela já pode fazer o teste e também conseguisse documentar que já foi feito.
+
+João Pedro, 32 anos, formado em TI, atua como Desenvolvedor de sistemas em uma empresa, gostaria de ter um lugar onde ele e todos os seus colegas de trabalho conseguissem colocar quais partes do trabalho já foram feitas e quais ainda não, assim, eles evitariam duplicidade e também fazer algo que o colega é o responsável.
 
 ## Histórias de Usuários
 
@@ -28,17 +18,11 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 
 |EU COMO... `PERSONA`| QUERO/PRECISO ... `FUNCIONALIDADE` |PARA ... `MOTIVO/VALOR`                 |
 |--------------------|------------------------------------|----------------------------------------|
-|Usuário do sistema  | Registrar minhas tarefas           | Não esquecer de fazê-las               |
-|Administrador       | Alterar permissões                 | Permitir que possam administrar contas |
+|Gerente de projetos | ter um local onde consigo acompanha de perto o projeto   | Que tudo saia conforme pedido pelo cliente       |
+|Gerente de projetos | Ter um local que consiga delegar as tarefas aos funcionários e consiga colocar e retirar quem terá acesso | Verificar quanto tempo os colaboradores demoram por tarefas, quem já fez quais tarefas, entre outros |
+|Desenvolvedor | Local onde consiga ver quem fez as atividades, e o que falta fazer| Para que façam tudo que foi pedido e entreguem no tempo estipulado |
+|Tester | Verificar quais partes do software já podem ser testadas, e ver quais ainda faltam.  | Para que seja entregue com tudo funcioando  |
 
-Apresente aqui as histórias de usuário que são relevantes para o projeto de sua solução. As Histórias de Usuário consistem em uma ferramenta poderosa para a compreensão e elicitação dos requisitos funcionais e não funcionais da sua aplicação. Se possível, agrupe as histórias de usuário por contexto, para facilitar consultas recorrentes à essa parte do documento.
-
-> **Links Úteis**:
-> - [Histórias de usuários com exemplos e template](https://www.atlassian.com/br/agile/project-management/user-stories)
-> - [Como escrever boas histórias de usuário (User Stories)](https://medium.com/vertice/como-escrever-boas-users-stories-hist%C3%B3rias-de-usu%C3%A1rios-b29c75043fac)
-> - [User Stories: requisitos que humanos entendem](https://www.luiztools.com.br/post/user-stories-descricao-de-requisitos-que-humanos-entendem/)
-> - [Histórias de Usuários: mais exemplos](https://www.reqview.com/doc/user-stories-example.html)
-> - [9 Common User Story Mistakes](https://airfocus.com/blog/user-story-mistakes/)
 
 ## Modelagem do Processo de Negócio 
 
@@ -73,7 +57,7 @@ Obs.: todas as informações para gerar os indicadores devem estar no diagrama d
 
 ## Requisitos
 
-As tabelas que se seguem apresentam os requisitos funcionais e não funcionais que detalham o escopo do projeto. Para determinar a prioridade de requisitos, aplicar uma técnica de priorização de requisitos e detalhar como a técnica foi aplicada.
+As tabelas que se seguem apresentam os requisitos funcionais e não funcionais que detalham o escopo do projeto. 
 
 ### Requisitos Funcionais
 
@@ -94,20 +78,6 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |RNF-002| O sistema deve suportar documentação em PDF, JPEG, JPG, BMP  | MÉDIA |
 |RNF-003| Deve processar requisições do usuário em no máximo 3s |  BAIXA |
 
-Com base nas Histórias de Usuário, enumere os requisitos da sua solução. Classifique esses requisitos em dois grupos:
-
-- [Requisitos Funcionais
- (RF)](https://pt.wikipedia.org/wiki/Requisito_funcional):
- correspondem a uma funcionalidade que deve estar presente na
-  plataforma (ex: cadastro de usuário).
-- [Requisitos Não Funcionais
-  (RNF)](https://pt.wikipedia.org/wiki/Requisito_n%C3%A3o_funcional):
-  correspondem a uma característica técnica, seja de usabilidade,
-  desempenho, confiabilidade, segurança ou outro (ex: suporte a
-  dispositivos iOS e Android).
-Lembre-se que cada requisito deve corresponder à uma e somente uma
-característica alvo da sua solução. Além disso, certifique-se de que
-todos os aspectos capturados nas Histórias de Usuário foram cobertos.
 
 ## Restrições
 
@@ -118,11 +88,6 @@ O projeto está restrito pelos itens apresentados na tabela a seguir.
 |01| O projeto deverá ser entregue até o final do semestre |
 |02| Não pode ser desenvolvido um módulo de backend        |
 
-Enumere as restrições à sua solução. Lembre-se de que as restrições geralmente limitam a solução candidata.
-
-> **Links Úteis**:
-> - [O que são Requisitos Funcionais e Requisitos Não Funcionais?](https://codificar.com.br/requisitos-funcionais-nao-funcionais/)
-> - [O que são requisitos funcionais e requisitos não funcionais?](https://analisederequisitos.com.br/requisitos-funcionais-e-requisitos-nao-funcionais-o-que-sao/)
 
 ## Diagrama de Casos de Uso
 
@@ -134,7 +99,9 @@ A matriz de rastreabilidade é uma ferramenta usada para facilitar a visualizaç
 
 A matriz deve contemplar todos os elementos relevantes que fazem parte do sistema, conforme a figura meramente ilustrativa apresentada a seguir.
 
-![Exemplo de matriz de rastreabilidade](img/02-matriz-rastreabilidade.png)
+	
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/79220860/d3b71079-2c67-4401-af4e-a3d788cc9082)
+
 
 > **Links Úteis**:
 > - [Artigo Engenharia de Software 13 - Rastreabilidade](https://www.devmedia.com.br/artigo-engenharia-de-software-13-rastreabilidade/12822/)
@@ -150,20 +117,55 @@ De acordo com o PMBoK v6 as dez áreas que constituem os pilares para gerenciar 
 
 Com diagramas bem organizados que permitem gerenciar o tempo nos projetos, o gerente de projetos agenda e coordena tarefas dentro de um projeto para estimar o tempo necessário de conclusão.
 
-![Diagrama de rede simplificado notação francesa (método francês)](img/02-diagrama-rede-simplificado.png)
+Com base no cronograma estipulado pela Intituição PUC Minas, a divisão das tarefas em relação as datas ficaram da seguinte forma (Demonstrado a partir da Planilha e Gráfico de Gannt):
 
-O gráfico de Gantt ou diagrama de Gantt também é uma ferramenta visual utilizada para controlar e gerenciar o cronograma de atividades de um projeto. Com ele, é possível listar tudo que precisa ser feito para colocar o projeto em prática, dividir em atividades e estimar o tempo necessário para executá-las.
+**Etapa 1 do Projeto:**
 
-![Gráfico de Gantt](img/02-grafico-gantt.png)
+![Tabela Gantt Etapa 1](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/60390440-9065-42be-aeb9-836d775583ca)
+
+![Grafico Gantt Etapa 1](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/a606a582-9e3b-40cf-8b90-06dce2516184)
+
+
+**Etapa 2 do Projeto:**
+
+![Tabela Gantt Etapa 2](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/f3bd55b6-4e17-4182-867d-9c8aeee940d4)
+
+![Grafico Gantt Etapa 2](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/7f0f61e6-0f6c-4f31-90b2-ded8ee282068)
+
+
+**Etapa 3 do Projeto:**
+
+![Tabela Gantt Etapa 3](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/b0402464-95d0-4cc0-9d22-3392012d17ef)
+
+![Grafico Gantt Etapa 3](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/53f8fe8a-6271-45ab-8740-d2bafc2a134e)
+
+
+**Etapa 4 do Projeto:**
+
+![Tabela Gantt Etapa 4](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/20b7947e-4297-4118-87ff-d99677ecaae9)
+
+![Grafico Gantt Etapa 4](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/999415eb-3e56-4324-a548-5b5eed4356a4)
+
+
+**Etapa 5 do Projeto:**
+
+![Tabela Gantt Etapa 5](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/cd9d7332-24a9-448c-9b80-5b2977a28984)
+
+![Grafico Gantt Etapa 5](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/e3e42f17-4540-4c45-ad76-9f4c7f2747c6)
+
+
+A partir do desenvolvimento de cada etapa, as atividades seguintes ficarão mais detalhadas, seguindo os Requisitos estabelecidos pela equipe e sua ordem de prioridade para execução.
 
 ## Gerenciamento de Equipe
 
 O gerenciamento adequado de tarefas contribuirá para que o projeto alcance altos níveis de produtividade. Por isso, é fundamental que ocorra a gestão de tarefas e de pessoas, de modo que os times envolvidos no projeto possam ser facilmente gerenciados. 
 
-![Simple Project Timeline](img/02-project-timeline.png)
+![Gerenciamento de Equipe](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/90e8cfd0-c43b-4e54-be07-fe5d42abf004)
+
 
 ## Gestão de Orçamento
 
 O processo de determinar o orçamento do projeto é uma tarefa que depende, além dos produtos (saídas) dos processos anteriores do gerenciamento de custos, também de produtos oferecidos por outros processos de gerenciamento, como o escopo e o tempo.
 
-![Orçamento](img/02-orcamento.png)
+![Orçamento Projeto](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/4f604a6d-cd86-4427-98ce-6c8a1d15f339)
+
