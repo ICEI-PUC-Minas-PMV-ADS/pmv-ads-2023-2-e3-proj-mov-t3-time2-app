@@ -3,12 +3,20 @@
 
 <span style="color:red">Pré-requisitos: <a href="2-Especificação do Projeto.md"> Documentação de Especificação</a></span>
 
-Descreva aqui a metodologia de trabalho do grupo para atacar o problema. Definições sobre os ambiente de trabalho utilizados pela  equipe para desenvolver o projeto. Abrange a relação de ambientes utilizados, a estrutura para gestão do código fonte, além da definição do processo e ferramenta através dos quais a equipe se organiza (Gestão de Times).
+A metodologia de trabalho adotada pelo grupo é a Ágil. Para atingir os objetivos finais do projeto, a equipe utilizará ferramentas para auxiliar na metodologia escolhida.
+
+O GitHub vai auxiliar no armazenamento dos códigos por ser a plataforma de armazenegem de código mais completa para ajudar na coloboração da equipe com o projeto. Junto a ele, temos o GitHubDocs, para guardar toda a documentação do projeto que será desenvolvido. Para o projeto de Interface e Wireframes, foi escolhido a ferramenta Figma e para agestão da equipe, a ferramenta Trello.
 
 ## Relação de Ambientes de Trabalho
 
-Os artefatos do projeto são desenvolvidos a partir de diversas plataformas e a relação dos ambientes com seu respectivo propósito deverá ser apresentada em uma tabela que especifica que detalha Ambiente, Plataforma e Link de Acesso. 
-Nota: Vide documento modelo do estudo de caso "Portal de Notícias" e defina também os ambientes e frameworks que serão utilizados no desenvolvimento de aplicações móveis.
+Os artefatos do projeto são desenvolvidos a partir de diversas plataformas e a relação dos ambientes com seu respectivo propósito é apresentada na tabela que se segue
+
+Ambiente|Plataforma|Link de Acesso
+|:--------|:-----------:|:---------------:|
+|Repositório|GitHub|[GitHub](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app) |
+|Documentos do Projeto|GitHubDocs| [GitHubDocs](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/tree/main/docs) |
+|Proejto de Interface e Wireframes| Figma|   |
+|Gerenciamento do Projeto|Trello| [Trello](https://trello.com/b/vNUtJv4M/projeto-2-semestre-2023-puc) |
 
 ## Controle de Versão
 
