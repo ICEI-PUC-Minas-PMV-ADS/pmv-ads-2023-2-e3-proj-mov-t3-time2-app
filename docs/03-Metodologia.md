@@ -67,7 +67,7 @@ Para organização e distribuição das tarefas do projeto, a equipe está utili
 
 As ferramentas empregadas no projeto são:
 
-- Editor de código: GitHub
+- Editor de código: Visual Studio Code e Expo.dev
 - Ferramentas de comunicação: WhatsApp e Teams.
 - Ferramentas de desenho de tela (_wireframing_): Figma.
 
