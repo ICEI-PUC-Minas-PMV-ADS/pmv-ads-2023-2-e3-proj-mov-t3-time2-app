@@ -15,7 +15,7 @@ Ambiente|Plataforma|Link de Acesso
 |:--------|:-----------:|:---------------:|
 |Repositório|GitHub|[GitHub](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app) |
 |Documentos do Projeto|GitHubDocs| [GitHubDocs](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/tree/main/docs) |
-|Proejto de Interface e Wireframes| Figma|   |
+|Proejto de Interface e Wireframes| Figma|  [Figma](https://www.figma.com/file/mCA1TyXK2bUT7NfbvGevud/PUC?type=design&node-id=2%3A240&mode=design&t=8ThjiwTg5b5ACtd0-1) |
 |Gerenciamento do Projeto|Trello| [Trello](https://trello.com/b/vNUtJv4M/projeto-2-semestre-2023-puc) |
 
 ## Controle de Versão
