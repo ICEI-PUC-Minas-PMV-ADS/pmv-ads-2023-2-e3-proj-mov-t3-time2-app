@@ -30,7 +30,7 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 No processo apresentado, o gerenciamento de tarefas em tempo real por um gestor evidencia a ausência de uma aplicação que otimiza o meio para que o fim seja impactado positivamente.
 
 ### Descrição Geral da Proposta
-A aplicação móvel objetiva trazer prazos e conclusões mais realistas e acompanhadas em tempo real, evitando o atraso de tarefas que fazem parte da rotina. O gerente de projeto consegue alogar de forma célere colaboradores que possam surgir de maneira fortuita, assim como prever a não conclusão de uma tarefa ou se ela realmente era necessária em execuação
+A aplicação móvel objetiva trazer prazos e conclusões mais realistas e acompanhadas em tempo real, evitando o atraso de tarefas que fazem parte da rotina. O gerente de projeto consegue alocar de forma célere colaboradores que possam surgir de maneira fortuita, assim como prever a não conclusão de uma tarefa ou se ela realmente era necessária em execuação.
 
 Processo 1 – NOME DO PROCESSO
 
