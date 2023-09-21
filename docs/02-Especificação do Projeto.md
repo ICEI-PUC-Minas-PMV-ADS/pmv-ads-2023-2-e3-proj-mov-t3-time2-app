@@ -27,6 +27,12 @@ Com base na análise das personas forma identificadas as seguintes histórias de
 ## Modelagem do Processo de Negócio 
 
 ### Análise da Situação Atual
+No processo apresentado, o gerenciamento de tarefas em tempo real por um gestor evidencia a ausência de uma aplicação que otimiza o meio para que o fim seja impactado positivamente.
+
+### Descrição Geral da Proposta
+A aplicação móvel objetiva trazer prazos e conclusões mais realistas e acompanhadas em tempo real, evitando o atraso de tarefas que fazem parte da rotina. O gerente de projeto consegue alogar de forma célere colaboradores que possam surgir de maneira fortuita, assim como prever a não conclusão de uma tarefa ou se ela realmente era necessária em execuação
+
+Processo 1 – NOME DO PROCESSO
 
 ![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/79220860/87b59718-a629-42a9-908a-758686b5cd48)
 
