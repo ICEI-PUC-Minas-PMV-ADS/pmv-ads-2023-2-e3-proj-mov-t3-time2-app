@@ -39,7 +39,8 @@ Processo 1 – NOME DO PROCESSO
 
 ## Indicadores de Desempenho
 
-![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/79220860/edc67908-2cdd-4413-8cfa-648a16ff0b52)
+![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/79220860/cf173975-cbb8-4d0f-86c9-950705378e4c)
+
 
 
 ## Requisitos
