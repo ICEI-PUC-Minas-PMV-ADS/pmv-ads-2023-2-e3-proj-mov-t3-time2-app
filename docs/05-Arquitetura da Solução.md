@@ -41,14 +41,7 @@ Apresente também uma figura explicando como as tecnologias estão relacionadas 
 
 ## Hospedagem
 
-Explique como a hospedagem e o lançamento da plataforma foi feita.
-
-> **Links Úteis**:
->
-> - [Website com GitHub Pages](https://pages.github.com/)
-> - [Programação colaborativa com Repl.it](https://repl.it/)
-> - [Getting Started with Heroku](https://devcenter.heroku.com/start)
-> - [Publicando Seu Site No Heroku](http://pythonclub.com.br/publicando-seu-hello-world-no-heroku.html)
+Por enquanto, a equipe optou por utilizar a orientação da instituição e não usar um banco de dados estruturado e uma hospedagem que comporte essa estrutura. Assim sendo, usaremos JSON server para buscar os dados necessários para demonstrarmos o projeto.
 
 ## Qualidade de Software
 
