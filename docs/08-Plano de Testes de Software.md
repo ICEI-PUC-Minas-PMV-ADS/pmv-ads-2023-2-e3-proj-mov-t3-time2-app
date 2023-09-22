@@ -6,14 +6,24 @@ Apresente os cenários de testes utilizados na realização dos testes da sua ap
 
 Enumere quais cenários de testes foram selecionados para teste. Neste tópico o grupo deve detalhar quais funcionalidades avaliadas, o grupo de usuários que foi escolhido para participar do teste e as ferramentas utilizadas.
  
-## Ferramentas de Testes (Opcional)
+| **Caso de Teste** | CT 01 - Logar no Sistema |
+|------------------ | ------------------------ |
+| **Requisitos Associados** | RF001 - O sistema deve autenticar cada usuário. |
+| **Objetivo do Teste** | Permitir que o usuário acesse a plataforma através do login e senha. |
+| **Passos** | - 1. Acessar o sistema. <br> - 2. Inserir e-mail <br> - 3. Inserir senha <br> - 4. Acionar o comando Login. |
+| **Critérios de Êxito** | O sistema deve autenticar corretamente e deve ter acesso de acordo com as permissões concedidas. |
 
-Comente sobre as ferramentas de testes utilizadas.
- 
-> **Links Úteis**:
-> - [IBM - Criação e Geração de Planos de Teste](https://www.ibm.com/developerworks/br/local/rational/criacao_geracao_planos_testes_software/index.html)
-> - [Práticas e Técnicas de Testes Ágeis](http://assiste.serpro.gov.br/serproagil/Apresenta/slides.pdf)
-> -  [Teste de Software: Conceitos e tipos de testes](https://blog.onedaytesting.com.br/teste-de-software/)
-> - [Criação e Geração de Planos de Teste de Software](https://www.ibm.com/developerworks/br/local/rational/criacao_geracao_planos_testes_software/index.html)
-> - [Ferramentas de Test para Java Script](https://geekflare.com/javascript-unit-testing/)
-> - [UX Tools](https://uxdesign.cc/ux-user-research-and-user-testing-tools-2d339d379dc7)
+| **Caso de Teste** | CT 02 - Cadastrar projetos e tarefas |
+|------------------ | ------------------------ |
+| **Requisitos Associados** | RF002 - Permitir que o gestor cadastre projetos e tarefas. |
+| **Objetivo do Teste** | Realizar cadastro de projetos e tarefas. |
+| **Passos** | - 1.	Acessar o sistema com perfil de gestor. <br> - 2. Inserir e-mail <br> - 3. Inserir senha <br> - 4. Acionar o comando Login. <br> - 5. Acionar o Criar Projetos. <br> - 6. Acionar o comando "+" (nova tarefa). <br> - 7. Preencher os dados. <br> - 8. Acionar o comando Salvar. |
+| **Critérios de Êxito** | O sistema deve permitir o cadastro de projetos e tarefas. |
+
+| **Caso de Teste** | CT 03 - Vincular funcionários em projetos e tarefas |
+|------------------ | ------------------------ |
+| **Requisitos Associados** | RF003 - Permitir a alocação dos funcionários entre projetos e tarefas |
+| **Objetivo do Teste** | Destinar projetos e tarefas para o usuário desejado. |
+| **Passos** | - 1.	Acessar o sistema com perfil de gestor. <br> - 2. Inserir e-mail <br> - 3. Inserir senha <br> - 4. Acionar o comando Login. <br> - 5. Acionar o comando Projetos. <br> - 6. Acionar o comando "+" (nova tarefa). <br> - 7. Preencher os dados. <br> - 8. Acionar o comando Salvar. |
+| **Critérios de Êxito** | O sistema deve permitir a alocação dos funcionários entre projetos e tarefas. |
+
