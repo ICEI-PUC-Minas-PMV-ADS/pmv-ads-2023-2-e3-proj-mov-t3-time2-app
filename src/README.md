@@ -23,6 +23,10 @@ cd src
 npx expo install react-dom react-native-web @expo/webpack-config
 ```
 
+```bash
+npx expo start
+```
+
 ## Histórico de versões
 
 ### [0.1.0] - DD/MM/AAAA
