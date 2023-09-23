@@ -39,6 +39,9 @@ Entregar um arquivo banco.sql contendo os scripts de criação das tabelas do ba
 - Ferramenta de Comunicação: Whatsapp e Teams
 - Ferramenta de Gestão de Projeto: Trello
 
+![tecnologias utilizadas](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/c3d2930c-de20-4acc-808b-86750cc334fe)
+
+
 ## Hospedagem
 
 Por enquanto, a equipe optou por utilizar a orientação da instituição e não usar um banco de dados estruturado e uma hospedagem que comporte essa estrutura. Assim sendo, usaremos JSON server para buscar os dados necessários para demonstrarmos o projeto.
