@@ -32,9 +32,9 @@ Entregar um arquivo banco.sql contendo os scripts de criação das tabelas do ba
 
 ## Tecnologias Utilizadas
 
-- Linguagem: JavaScript/CSS
+- Linguagem: JavaScript
 - Biblioteca: React Native
-- IDE: Visual Studio
+- IDE: Visual Studio Code e Expo.dev
 - Ferramenta Wireframes: Figma
 - Ferramenta de Comunicação: Whatsapp e Teams
 - Ferramenta de Gestão de Projeto: Trello
