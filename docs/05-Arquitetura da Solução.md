@@ -39,8 +39,7 @@ Entregar um arquivo banco.sql contendo os scripts de criação das tabelas do ba
 - Ferramenta de Comunicação: Whatsapp e Teams
 - Ferramenta de Gestão de Projeto: Trello
 
-![tecnologias utilizadas](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/c3d2930c-de20-4acc-808b-86750cc334fe)
-
+![tecnologias utilizadas](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/53a4605c-c7b2-4e10-86a6-0cfd9067bcb8)
 
 ## Hospedagem
 
