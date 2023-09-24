@@ -6,7 +6,7 @@
 
 `Segundo Semestre de 2023`
 
-Descrever resumidamente, em um ou dois parágrafos, o projeto que está sendo desenvolvido.
+Aplicativo de tarefas pré determinadas e agrupadas por projeto, que possa ser usado pelos gestores e funcionários com a finalidade de gerar relatórios de tempo desprendido em cada tarefa.
 
 ## Integrantes
 
