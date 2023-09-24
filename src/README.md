@@ -29,6 +29,6 @@ npx expo start
 
 ## Histórico de versões
 
-### [0.1.0] - DD/MM/AAAA
+### [0.0.1] - 23/09/2023
 #### Adicionado
-- Adicionado ...
+- Adicionado arquivos iniciais
