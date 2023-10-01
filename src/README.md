@@ -31,6 +31,7 @@ npx expo start
 - Download do zip do Expo.dev
 - Descompactar zip
 - Abrir pasta no VSCode
+  - Instalar extensão do VSCode [Expo Tools](https://marketplace.visualstudio.com/items?itemName=expo.vscode-expo-tools)
 - Abrir terminal e digitar um de cada vez
   - `npm install expo` - faz download das dependências do expo e cria a pasta `node_modules` dentro do projeto
   - `npx expo install react-dom react-native-web @expo/webpack-config` - download da dependência para visualizar o app no navegador
