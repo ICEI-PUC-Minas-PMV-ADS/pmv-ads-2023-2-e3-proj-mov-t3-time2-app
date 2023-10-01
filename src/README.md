@@ -32,7 +32,7 @@ npx expo start
 - Descompactar zip
 - Abrir pasta no VSCode
 - Abrir terminal e digitar um de cada vez
-  - `npm install expo`
+  - `npm install expo` - faz download das dependências do expo e cria a pasta `node_modules` dentro do projeto
   - `npx expo install react-dom react-native-web @expo/webpack-config` - download da dependência para visualizar o app no navegador
 - Para iniciar o projeto: `npc expo start`
 ![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/70844369/d499c1a9-26bb-4683-9315-d202fcd3a335)
