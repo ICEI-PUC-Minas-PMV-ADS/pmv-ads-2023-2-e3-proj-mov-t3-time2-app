@@ -35,6 +35,7 @@ npx expo start
 - Abrir terminal e digitar um de cada vez
   - `npm install expo` - faz download das dependências do expo e cria a pasta `node_modules` dentro do projeto
   - `npx expo install react-dom react-native-web @expo/webpack-config` - download da dependência para visualizar o app no navegador
+    >> algumas funcionalidades só funcionam em um celular, então é sempre bom ter o app Expo Go instalado no seu celular e usar o QRCode para sincronizar o seu app com o seu dispositivo.
 - Para iniciar o projeto: `npx expo start`
   
 ![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/70844369/d499c1a9-26bb-4683-9315-d202fcd3a335)
