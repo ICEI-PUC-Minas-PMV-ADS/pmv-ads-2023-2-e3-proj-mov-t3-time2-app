@@ -41,6 +41,7 @@ npx expo start
 - Dependências Navigation:
   - `npm install @react-navigation/native`
   - `npm install react-navigation`
+  - `npx expo install @react-native-community/datetimepicker@6.7.3`
 
 ## Histórico de versões
 
