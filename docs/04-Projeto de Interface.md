@@ -13,24 +13,52 @@ O diagrama apresenta o estudo do fluxo de interação do usuário com o sistema 
 
 ### Administrador/Gestor
 
-![Exemplo de Diagrama de Fluxo](img/DiagramaDeFluxo.svg)
+![Exemplo de Diagrama de Fluxo](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/115122757/624ed88f-ba4c-48d3-9ad6-f68a34cf59ac)
 
-As referências abaixo irão auxiliá-lo na geração do artefato “Diagramas de Fluxo”.
 
-> **Links Úteis**:
-> - [Fluxograma online: seis sites para fazer gráfico sem instalar nada | Produtividade | TechTudo](https://www.techtudo.com.br/listas/2019/03/fluxograma-online-seis-sites-para-fazer-grafico-sem-instalar-nada.ghtml)
+### Funcionário
+![Exemplo de Diagrama de Fluxo](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/115122757/f94e11d4-d54e-4958-9b48-7962ca8f16ee)
+
 
 ## Wireframes
 
-![Exemplo de Wireframe](img/wireframe-example.png)
+![imagem 1](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/115122757/31181bad-d7c2-474b-975b-fb50b2cca3b3)
 
-São protótipos usados em design de interface para sugerir a estrutura de um site web e seu relacionamentos entre suas páginas. Um wireframe web é uma ilustração semelhante do layout de elementos fundamentais na interface.
- 
-> **Links Úteis**:
-> - [Protótipos vs Wireframes](https://www.nngroup.com/videos/prototypes-vs-wireframes-ux-projects/)
-> - [Ferramentas de Wireframes](https://rockcontent.com/blog/wireframes/)
-> - [MarvelApp](https://marvelapp.com/developers/documentation/tutorials/)
-> - [Figma](https://www.figma.com/)
-> - [Adobe XD](https://www.adobe.com/br/products/xd.html#scroll)
-> - [Axure](https://www.axure.com/edu) (Licença Educacional)
-> - [InvisionApp](https://www.invisionapp.com/) (Licença Educacional)
+![imagem 3](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/115122757/bfff5cb5-6f6b-44cd-ad58-e0e50692b048)
+
+![imagem 2](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/115122757/a1368fb2-60a0-4506-93c2-0831341dc78c)
+
+![imagem 4](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/115122757/1a157a8b-f539-44e8-9044-29afb1fcaab6)
+
+![imagem 5](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/115122757/f210cb94-66aa-484e-86d3-5e0d189998be)
+
+![imagem 6](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/115122757/29e655fe-16f0-4792-acc0-d7ade354d2b5)
+
+![imagem 7](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/115122757/b7e17cea-78f7-414a-a554-ce3575eaabe1)
+
+![imagem 8](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/115122757/4ef63f3d-7c2a-4589-86d8-218f617ba0c5)
+
+![imagem 9](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/115122757/16916ad4-f105-403f-9fe5-33d646f9a914)
+
+![imagem 10](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/115122757/8700a58b-e1e3-4791-8ff6-288e8656d451)
+
+![imagem 11](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/115122757/797ded00-39b9-49aa-ba61-b2b6947b159f)
+
+![imagem 12](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/115122757/8ec0dba6-153c-4501-bc07-77899808e3e4)
+
+![imagem 13](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/115122757/10982b72-8f06-4ab9-871b-85312c2566db)
+
+![imagem 14](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/115122757/b23d9d70-eec6-41ae-9f36-83fa959c21dd)
+
+![imagem 15](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/115122757/94168a83-f48a-4494-b0f3-f26e46499495)
+
+![imagem 16](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/115122757/37f04913-98de-4718-8f94-809fa9dd6662)
+
+![imagem 17](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/115122757/7c95ec82-029a-4f5d-af67-8956d3de4be3)
+
+![imagem 18](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/115122757/cd197d7a-d779-41a5-a174-ca142e452d53)
+
+![imagem 19](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/115122757/795ae75a-c84c-476e-a33a-bff1bef816d6)
+
+![imagem 20](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/115122757/3d75b73a-46e4-4262-8e04-adca3fa5c919)
+
