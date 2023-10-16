@@ -1,14 +1,16 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 
-const Body = ({children}) =>{
+const Container = ({children}) =>{
   return <View style={styles.container}>{children}</View>
 };
 
 const styles = StyleSheet.create({
   container:{
-     margin: 8,
+    flex: 1,
+    backgroundColor: '#BDC3CD'
   },
 });
 
-export default Body;
+export default Container;
+
