@@ -1,11 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { useState } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
 
-import Home from "./src/pages/Home";
 
-export default function App() {
+import Route from './src/navigations/Route';
+import UserProvider from './src/contexts/UserContext';
+import Main from './src/navigations/Main'
+import Auth from './src/navigations/Auth'
+import NovoProjeto from './src/pages/NovoProjeto'
+
+
+const App = () => {
+
   return (
-      <Home />
-
-  );
+   <UserProvider>
+    <NavigationContainer>
+      <Auth/>
+   </NavigationContainer>
+  </UserProvider>
+  )
 }
+
+export default App;

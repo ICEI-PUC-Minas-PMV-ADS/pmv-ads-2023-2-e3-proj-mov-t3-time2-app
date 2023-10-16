@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "my-app",
-    "slug": "my-app",
+    "name": "taskbook",
+    "slug": "snack-bc0d48e8-a759-43bc-b61f-329b8096caf1",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
