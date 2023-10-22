@@ -14,6 +14,32 @@ Até o momento foi feito a elaboração da arquitetura da aplicação e a divis�
         - Perfil.js
     - App.js
     
-.
-.
-.
+#Dia 15/10/2023
+- TaskBook
+  - src
+      - components
+        - Body.js
+        - Container.js
+        - Header.js
+        - Input.js
+        - Logo.js
+      - contexts
+        - UserContext.js
+      - navigations
+        - Auth,js
+        - Main.js
+        - Route.js
+      - pages
+        - Home.js
+        - Login.js
+        - NovoProjeto.js
+        - Perfil.js
+        - Projeto.js
+        - Register,js
+        - Tarefa.js
+      - services
+        - auth.services.js
+        - projeto.services.js
+        - urls.js
+        - webapi.services.js
+      - App.js
