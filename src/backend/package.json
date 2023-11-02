@@ -1,7 +1,7 @@
 {
-    "name": "cadastro-clientes",
+    "name": "criando-projetos",
     "version": "1.0.0",
-    "description": " Projeto de cadastro de clientes",
+    "description": " Projeto de criação de um app para gestão de projetos empresariais.",
     "main": "index.js",
     "scripts": {
         "start": "NODE_ENV=production node src/shared/http/server.js",
