@@ -1,0 +1,505 @@
+{
+	"info": {
+		"_postman_id": "eb6431b7-451f-4587-b280-a924d0aaa1ff",
+		"name": "Collections API TaskBook",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30803522"
+	},
+	"item": [
+		{
+			"name": "teste projeto",
+			"item": [
+				{
+					"name": "getProjeto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/v1/api/projeto",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"api",
+								"projeto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "putProjeto",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Feedback\",\r\n    \"descricao\": \"Criar um processo de feedback na empresa\",\r\n    \"dataInicio\": \"2023-03-02 23:59:59\",\r\n    \"dataConclusao\": \"2023-03-20 23:59:59\",\r\n    \"task\": \"criar uma planilha com nome dos funcionarios\",\r\n    \"idUser\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/api/projeto/idProjeto?idProjeto=2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"api",
+								"projeto",
+								"idProjeto"
+							],
+							"query": [
+								{
+									"key": "idProjeto",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getProjetoId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Julia Raquel Campos\",\r\n    \"email\": \"juliacamposjc@pucmail.com\",\r\n    \"senha\": \"unaminas\",\r\n    \"idade\": 27,\r\n    \"cargo\": \"analista contabil\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/api/projeto/idProjeto?idProjeto=1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"api",
+								"projeto",
+								"idProjeto"
+							],
+							"query": [
+								{
+									"key": "idProjeto",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteProjeto",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/api/projeto/idProjeto?idProjeto=2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"api",
+								"projeto",
+								"idProjeto"
+							],
+							"query": [
+								{
+									"key": "idProjeto",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postProjeto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Feedback\",\r\n    \"descricao\": \"Criar um processo de feedback na empresa\",\r\n    \"dataInicio\": \"2023-03-02 23:59:59\",\r\n    \"dataConclusao\": \"2023-03-20 23:59:59\",\r\n    \"task\": \"sei la\",\r\n    \"idUser\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/api/projeto",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"api",
+								"projeto"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "teste task",
+			"item": [
+				{
+					"name": "getTask",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/v1/api/task",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"api",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postTask",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descricao\": \"Fazer capas de identificação\",\r\n    \"status\": \"em andamento\",\r\n    \"dataInicio\": \"2023-10-31T03:00:00.000Z\",\r\n    \"dataConclusao\": \"2023-10-31T03:00:00.000Z\",\r\n    \"responsavel\": \"Julia Campos\",\r\n    \"idUser\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/api/task",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"api",
+								"task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "putTask",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descricao\": \"Fazer capas de identificação\",\r\n    \"status\": \"em andamento\",\r\n    \"dataInicio\": \"2023-10-31T03:00:00.000Z\",\r\n    \"dataConclusao\": \"2023-10-31T03:00:00.000Z\",\r\n    \"responsavel\": \"Julio Campos\",\r\n    \"idUser\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/api/task/idTask?idTask=2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"api",
+								"task",
+								"idTask"
+							],
+							"query": [
+								{
+									"key": "idTask",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getTaskId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"descricao\": \"Fazer capas de identificação\",\r\n    \"status\": \"em andamento\",\r\n    \"dataInicio\": \"2023-10-31T03:00:00.000Z\",\r\n    \"dataConclusao\": \"2023-10-31T03:00:00.000Z\",\r\n    \"responsavel\": \"Julia Campos\",\r\n    \"idUser\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/api/task/idTask?idTask=2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"api",
+								"task",
+								"idTask"
+							],
+							"query": [
+								{
+									"key": "idTask",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteTask",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/api/task/idTask?idTask=2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"api",
+								"task",
+								"idTask"
+							],
+							"query": [
+								{
+									"key": "idTask",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "teste user",
+			"item": [
+				{
+					"name": "getUser",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/v1/api/user",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Julio Cesar Nonato Campos\",\r\n    \"email\": \"juliocampos@pucmail.com\",\r\n    \"senha\": \"unaminas\",\r\n    \"idade\": 27,\r\n    \"cargo\": \"analista financeiro\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/api/user",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"api",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "putUser",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Julia Raquel Campos\",\r\n    \"email\": \"juliacamposjc@pucmail.com\",\r\n    \"senha\": \"unaminas\",\r\n    \"idade\": 27,\r\n    \"cargo\": \"analista contabil\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/api/user/idUser?idUser=2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"api",
+								"user",
+								"idUser"
+							],
+							"query": [
+								{
+									"key": "idUser",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Julia Raquel Campos\",\r\n    \"email\": \"juliacamposjc@pucmail.com\",\r\n    \"senha\": \"unaminas\",\r\n    \"idade\": 27,\r\n    \"cargo\": \"analista contabil\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/api/user/idUser?idUser=2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"api",
+								"user",
+								"idUser"
+							],
+							"query": [
+								{
+									"key": "idUser",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteUser",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/api/user/idUser?idUser=2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"api",
+								"user",
+								"idUser"
+							],
+							"query": [
+								{
+									"key": "idUser",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
