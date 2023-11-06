@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 import Projeto from '../pages/Projeto'
 import NovoProjeto from '../pages/NovoProjeto'
 
-
 const { Screen, Navigator } = createNativeStackNavigator();
 
 export function StackRoutes() {
+    
     return (
-        <Navigator initialRouteName="projeto">
+        <Navigator initialRouteName='viewProjeto' >
             <Screen
                 name='projeto'
                 options={{
@@ -18,7 +18,6 @@ export function StackRoutes() {
                 component={Projeto}
 
             />
-
             <Screen
                 name='novoProjeto'
                 options={{

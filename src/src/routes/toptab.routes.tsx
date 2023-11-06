@@ -2,18 +2,17 @@ import { View, Text } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
 import { StackRoutes } from './stack.routes';
+import EmAndamento from '../pages/EmAndamento'
 
 function ProjetoScreen() {
-    return (
+      return (
         <StackRoutes />
     );
 }
 
 function EmAndamentoScreen() {
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Em andamento</Text>
-        </View>
+        <EmAndamento />
     );
 }
 
