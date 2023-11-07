@@ -66,7 +66,7 @@ userRouter.put('/idUser',
                     'string.empty': 'Define any string',
                     'string.pattern': 'Define any string inside pattern'
                 }),
-                cargo: Joi.string()
+                idCargo: Joi.number()
                 .required()
                 .messages({
                     'string.baseq3': 'Param address needs to be a string',
@@ -113,7 +113,7 @@ userRouter.post('/',
                     'string.empty': 'Define any string',
                     'string.pattern': 'Define any string inside pattern'
                 }),
-            cargo: Joi.string()
+            idCargo: Joi.number()
                 .required()
                 .messages({
                     'string.baseq3': 'Param name needs to be a string',
