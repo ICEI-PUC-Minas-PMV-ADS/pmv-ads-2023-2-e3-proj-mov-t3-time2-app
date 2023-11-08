@@ -7,7 +7,11 @@ export const getProjetos = async () => {
     //console.log(results)
     return results.rows._array
 }
-
+export const getItems = async () => {
+  let results = await DB_EXEC(`select * from projetos`);
+  //console.log(results)
+  return results.rows._array 
+}
 export const insertProjetos = async (param) => {
     let results = await DB_EXEC(`insert into projetos(nome, descricao, colaborador, datafim, datainicio, tarefa) values(?,?,?,?,?,?)`, [param.nome, param. descricao, param.colaborador, param.datafim, param.datainicio, param.tarefa]);
     //console.log(results)

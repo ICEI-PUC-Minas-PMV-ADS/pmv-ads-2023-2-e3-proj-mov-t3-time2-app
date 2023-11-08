@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, FlatList, View } from 'react-native';
-import { List, ProgressBar, Text, MD3Colors } from 'react-native-paper';
+import { List, Button } from 'react-native-paper';
 
 import Container from '../components/Container';
 import Body from '../components/Body';
@@ -21,20 +21,18 @@ const EmAndamento = () => {
 
   const renderitem = ({ item }) => (
     <View style={styles.viewBox}>
-      <List.Item
-        title={'Projeto ' + item.nome}
-        description={item.descricao}
-        left={(props) => <List.Icon {...props}  icon="calendar" />}
-        right={() => <View style={{ justifyContent: 'center', borderLeftWidth: 0.2, marginLeft: 5, padding: 10 }}>
-          <Text>Início: {item.datainicio}</Text>
-          <Text>Fim: {item.datafim}</Text>
-        </View>}
-        onPress={() => navigation.navigate('novoProjeto', { item })}
-      />
-            <ProgressBar style={styles.progressBar} progress={0.6} indeterminate={true}/>
-    </View >
+      <View style={styles.viewList}>
+        <List.Item
+          title={'Projeto ' + item.nome}
+          description={item.descricao}
+          left={(props) => <List.Icon {...props} icon="calendar" />}
+        />
+      </View>
+      <View>
+      <Button color="#620B66" mode="contained">Em andamento</Button>
+      </View>
+    </View>
   );
-
   return (
     <Container>
       <Body>
@@ -44,7 +42,7 @@ const EmAndamento = () => {
           keyExtractor={(item) => item.id}
         />
       </Body>
-      
+
     </Container>
   );
 };
@@ -58,14 +56,15 @@ const styles = StyleSheet.create({
     backgroundColor: '#659cf4',
   },
   viewBox: {
-    borderRadius: 10,
-    borderWidth: 0.3,
-    marginBottom: 3
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 20,
+    paddingBottom: 10,
+    borderBottomWidth: 0.2,
+    alignItems: 'center'
   },
-  progressBar: {
-    width: 350,
-    alignSelf: 'center',
-    marginBottom: 3
+  viewList: {
+    width: 190
   }
 });
 

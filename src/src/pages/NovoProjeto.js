@@ -1,17 +1,19 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
-import { Button, Appbar, TextInput } from 'react-native-paper';
+import { Button, Appbar, TextInput, } from 'react-native-paper';
+
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { useNavigation } from '@react-navigation/native';
+import { insertProjetos, deleteProjetos, updateProjetos } from '../services/ProjetosServicesDB';
 
 import Container from '../components/Container';
 import Header from '../components/Header';
 import Body from '../components/Body';
 import Input from '../components/Input';
 
-import { insertProjetos, deleteProjetos, updateProjetos } from '../services/ProjetosServicesDB';
 
 const NovoProjeto = ({ route }) => {
+
   const navigation = useNavigation();
   const { item } = route.params ? route.params : {};
 
@@ -27,6 +29,7 @@ const NovoProjeto = ({ route }) => {
   const showDatepicker = () => {
     showMode(date);
   };
+  
   const [nome, setNome] = useState('');
   const [descricao, setDescricao] = useState('');
   const [colaborador, setColaborador] = useState('');
@@ -70,7 +73,7 @@ const NovoProjeto = ({ route }) => {
           datafim: dataFim,
           tarefa: tarefa
         }
-        ).then();
+      ).then();
     }
     navigation.goBack()
   }
@@ -78,6 +81,7 @@ const NovoProjeto = ({ route }) => {
     deleteProjetos(item.id).then();
     navigation.goBack();
   };
+
   return (
     <Container>
       <Header
@@ -91,7 +95,7 @@ const NovoProjeto = ({ route }) => {
       </Header>
       <ScrollView>
         <Body>
-
+        
           <Input
             label="Nome do Projeto"
             value={nome}
@@ -102,6 +106,7 @@ const NovoProjeto = ({ route }) => {
             value={descricao}
             onChangeText={(text) => setDescricao(text)}
           />
+
           <Input
             label="Colaborador"
             value={colaborador}

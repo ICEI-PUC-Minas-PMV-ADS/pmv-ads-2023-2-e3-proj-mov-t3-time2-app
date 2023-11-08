@@ -3,10 +3,13 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 
 import { StackRoutes } from './stack.routes';
 import EmAndamento from '../pages/EmAndamento'
+import { Provider } from 'react-native-paper';
 
 function ProjetoScreen() {
       return (
-        <StackRoutes />
+        <Provider>
+            <StackRoutes />
+        </Provider>
     );
 }
 
