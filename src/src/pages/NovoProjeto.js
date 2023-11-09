@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
-import { Button, Appbar, TextInput, } from 'react-native-paper';
+import { StyleSheet, ScrollView, TouchableOpacity, View } from 'react-native';
+import { Button, Appbar, TextInput, Text} from 'react-native-paper';
 
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { useNavigation } from '@react-navigation/native';
@@ -10,9 +10,25 @@ import Container from '../components/Container';
 import Header from '../components/Header';
 import Body from '../components/Body';
 import Input from '../components/Input';
+import Status from '../components/Status';
 
 
 const NovoProjeto = ({ route }) => {
+
+  const handleAddColab = () => {
+    const newItem = {
+      itemName: inputValue,
+      quantity: 1,
+      isSelected: false,
+    };
+  
+    const newItems = [...items, newItem];
+  
+    setItems(newItems);
+    setInputValue('');
+  };
+
+
 
   const navigation = useNavigation();
   const { item } = route.params ? route.params : {};
@@ -32,7 +48,7 @@ const NovoProjeto = ({ route }) => {
   
   const [nome, setNome] = useState('');
   const [descricao, setDescricao] = useState('');
-  const [colaborador, setColaborador] = useState('');
+  const [colaborador, setColaborador] = useState([]);
   const [dataInicio, setDataInicio] = useState(new Date().toLocaleDateString('pt-BR'));
   const [dataFim, setDataFim] = useState(new Date().toLocaleDateString('pt-BR'));
   const [tarefa, setTarefa] = useState('');
@@ -95,7 +111,7 @@ const NovoProjeto = ({ route }) => {
       </Header>
       <ScrollView>
         <Body>
-        
+          <Status />
           <Input
             label="Nome do Projeto"
             value={nome}
@@ -106,12 +122,19 @@ const NovoProjeto = ({ route }) => {
             value={descricao}
             onChangeText={(text) => setDescricao(text)}
           />
-
+          <View style={styles.colabField}>
           <Input
+          style={styles.colabFieldBox}
             label="Colaborador"
             value={colaborador}
             onChangeText={(text) => setColaborador(text)}
           />
+          <Button labelStyle={{ fontSize: 36 }} style={styles.colabButton} icon="account-plus-outline" mode="outlined-tonel" onPress={() => console.log('Pressed')}>
+    
+            </Button>
+          </View>
+          
+
 
           {showInicio && (
             <DateTimePicker
@@ -161,16 +184,22 @@ const NovoProjeto = ({ route }) => {
               editable={false}
             />
           </TouchableOpacity>
-          <Input
-            label="Tarefa"
-            value={tarefa}
-            onChangeText={(text) => setTarefa(text)}
-          />
 
+          <View style={styles.colabField}>
+          <Input
+          style={styles.colabFieldBox}
+          label="Tarefa"
+          value={tarefa}
+          onChangeText={(text) => setTarefa(text)}
+          />
+          <Button labelStyle={{ fontSize: 36 }} style={styles.colabButton} icon="file-sign" mode="outlined-tonel" onPress={() => console.log('Pressed')}>
+    
+            </Button>
+          </View>
           <Button
             mode="contained"
             style={styles.buttom}
-            color={'#659cf4'}
+            color={'#4682B4'}
             onPress={handleSalvar}>
             Salvar
           </Button>
@@ -191,8 +220,21 @@ const NovoProjeto = ({ route }) => {
 };
 
 const styles = StyleSheet.create({
+  colabField: {
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flexDirection: 'row'
+  },
+  colabFieldBox:{
+    width: 300,
+    backgroundColor: '#fff',
+    marginBottom:4
+  },
   buttom: {
     margin: 8
+  },
+  colabButton: {
+    alignSelf: 'center'
   }
 });
 
