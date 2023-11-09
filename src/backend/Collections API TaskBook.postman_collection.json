@@ -36,7 +36,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Feedback\",\r\n    \"descricao\": \"Criar um processo de feedback na empresa\",\r\n    \"dataInicio\": \"2023-03-02 23:59:59\",\r\n    \"dataConclusao\": \"2023-03-20 23:59:59\",\r\n    \"task\": \"criar uma planilha com nome dos funcionarios\",\r\n    \"idUser\": \"1\"\r\n}",
+							"raw": "{\r\n    \"nome\": \"Feedback\",\r\n    \"descricao\": \"Criar um processo de feedback na empresa 1\",\r\n    \"dataInicio\": \"2023-03-02 23:59:59\",\r\n    \"dataConclusao\": \"2023-03-20 23:59:59\",\r\n    \"idUser\": \"2\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -83,7 +83,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/v1/api/projeto/idProjeto?idProjeto=1",
+							"raw": "localhost:3000/v1/api/projeto/idProjeto?idProjeto=2",
 							"host": [
 								"localhost"
 							],
@@ -97,7 +97,7 @@
 							"query": [
 								{
 									"key": "idProjeto",
-									"value": "1"
+									"value": "2"
 								}
 							]
 						}
@@ -147,7 +147,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Feedback\",\r\n    \"descricao\": \"Criar um processo de feedback na empresa\",\r\n    \"dataInicio\": \"2023-03-02 23:59:59\",\r\n    \"dataConclusao\": \"2023-03-20 23:59:59\",\r\n    \"task\": \"sei la\",\r\n    \"idUser\": \"1\"\r\n}",
+							"raw": "{\r\n    \"nome\": \"Happy Boss\",\r\n    \"descricao\": \"Deixar o chefe feliz\",\r\n    \"dataInicio\": \"2023-03-02 23:59:59\",\r\n    \"dataConclusao\": \"2023-03-20 23:59:59\",\r\n    \"idUser\": \"2\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -366,7 +366,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Julio Cesar Nonato Campos\",\r\n    \"email\": \"juliocampos@pucmail.com\",\r\n    \"senha\": \"unaminas\",\r\n    \"idade\": 27,\r\n    \"cargo\": \"analista financeiro\"\r\n}",
+							"raw": "{\r\n    \"nome\": \"Julia Cesar Nonato Campos\",\r\n    \"email\": \"juliocampos@pucmail.com\",\r\n    \"senha\": \"unaminas\",\r\n    \"idade\": 27,\r\n    \"idCargo\": \"1\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -395,7 +395,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Julia Raquel Campos\",\r\n    \"email\": \"juliacamposjc@pucmail.com\",\r\n    \"senha\": \"unaminas\",\r\n    \"idade\": 27,\r\n    \"cargo\": \"analista contabil\"\r\n}",
+							"raw": "{\r\n    \"nome\": \"Julia Raquel Campos\",\r\n    \"email\": \"juliacamposjc@pucmail.com\",\r\n    \"senha\": \"unaminas\",\r\n    \"idade\": 29,\r\n    \"idCargo\": \"1\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -493,6 +493,171 @@
 								{
 									"key": "idUser",
 									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "teste cargo",
+			"item": [
+				{
+					"name": "getCargo",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/v1/api/cargo",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"api",
+								"cargo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postCargo",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Analista de TI\",\r\n    \"descricao\": \"Analisar a tristeza infinita dos profissionais\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/api/cargo",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"api",
+								"cargo"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "putCargo",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Gerente de TI\",\r\n    \"descricao\": \"Gerenciar a tristeza infinita dos profissionais burros\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/api/cargo/idCargo?idCargo=2",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"api",
+								"cargo",
+								"idCargo"
+							],
+							"query": [
+								{
+									"key": "idCargo",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getCargoId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n            \"nome\": \"Gerente de TI\",\r\n            \"descricao\": \"Gerenciar a tristeza infinita dos profissionais\"\r\n        }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/api/cargo/idCargo?idCargo=1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"api",
+								"cargo",
+								"idCargo"
+							],
+							"query": [
+								{
+									"key": "idCargo",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "deleteCargo",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/api/cargo/idCargo?idCargo=1",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"api",
+								"cargo",
+								"idCargo"
+							],
+							"query": [
+								{
+									"key": "idCargo",
+									"value": "1"
 								}
 							]
 						}

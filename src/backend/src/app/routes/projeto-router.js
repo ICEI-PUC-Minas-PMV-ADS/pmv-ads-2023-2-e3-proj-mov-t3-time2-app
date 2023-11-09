@@ -66,14 +66,6 @@ projetoRouter.put('/idProjeto',
                     'string.empty': 'Define any string',
                     'string.pattern': 'Define any string inside pattern'
                 }),
-                task: Joi.string()
-                .required()
-                .messages({
-                    'string.baseq3': 'Param address needs to be a string',
-                    'any.required': 'Define any required',
-                    'string.empty': 'Define any string',
-                    'string.pattern': 'Define any string inside pattern'
-                }),
                 idUser: Joi.number()
                 .required()
                 .messages({
@@ -114,14 +106,6 @@ projetoRouter.post('/',
                     'string.pattern': 'Define any string inside pattern'
                 }),
             dataConclusao: Joi.date()
-                .required()
-                .messages({
-                    'string.baseq3': 'Param name needs to be a string',
-                    'any.required': 'Define any required',
-                    'string.empty': 'Define any string',
-                    'string.pattern': 'Define any string inside pattern'
-                }),
-            task: Joi.string()
                 .required()
                 .messages({
                     'string.baseq3': 'Param name needs to be a string',
