@@ -1,109 +1,82 @@
 import React, { useEffect, useState } from 'react';
-import { StyleSheet, FlatList, View, Text } from 'react-native';
-import { Button, List, FAB } from 'react-native-paper';
-import { useNavigation } from '@react-navigation/native';
-//import { useIsFocused } from '@react-navigation/native';
+import { StyleSheet, FlatList, View } from 'react-native';
+import { List, FAB, Text, Dialog, Portal, Modal, Button } from 'react-native-paper';
 
 import Container from '../components/Container';
-import Header from '../components/Header';
 import Body from '../components/Body';
 
-import { getProjeto } from '../services/projeto.services.js';
-import {useUser} from '../contexts/UserContext';
+import { getItems, getProjetos } from '../services/ProjetosServicesDB';
+import { useIsFocused } from '@react-navigation/native';
 
-const DATA = [
-  {
-    id: 1,
-    nome: 'Limpa Arquivo',
-    descricao: 'Devolver todo o arquivo físico dos clientes ate o fim do ano.',
-    colaborador: 'Junia Campos',
-    dataInicio: '01/01/2023',
-    dataFim: '31/12/2023',
-    tarefa1: 'Fazer levantamento empresas',
-    tarefa2: 'Arquivar documentos pendentes',
-    tarefa3: 'Organizar Caixas',
-    tarefa4: 'Entregar ao cliente',
-  },
-  {
-    id: 1,
-    nome: 'Happy Boss',
-    descricao: 'Não reclame e deixe seu chefe feliz.',
-    colaborador: 'Julia Campos',
-    dataInicio: '05/01/2023',
-    dataFim: '...',
-    tarefa1: 'Pense antes de reclamar.',
-    tarefa2: 'Não respire perto dele.',
-  },
-  {
-    id: 1,
-    nome: 'Happy Boss',
-    descricao: 'Não reclame e deixe seu chefe feliz.',
-    colaborador: 'Julia Campos',
-    dataInicio: '05/01/2023',
-    dataFim: '...',
-    tarefa1: 'Pense antes de reclamar.',
-    tarefa2: 'Não respire perto dele.',
-  },
-];
+const Projeto = ({ navigation }) => {
 
-
-
-const Projeto = () => {
-  const navigation = useNavigation();
-  const {name} = useUser();
-  //const isFocused = useIsFocused();
+  const isFocused = useIsFocused();
   const [projeto, setProjeto] = useState([]);
+  //Puxar no BD o item
+  const [item, setItem] = useState([])
 
   useEffect(() => {
-   getProjeto().then((dados) => {
-     console.log(dados);
-    setProjeto(dados);
-   });
-  }, []);
+    getProjetos().then((dados) => {
+      setProjeto(dados)
+    });
+    getItems().then((dados) => {
+      setItem(dados)
+    })
+  }, [isFocused]);
 
   const renderitem = ({ item }) => (
-    <List.Item
-      title={'Projeto ' + item.nome}
-      description={item.descricao}
-      left={(props) => <List.Icon {...props} icon="clipboard-outline" />}
-      onPress={() => navigation.navigate('NovoProjeto', { item })}
-    />
+    <View style={styles.viewBox}>
+      <View style={styles.viewList}>
+        <List.Item
+          title={'Projeto ' + item.nome}
+          description={item.descricao}
+          left={(props) => <List.Icon {...props} icon="calendar" />}
+        />
+      </View>
+      <View style={styles.button}>
+        <Button icon="lead-pencil" color="#45e" mode="elevated" onPress={() => navigation.navigate('novoProjeto', { item })}>Editar</Button>
+        <Button icon="eye-outline" color="green" mode="elevated" onPress={showModal}>abrir</Button>
+      </View>
+
+    </View>
+
   );
-
+  //Modal - 4 constantes
+  const [visible, setVisible] = React.useState(false);
+  const showModal = () => setVisible(true);
+  const hideModal = () => setVisible(false);
+  const containerStyle = { backgroundColor: 'white', padding: 20 };
+  console.log(item)
   return (
+
     <Container>
-      <Header title="TaskBook" />
-
-      <Body>
-        <Button
-          style={styles.buttom}
-          icon="camera"
-          mode="contained"
-          onPress={() => navigation.navigate('NovoProjeto')}>
-          Criar Projeto
-        </Button>
-
+      <Portal>
+        <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={containerStyle}>
         <FlatList
-          data={DATA}
+          data={item}
           renderItem={renderitem}
           keyExtractor={(item) => item.id}
         />
-        <FAB
-          style={styles.fab}
-          small
-          icon="plus"
-          onPress={() => navigation.navigate('NovoProjeto')}
+        </Modal>
+      </Portal>
+      <Body>
+        <FlatList
+          data={projeto}
+          renderItem={renderitem}
+          keyExtractor={(item) => item.id}
         />
       </Body>
+      <FAB
+        icon="plus"
+        label='Criar projeto'
+        style={styles.fab}
+        onPress={() => navigation.navigate('novoProjeto')}
+      />
     </Container>
   );
 };
 
 const styles = StyleSheet.create({
-  buttom: {
-    margin: 8,
-    backgroundColor: '#659cf4',
-  },
   fab: {
     position: 'absolute',
     margin: 16,
@@ -111,6 +84,21 @@ const styles = StyleSheet.create({
     bottom: 0,
     backgroundColor: '#659cf4',
   },
+  viewBox: {
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginBottom: 20,
+    paddingBottom: 10,
+    borderBottomWidth: 0.2
+  },
+  viewList: {
+    width: 260
+  },
+  button: {
+    borderLeftWidth: 0.2,
+    justifyContent: 'center',
+    alignItems: 'flex-start'
+  }
 });
 
 export default Projeto;

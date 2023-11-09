@@ -2,21 +2,17 @@ import React, { useState } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 
 
-import Route from './src/navigations/Route';
 import UserProvider from './src/contexts/UserContext';
-import Main from './src/navigations/Main'
-import Auth from './src/navigations/Auth'
-import NovoProjeto from './src/pages/NovoProjeto'
-
+import TabRoutes from './src/routes/tab.routes';
 
 const App = () => {
 
   return (
-   <UserProvider>
-    <NavigationContainer>
-      <Auth/>
-   </NavigationContainer>
-  </UserProvider>
+    <UserProvider>
+      <NavigationContainer>
+        <TabRoutes />
+      </NavigationContainer>
+    </UserProvider>
   )
 }
 

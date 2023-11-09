@@ -1,63 +1,40 @@
-import React, {useState} from 'react';
-import { View, StyleSheet } from 'react-native';
-import { Button, Searchbar } from 'react-native-paper';
+import { View, StyleSheet, Text } from 'react-native';
+import { NavigationContainer } from '@react-navigation/native';
+import { Avatar } from 'react-native-paper';
 
 import Container from '../components/Container';
 import Header from '../components/Header';
-import Body from '../components/Body';
+import TopTabRoutes from '../routes/toptab.routes';
 
-const Projeto = () => {
-  const [searchQuery, setSearchQuery] = useState('');
-
-  const onChangeSearch = (query) => setSearchQuery(query);
+const ProjetoHome = () => {
   return (
     <Container>
       <Header title="TaskBook" />
-      <Header title={'Olá, ' + name} />
-
-      <Body>
-        <Searchbar
-          placeholder="Procurar"
-          onChangeText={onChangeSearch}
-          value={searchQuery}
-        />
-        <View style={styles.homeButtons}>
-          <Button
-            style={styles.botao}
-            icon="plus"
-            mode="contained"
-            onPress={() => console.log('Pressed')}>
-            Criar projeto
-          </Button>
-          <Button
-            style={styles.botao}
-            icon="file-download"
-            mode="contained"
-            onPress={() => console.log('Pressed')}>
-            Gerar relatório
-          </Button>
-          <Button
-            style={styles.botao}
-            icon="account-group"
-            mode="contained"
-            onPress={() => console.log('Pressed')}>
-            Gerir colaboradores
-          </Button>
+      <View style={styles.usuario}>
+          <Avatar.Text size={48} label="H" />
+          <Text style={styles.usuarioTxt}> Hugo Ferreira</Text>
         </View>
-      </Body>
+      <NavigationContainer independent={true}>
+        <TopTabRoutes/>
+      </NavigationContainer>
     </Container>
   );
 };
 
 const styles = StyleSheet.create({
-  homeButtons: {
-    flex: 1,
+  usuario: {
+    backgroundColor: '#FFF',
+    margin: 10,
+    padding: 10,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'flex-start',
+    borderRadius: 8
   },
-  botao: {
-    marginBottom:8,
-    marginTop:18,
-    backgroundColor: '#124698',
-  },
+  usuarioTxt: {
+    paddingLeft: 16,
+    fontSize: 18
+  }
 });
 
-export default Projeto;
+export default ProjetoHome;
