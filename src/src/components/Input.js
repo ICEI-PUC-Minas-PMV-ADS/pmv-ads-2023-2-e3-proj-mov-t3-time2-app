@@ -17,7 +17,7 @@ const Header = (props) =>{
 const styles = StyleSheet.create({
   input:{
     backgroundColor: '#fff',
-    marginBottom:8
+    marginBottom:4
   },
 });
 
