@@ -67,14 +67,6 @@ taskRouter.get('/idTask',
                     'string.empty': 'Define any string',
                     'string.pattern': 'Define any string inside pattern'
                 }),
-            responsavel: Joi.string()
-                .required()
-                .messages({
-                    'string.baseq3': 'Param address needs to be a string',
-                    'any.required': 'Define any required',
-                    'string.empty': 'Define any string',
-                    'string.pattern': 'Define any string inside pattern'
-                }),
             idUser: Joi.number()
                 .required()
                 .messages({
@@ -82,7 +74,15 @@ taskRouter.get('/idTask',
                     'any.required': 'Define any required',
                     'string.empty': 'Define any string',
                     'string.pattern': 'Define any string inside pattern'
-                })
+                }),
+            idProjeto: Joi.number()
+                .required()
+                .messages({
+                    'string.baseq3': 'Param address needs to be a string',
+                    'any.required': 'Define any required',
+                    'string.empty': 'Define any string',
+                    'string.pattern': 'Define any string inside pattern'
+                }),
         },
     }),
     expressCallback(taskController.loadPutTaskIdController))
@@ -122,7 +122,7 @@ taskRouter.post('/',
                     'string.empty': 'Define any string',
                     'string.pattern': 'Define any string inside pattern'
                 }),
-            responsavel: Joi.string()
+            idUser: Joi.number()
                 .required()
                 .messages({
                     'string.baseq3': 'Param name needs to be a string',
@@ -130,10 +130,10 @@ taskRouter.post('/',
                     'string.empty': 'Define any string',
                     'string.pattern': 'Define any string inside pattern'
                 }),
-            idUser: Joi.number()
+            idProjeto: Joi.number()
                 .required()
                 .messages({
-                    'string.baseq3': 'Param name needs to be a string',
+                    'string.baseq3': 'Param address needs to be a string',
                     'any.required': 'Define any required',
                     'string.empty': 'Define any string',
                     'string.pattern': 'Define any string inside pattern'

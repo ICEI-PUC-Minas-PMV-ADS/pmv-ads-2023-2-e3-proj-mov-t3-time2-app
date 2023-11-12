@@ -1,13 +1,28 @@
 CREATE database TASKBOOK;
 USE taskbook;
+
+CREATE TABLE CARGO (
+  idCargo INT auto_increment PRIMARY KEY,
+  nome VARCHAR(255),
+  descricao VARCHAR(255)
+  );
+  
+  INSERT INTO cargo(nome,descricao) VALUES('Gerente de TI','Gerenciar a tristeza infinita dos profissionais');
+  
 CREATE TABLE USER (
   idUser INT auto_increment PRIMARY KEY,
   nome VARCHAR(255),
-  email VARCHAR(255),
+  email VARCHAR(255) unique,
   senha VARCHAR(255),
   idade INT(100),
-  cargo VARCHAR(255)
+  idCargo INT,
+  foreign key (idCargo) REFERENCES CARGO(idCargo)
   );
+  
+   INSERT INTO user(nome,email,senha,idade,idCargo) VALUES('Junia Marina Campos','juniacampos@pucmail.com','pucminas','27','1');
+  
+  ## ALTER TABLE USER ADD foreign key (idCargo) REFERENCES CARGO(idCargo);
+  ## ALTER TABLE USER ADD idCargo INT;
 
 ## Tabela Autenticação
 
@@ -26,10 +41,11 @@ CREATE TABLE PROJETO (
   descricao VARCHAR(255),
   dataInicio DATE,
   dataConclusao DATE,
-  task VARCHAR(255),
   idUser INT,
   FOREIGN KEY (idUser) REFERENCES USER(idUser)
   );
+  
+   INSERT INTO projeto(nome,descricao,dataInicio,dataConclusao,idUser) VALUES('Limpa Arquivo','Devolver documentos para os clientes',sysdate(),sysdate()+5,'2');
 
 ## Tabela Tarefas
 
@@ -39,10 +55,16 @@ CREATE TABLE TASK (
   status VARCHAR(255),
   dataInicio DATE,
   dataConclusao DATE,
-  responsavel VARCHAR(255),
   idUser INT,
-  FOREIGN KEY (idUser) REFERENCES USER(idUser)
+  idProjeto INT,
+  FOREIGN KEY (idUser) REFERENCES USER(idUser),
+  FOREIGN KEY (idProjeto) REFERENCES PROJETO(idProjeto)
   );
+  
+  INSERT INTO task(descricao,status,dataInicio,dataConclusao,idUser,idProjeto) VALUES('Organizar documentos','em andamento',sysdate(),sysdate()+5,'2','2');
+  
+  ## ALTER TABLE TASK ADD foreign key (idProjeto) REFERENCES PROJETO(idProjeto);
+  ## ALTER TABLE TASK ADD idProjeto INT;
 
 ## Tabela Documentos
 
@@ -53,17 +75,11 @@ CREATE TABLE DOCUMENTO (
   FOREIGN KEY (idUser) REFERENCES USER(idUser)
   );
   
-  INSERT INTO user(nome,email,senha,idade,cargo) VALUES('Junia Marina Campos','juniacampos@pucmail.com','pucminas','27','analista fiscal');
-  
   SELECT * FROM taskbook.user;
   
-  ## alterando permissão usuario root para acesso local (localhost) 
   ## ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '32751339';
   
-  ## limpando permissões atuais.
   ## flush privileges
-  
-  INSERT INTO projeto(nome,descricao,dataInicio,dataConclusao,task,idUser) VALUES('Limpa Arquivo','Devolver documentos para os clientes',sysdate(),sysdate()+5,'separar documentos','3');
   
   SELECT SYSDATE();
   
@@ -71,4 +87,4 @@ CREATE TABLE DOCUMENTO (
   JOIN taskbook.user u on p.idUser=u.idUser
   WHERE u.idUser=3;
 
-INSERT INTO task(descricao,status,dataInicio,dataConclusao,responsavel,idUser) VALUES('Organizar documentos','em andamento',sysdate(),sysdate()+5,'Julia Campos','3');
+
