@@ -6,6 +6,7 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import { useNavigation } from '@react-navigation/native';
 import { insertProjetos, deleteProjetos, updateProjetos } from '../services/ProjetosServicesDB';
 import { SelectList } from 'react-native-dropdown-select-list'
+import axios from "axios"
 
 import Container from '../components/Container';
 import Header from '../components/Header';
@@ -15,17 +16,31 @@ import Status from '../components/Status';
 
 const NovoProjeto = ({ route }) => {  
   const [selected, setSelected] = React.useState("");
+  const [usuarios, setUsuarios] = useState([]);
+  const [usuarioSelecionado, setUsuarioSelecionado] = useState([]);
+
+  useEffect(() => {
+    axios.get(baseURL+'user').then((dados) => {
+      setUsuarios(dados.data.lista)
+      console.log("Retornando dados de usuario:", dados.data.lista)
+    }); }, []);
+
+    const handleSelectChange = (usuario) => {
+      setUsuarioSelecionado(usuario);
+      console.log(usuario);
+    };
   
 
-  const data = [
-      {key:'1', value:'João', disabled:true},
-      {key:'2', value:'Maria'},
-      {key:'3', value:'Márcia'},
-      {key:'4', value:'Ana', disabled:true},
-      {key:'5', value:'Pedro'},
-      {key:'6', value:'Jairo'},
-      {key:'7', value:'João Silva'},
-  ]
+ // const data = [
+     // {key:'1', value:'João', disabled:true},
+     // {key:'2', value:'Maria'},
+    //  {key:'3', value:'Márcia'},
+    //  {key:'4', value:'Ana', disabled:true},
+     // {key:'5', value:'Pedro'},
+    //  {key:'6', value:'Jairo'},
+    //  {key:'7', value:'João Silva'},
+ // ]
+
   const dataTarefa = [
     {key:'1', value:'Task1', disabled:true},
     {key:'2', value:'Task2'},
@@ -132,8 +147,8 @@ const NovoProjeto = ({ route }) => {
 
 <SelectList 
         placeholder='Colaborador'
-        setSelected={(val) => setSelected(val)} 
-        data={data} 
+        setSelected={handleSelectChange} 
+        data={usuarios.map(usuario => ({ value: usuario.nome, label: usuario.nome }))}
         save="value"
         boxStyles={{borderRadius:5, backgroundColor: "#FFF", borderWidth: 0, marginBottom: 4}}
         dropdownStyles={{borderRadius:5, backgroundColor: "#FFF", borderWidth: 0, marginBottom: 4, marginTop: 2}}
