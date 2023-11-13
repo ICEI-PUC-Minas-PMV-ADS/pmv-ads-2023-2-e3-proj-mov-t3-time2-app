@@ -17,17 +17,29 @@ import Status from '../components/Status';
 const NovoProjeto = ({ route }) => {  
   const [selected, setSelected] = React.useState("");
   const [usuarios, setUsuarios] = useState([]);
+  const [tarefas, setTarefas] = useState([]);
   const [usuarioSelecionado, setUsuarioSelecionado] = useState([]);
+  const [tarefaSelecionada, setTarefaSelecionada] = useState([]);
 
   useEffect(() => {
     axios.get(baseURL+'user').then((dados) => {
       setUsuarios(dados.data.lista)
       console.log("Retornando dados de usuario:", dados.data.lista)
-    }); }, []);
+    }); 
+    axios.get(baseURL+'task').then((dados) => {
+      setTarefas(dados.data.lista)
+      console.log("Retornando dados de tarefa", dados.data.lista)
+    })
+  }, []);
 
     const handleSelectChange = (usuario) => {
       setUsuarioSelecionado(usuario);
       console.log(usuario);
+    };
+
+    const handleSelectChangeTarefa = (tarefa) => {
+      setTarefaSelecionada(tarefa);
+      console.log(tarefa);
     };
   
 
@@ -41,15 +53,15 @@ const NovoProjeto = ({ route }) => {
     //  {key:'7', value:'João Silva'},
  // ]
 
-  const dataTarefa = [
-    {key:'1', value:'Task1', disabled:true},
-    {key:'2', value:'Task2'},
-    {key:'3', value:'Task3'},
-    {key:'4', value:'Task4', disabled:true},
-    {key:'5', value:'Task5'},
-    {key:'6', value:'Task6'},
-    {key:'7', value:'Task7'},
-]
+ // const dataTarefa = [
+ //   {key:'1', value:'Task1', disabled:true},
+//    {key:'2', value:'Task2'},
+//    {key:'3', value:'Task3'},
+//    {key:'4', value:'Task4', disabled:true},
+//    {key:'5', value:'Task5'},
+//    {key:'6', value:'Task6'},
+//    {key:'7', value:'Task7'},
+//]
 
   const navigation = useNavigation();
   const { item } = route.params ? route.params : {};
@@ -204,8 +216,8 @@ const NovoProjeto = ({ route }) => {
 
           <SelectList 
         placeholder='Tarefa'
-        setSelected={(val) => setSelected(val)} 
-        data={dataTarefa} 
+        setSelected={handleSelectChangeTarefa} 
+        data={tarefas.map(tarefa => ({value: tarefa.nome, label: tarefa.nome}))} 
         save="value"
         boxStyles={{borderRadius:5, backgroundColor: "#FFF", borderWidth: 0, marginBottom: 4}}
         dropdownStyles={{borderRadius:5, backgroundColor: "#FFF", borderWidth: 0, marginBottom: 4, marginTop: 2}}
