@@ -18,7 +18,7 @@
     "@react-navigation/native-stack": "6.0.0",
     "@react-navigation/stack": "*",
     "@types/react": "~18.2.14",
-    "axios": "*",
+    "axios": "^1.6.1",
     "expo": "^49.0.16",
     "expo-asset": "~8.10.1",
     "expo-file-system": "~15.4.4",
