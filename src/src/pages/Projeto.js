@@ -21,10 +21,10 @@ const Projeto = ({ navigation }) => {
       setProjeto(dados.data.lista)
       console.log(dados.data.lista)
     });
-    axios.get(baseURL+'user').then((user) => {
-      setProjeto(user.data.lista)
-      console.log(user.data.lista)
-    })
+    //axios.get(baseURL+'user').then((user) => {
+   //   setProjeto(user.data.lista)
+   //   console.log(user.data.lista)
+   // })
     getItems().then((dados) => {
       setItem(dados)
     })
