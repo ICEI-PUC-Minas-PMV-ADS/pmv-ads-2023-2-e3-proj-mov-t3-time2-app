@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, FlatList, View } from 'react-native';
 import { List, Button } from 'react-native-paper';
+import axios from "axios";
 
 import Container from '../components/Container';
 import Body from '../components/Body';
@@ -12,10 +13,12 @@ const EmAndamento = () => {
 
   const isFocused = useIsFocused();
   const [projeto, setProjeto] = useState([]);
+  const baseURL = "http://192.168.18.25:3000/v1/api/";
 
   useEffect(() => {
-    getProjetos().then((dados) => {
-      setProjeto(dados);
+    axios.get(baseURL+'projeto').then((dados) => {
+      setProjeto(dados.data.lista)
+      console.log(dados.data.lista)
     });
   }, [isFocused]);
 
