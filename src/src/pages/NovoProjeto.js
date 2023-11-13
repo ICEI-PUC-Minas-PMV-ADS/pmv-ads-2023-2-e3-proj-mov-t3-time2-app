@@ -5,6 +5,7 @@ import { Button, Appbar, TextInput, Text} from 'react-native-paper';
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { useNavigation } from '@react-navigation/native';
 import { insertProjetos, deleteProjetos, updateProjetos } from '../services/ProjetosServicesDB';
+import { SelectList } from 'react-native-dropdown-select-list'
 
 import Container from '../components/Container';
 import Header from '../components/Header';
@@ -12,23 +13,28 @@ import Body from '../components/Body';
 import Input from '../components/Input';
 import Status from '../components/Status';
 
-
-const NovoProjeto = ({ route }) => {
-
-  const handleAddColab = () => {
-    const newItem = {
-      itemName: inputValue,
-      quantity: 1,
-      isSelected: false,
-    };
+const NovoProjeto = ({ route }) => {  
+  const [selected, setSelected] = React.useState("");
   
-    const newItems = [...items, newItem];
-  
-    setItems(newItems);
-    setInputValue('');
-  };
 
-
+  const data = [
+      {key:'1', value:'João', disabled:true},
+      {key:'2', value:'Maria'},
+      {key:'3', value:'Márcia'},
+      {key:'4', value:'Ana', disabled:true},
+      {key:'5', value:'Pedro'},
+      {key:'6', value:'Jairo'},
+      {key:'7', value:'João Silva'},
+  ]
+  const dataTarefa = [
+    {key:'1', value:'Task1', disabled:true},
+    {key:'2', value:'Task2'},
+    {key:'3', value:'Task3'},
+    {key:'4', value:'Task4', disabled:true},
+    {key:'5', value:'Task5'},
+    {key:'6', value:'Task6'},
+    {key:'7', value:'Task7'},
+]
 
   const navigation = useNavigation();
   const { item } = route.params ? route.params : {};
@@ -48,7 +54,7 @@ const NovoProjeto = ({ route }) => {
   
   const [nome, setNome] = useState('');
   const [descricao, setDescricao] = useState('');
-  const [colaborador, setColaborador] = useState([]);
+  const [colaborador, setColaborador] = useState('');
   const [dataInicio, setDataInicio] = useState(new Date().toLocaleDateString('pt-BR'));
   const [dataFim, setDataFim] = useState(new Date().toLocaleDateString('pt-BR'));
   const [tarefa, setTarefa] = useState('');
@@ -122,20 +128,16 @@ const NovoProjeto = ({ route }) => {
             value={descricao}
             onChangeText={(text) => setDescricao(text)}
           />
-          <View style={styles.colabField}>
-          <Input
-          style={styles.colabFieldBox}
-            label="Colaborador"
-            value={colaborador}
-            onChangeText={(text) => setColaborador(text)}
-          />
-          <Button labelStyle={{ fontSize: 36 }} style={styles.colabButton} icon="account-plus-outline" mode="outlined-tonel" onPress={() => console.log('Pressed')}>
-    
-            </Button>
-          </View>
-          
 
 
+<SelectList 
+        placeholder='Colaborador'
+        setSelected={(val) => setSelected(val)} 
+        data={data} 
+        save="value"
+        boxStyles={{borderRadius:5, backgroundColor: "#FFF", borderWidth: 0, marginBottom: 4}}
+        dropdownStyles={{borderRadius:5, backgroundColor: "#FFF", borderWidth: 0, marginBottom: 4, marginTop: 2}}
+    />
           {showInicio && (
             <DateTimePicker
               testID="dateTimePicker"
@@ -185,17 +187,14 @@ const NovoProjeto = ({ route }) => {
             />
           </TouchableOpacity>
 
-          <View style={styles.colabField}>
-          <Input
-          style={styles.colabFieldBox}
-          label="Tarefa"
-          value={tarefa}
-          onChangeText={(text) => setTarefa(text)}
-          />
-          <Button labelStyle={{ fontSize: 36 }} style={styles.colabButton} icon="file-sign" mode="outlined-tonel" onPress={() => console.log('Pressed')}>
-    
-            </Button>
-          </View>
+          <SelectList 
+        placeholder='Tarefa'
+        setSelected={(val) => setSelected(val)} 
+        data={dataTarefa} 
+        save="value"
+        boxStyles={{borderRadius:5, backgroundColor: "#FFF", borderWidth: 0, marginBottom: 4}}
+        dropdownStyles={{borderRadius:5, backgroundColor: "#FFF", borderWidth: 0, marginBottom: 4, marginTop: 2}}
+    />
           <Button
             mode="contained"
             style={styles.buttom}
