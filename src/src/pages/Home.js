@@ -1,21 +1,37 @@
-import { View, StyleSheet, Text } from 'react-native';
+import React, { useEffect } from 'react';
+import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
-import { Avatar } from 'react-native-paper';
+import { Avatar, Button } from 'react-native-paper';
 
 import Container from '../components/Container';
 import Header from '../components/Header';
 import TopTabRoutes from '../routes/toptab.routes';
 
-const ProjetoHome = () => {
+const ProjetoHome = ({navigation}) => {
+
   return (
     <Container>
       <Header title="TaskBook" />
       <View style={styles.usuario}>
-          <Avatar.Text size={48} label="H" />
-          <Text style={styles.usuarioTxt}> Hugo Ferreira</Text>
+        <Avatar.Text size={48} label="H" />
+        <Text style={styles.usuarioTxt}> Hugo Ferreira</Text>
+      </View>
+      <View style={styles.button}>
+        <View>
+          <Button icon="account-plus-outline" mode="contained" onPress={() => navigation.navigate('NovoColaborador')}>
+            Colaboradores
+          </Button>
+          <Button style={{marginTop: 5}}icon="clipboard-plus-outline" mode="contained" onPress={() => navigation.navigate('NovaTarefa')}>
+            Tarefas
+          </Button>
         </View>
+        <View><Button icon="plus" mode="contained"  onPress={() => navigation.navigate('NovoProjeto')}>
+          Criar Projeto
+        </Button>
+        </View>
+      </View>
       <NavigationContainer independent={true}>
-        <TopTabRoutes/>
+        <TopTabRoutes />
       </NavigationContainer>
     </Container>
   );
@@ -34,6 +50,11 @@ const styles = StyleSheet.create({
   usuarioTxt: {
     paddingLeft: 16,
     fontSize: 18
+  },
+  button: {
+    flexDirection: 'row',
+    justifyContent: 'space-evenly',
+    marginBottom: 10
   }
 });
 

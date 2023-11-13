@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, FlatList, View } from 'react-native';
-import { List, FAB, Text, Dialog, Portal, Modal, Button } from 'react-native-paper';
+import { List, FAB, Portal, Modal, Button } from 'react-native-paper';
 
 import Container from '../components/Container';
 import Body from '../components/Body';
@@ -41,22 +41,26 @@ const Projeto = ({ navigation }) => {
     </View>
 
   );
+  const [state, setState] = React.useState({ open: false });
+
+  const onStateChange = ({ open }) => setState({ open });
+
+  const { open } = state;
   //Modal - 4 constantes
   const [visible, setVisible] = React.useState(false);
   const showModal = () => setVisible(true);
   const hideModal = () => setVisible(false);
   const containerStyle = { backgroundColor: 'white', padding: 20 };
-  console.log(item)
-  return (
 
+  return (
     <Container>
       <Portal>
         <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={containerStyle}>
-        <FlatList
-          data={item}
-          renderItem={renderitem}
-          keyExtractor={(item) => item.id}
-        />
+          <FlatList
+            data={item}
+            renderItem={renderitem}
+            keyExtractor={(item) => item.id}
+          />
         </Modal>
       </Portal>
       <Body>
@@ -66,24 +70,25 @@ const Projeto = ({ navigation }) => {
           keyExtractor={(item) => item.id}
         />
       </Body>
-      <FAB
+
+    {/*   {<FAB
         icon="plus"
         label='Criar projeto'
         style={styles.fab}
         onPress={() => navigation.navigate('novoProjeto')}
-      />
+      />} */}
     </Container>
   );
 };
 
 const styles = StyleSheet.create({
-  fab: {
+/*   fab: {
     position: 'absolute',
     margin: 16,
     right: 0,
     bottom: 0,
     backgroundColor: '#659cf4',
-  },
+  }, */
   viewBox: {
     flexDirection: 'row',
     justifyContent: 'space-between',
