@@ -30,3 +30,40 @@ export const updateProjetos = async (param) => {
     //console.log(results);
     return results.rowsAffected;
   }
+
+  // Alterações
+
+  export const insertColaborador = async (param) => {
+    let results = await DB_EXEC(`insert into projetos(colaborador) values(?)`, param.colaborador);
+    //console.log(results)
+    return results.rowsAffected;
+}
+
+export const updateColaborador = async (param) => {
+    let results = await DB_EXEC(`update projetos set colaborador=? where id=?`, [param.colaborador, param.id]);
+    //console.log(results);
+    return results.rowsAffected;
+  }
+  
+  export const deleteColaborador = async (id) => {
+    let results = await DB_EXEC(`delete from projetos where id=?`, [id]);
+    //console.log(results);
+    return results.rowsAffected;
+  }
+  export const insertTarefa = async (param) => {
+    let results = await DB_EXEC(`insert into projetos(tarefa) values(?)`, param.tarefa);
+    //console.log(results)
+    return results.rowsAffected;
+}
+
+export const updateTarefa = async (param) => {
+    let results = await DB_EXEC(`update projetos set tarefa=? where id=?`, [param.tarefa, param.id]);
+    //console.log(results);
+    return results.rowsAffected;
+  }
+  
+  export const deleteTarefa = async (id) => {
+    let results = await DB_EXEC(`delete from projetos where id=?`, [id]);
+    //console.log(results);
+    return results.rowsAffected;
+  }
