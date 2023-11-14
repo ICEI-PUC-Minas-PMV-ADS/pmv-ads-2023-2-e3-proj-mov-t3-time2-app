@@ -14,6 +14,8 @@ import Body from '../components/Body';
 import Input from '../components/Input';
 import Status from '../components/Status';
 
+const baseURL = "http://192.168.18.25:3000/v1/api/";
+
 const NovoProjeto = ({ route }) => {  
   const [selected, setSelected] = React.useState("");
   const [usuarios, setUsuarios] = useState([]);
@@ -217,7 +219,7 @@ const NovoProjeto = ({ route }) => {
           <SelectList 
         placeholder='Tarefa'
         setSelected={handleSelectChangeTarefa} 
-        data={tarefas.map(tarefa => ({value: tarefa.nome, label: tarefa.nome}))} 
+        data={tarefas.map(tarefa => ({value: tarefa.descricao, label: tarefa.descricao}))} 
         save="value"
         boxStyles={{borderRadius:5, backgroundColor: "#FFF", borderWidth: 0, marginBottom: 4}}
         dropdownStyles={{borderRadius:5, backgroundColor: "#FFF", borderWidth: 0, marginBottom: 4, marginTop: 2}}
