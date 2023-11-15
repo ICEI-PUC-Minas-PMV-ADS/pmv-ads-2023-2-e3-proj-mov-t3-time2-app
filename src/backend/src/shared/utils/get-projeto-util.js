@@ -15,7 +15,7 @@ module.exports = {
         let dataConc = moment(context.dataConclusao)
         dataIni = dataIni.format('YYYY-MM-DD HH:mm:ss')
         dataConc = dataConc.format('YYYY-MM-DD HH:mm:ss')
-        let query = `INSERT INTO taskbook.projeto(nome,descricao,dataInicio,dataConclusao,idUser)`
+        let query = `INSERT INTO taskbook.projeto(nome,descricao,dataInicio,dataConclusao,idUser, status)`
         query += ` VALUES ('${context.nome}', '${context.descricao}','${dataIni}', '${dataConc}','${context.idUser}', '${context.status}')`
         return query
     },
