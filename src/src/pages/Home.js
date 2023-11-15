@@ -25,8 +25,11 @@ const ProjetoHome = ({navigation}) => {
             Tarefas
           </Button>
         </View>
-        <View><Button icon="plus" mode="contained"  onPress={() => navigation.navigate('NovoProjeto')}>
+        <View><Button style={{backgroundColor: 'blue'}} icon="plus" mode="contained"  onPress={() => navigation.navigate('NovoProjeto')}>
           Criar Projeto
+        </Button>
+        <Button disabled={true} style={{backgroundColor: '#EBEBEB', marginTop: 5}} icon="notebook-multiple" mode="contained"  onPress={() => navigation.navigate('NovoProjeto')}>
+          Relatórios
         </Button>
         </View>
       </View>

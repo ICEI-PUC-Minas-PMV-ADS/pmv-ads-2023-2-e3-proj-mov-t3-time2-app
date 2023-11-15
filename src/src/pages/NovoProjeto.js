@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, ScrollView, TouchableOpacity, View } from 'react-native';
-import { Button, Appbar, TextInput, Text} from 'react-native-paper';
+import { Button, Appbar, TextInput, Text } from 'react-native-paper';
 
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { useNavigation } from '@react-navigation/native';
 import { insertProjetos, deleteProjetos, updateProjetos } from '../services/ProjetosServicesDB';
-import { SelectList } from 'react-native-dropdown-select-list'
+import { SelectList, MultipleSelectList } from 'react-native-dropdown-select-list'
 import axios from "axios"
 
 import Container from '../components/Container';
@@ -16,7 +16,7 @@ import Status from '../components/Status';
 
 const baseURL = "http://192.168.18.25:3000/v1/api/";
 
-const NovoProjeto = ({ route }) => {  
+const NovoProjeto = ({ route }) => {
   const [selected, setSelected] = React.useState("");
   const [usuarios, setUsuarios] = useState([]);
   const [tarefas, setTarefas] = useState([]);
@@ -24,46 +24,46 @@ const NovoProjeto = ({ route }) => {
   const [tarefaSelecionada, setTarefaSelecionada] = useState([]);
 
   useEffect(() => {
-    axios.get(baseURL+'user').then((dados) => {
+    axios.get(baseURL + 'user').then((dados) => {
       setUsuarios(dados.data.lista)
       console.log("Retornando dados de usuario:", dados.data.lista)
-    }); 
-    axios.get(baseURL+'task').then((dados) => {
+    });
+    axios.get(baseURL + 'task').then((dados) => {
       setTarefas(dados.data.lista)
       console.log("Retornando dados de tarefa", dados.data.lista)
     })
   }, []);
 
-    const handleSelectChange = (usuario) => {
-      setUsuarioSelecionado(usuario);
-      console.log(usuario);
-    };
+  const handleSelectChange = (usuario) => {
+    setUsuarioSelecionado(usuario);
+    console.log(usuario);
+  };
 
-    const handleSelectChangeTarefa = (tarefa) => {
-      setTarefaSelecionada(tarefa);
-      console.log(tarefa);
-    };
-  
+  const handleSelectChangeTarefa = (tarefa) => {
+    setTarefaSelecionada(tarefa);
+    console.log(tarefa);
+  };
 
- // const data = [
-     // {key:'1', value:'João', disabled:true},
-     // {key:'2', value:'Maria'},
-    //  {key:'3', value:'Márcia'},
-    //  {key:'4', value:'Ana', disabled:true},
-     // {key:'5', value:'Pedro'},
-    //  {key:'6', value:'Jairo'},
-    //  {key:'7', value:'João Silva'},
- // ]
 
- // const dataTarefa = [
- //   {key:'1', value:'Task1', disabled:true},
-//    {key:'2', value:'Task2'},
-//    {key:'3', value:'Task3'},
-//    {key:'4', value:'Task4', disabled:true},
-//    {key:'5', value:'Task5'},
-//    {key:'6', value:'Task6'},
-//    {key:'7', value:'Task7'},
-//]
+  /* const data = [
+    { key: '1', value: 'João', disabled: true },
+    { key: '2', value: 'Maria' },
+    { key: '3', value: 'Márcia' },
+    { key: '4', value: 'Ana', disabled: true },
+    { key: '5', value: 'Pedro' },
+    { key: '6', value: 'Jairo' },
+    { key: '7', value: 'João Silva' },
+  ] */
+
+  const dataTarefa = [
+    { key: '1', value: 'Task1', disabled: true },
+    { key: '2', value: 'Task2' },
+    { key: '3', value: 'Task3' },
+    { key: '4', value: 'Task4', disabled: true },
+    { key: '5', value: 'Task5' },
+    { key: '6', value: 'Task6' },
+    { key: '7', value: 'Task7' },
+  ]
 
   const navigation = useNavigation();
   const { item } = route.params ? route.params : {};
@@ -80,7 +80,7 @@ const NovoProjeto = ({ route }) => {
   const showDatepicker = () => {
     showMode(date);
   };
-  
+
   const [nome, setNome] = useState('');
   const [descricao, setDescricao] = useState('');
   const [colaborador, setColaborador] = useState('');
@@ -159,14 +159,14 @@ const NovoProjeto = ({ route }) => {
           />
 
 
-<SelectList 
-        placeholder='Colaborador'
-        setSelected={handleSelectChange} 
-        data={usuarios.map(usuario => ({ value: usuario.nome, label: usuario.nome }))}
-        save="value"
-        boxStyles={{borderRadius:5, backgroundColor: "#FFF", borderWidth: 0, marginBottom: 4}}
-        dropdownStyles={{borderRadius:5, backgroundColor: "#FFF", borderWidth: 0, marginBottom: 4, marginTop: 2}}
-    />
+          <SelectList
+            placeholder='Colaborador'
+            setSelected={handleSelectChange}
+            data={usuarios.map(usuario => ({ value: usuario.nome, label: usuario.nome }))}
+            save="value"
+            boxStyles={{ borderRadius: 5, backgroundColor: "#FFF", borderWidth: 0, marginBottom: 4 }}
+            dropdownStyles={{ borderRadius: 5, backgroundColor: "#FFF", borderWidth: 0, marginBottom: 4, marginTop: 2 }}
+          />
           {showInicio && (
             <DateTimePicker
               testID="dateTimePicker"
@@ -216,14 +216,16 @@ const NovoProjeto = ({ route }) => {
             />
           </TouchableOpacity>
 
-          <SelectList 
-        placeholder='Tarefa'
-        setSelected={handleSelectChangeTarefa} 
-        data={tarefas.map(tarefa => ({value: tarefa.descricao, label: tarefa.descricao}))} 
-        save="value"
-        boxStyles={{borderRadius:5, backgroundColor: "#FFF", borderWidth: 0, marginBottom: 4}}
-        dropdownStyles={{borderRadius:5, backgroundColor: "#FFF", borderWidth: 0, marginBottom: 4, marginTop: 2}}
-    />
+          <MultipleSelectList
+            placeholder='Tarefas'
+            label='Tarefa'
+            setSelected={handleSelectChangeTarefa}
+            data={dataTarefa}
+            /* data={tarefas.map(tarefa => ({ value: tarefa.descricao, label: tarefa.descricao }))} */
+            save="value"
+            boxStyles={{ borderRadius: 5, backgroundColor: "#FFF", borderWidth: 0, marginBottom: 4 }}
+            dropdownStyles={{ borderRadius: 5, backgroundColor: "#FFF", borderWidth: 0, marginBottom: 4, marginTop: 2 }}
+          />
           <Button
             mode="contained"
             style={styles.buttom}
@@ -253,10 +255,10 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     flexDirection: 'row'
   },
-  colabFieldBox:{
+  colabFieldBox: {
     width: 300,
     backgroundColor: '#fff',
-    marginBottom:4
+    marginBottom: 4
   },
   buttom: {
     margin: 8
