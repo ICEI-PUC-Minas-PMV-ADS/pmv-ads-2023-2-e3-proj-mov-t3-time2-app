@@ -15,8 +15,8 @@ module.exports = {
         let dataConc = moment(context.dataConclusao)
         dataIni = dataIni.format('YYYY-MM-DD HH:mm:ss')
         dataConc = dataConc.format('YYYY-MM-DD HH:mm:ss')
-        let query = `INSERT INTO taskbook.projeto(nome,descricao,dataInicio,dataConclusao,idUser)`
-        query += ` VALUES ('${context.nome}', '${context.descricao}','${dataIni}', '${dataConc}','${context.idUser}')`
+        let query = `INSERT INTO taskbook.projeto(nome,descricao,dataInicio,dataConclusao,idUser, status)`
+        query += ` VALUES ('${context.nome}', '${context.descricao}','${dataIni}', '${dataConc}','${context.idUser}', '${context.status}')`
         return query
     },
     async queryDeleteProjetoId(context) {
@@ -43,6 +43,8 @@ module.exports = {
             query += `, dataConclusao = '${dataConc}'`
         }if(bodyParam.idUser) {
             query += `, idUser = '${bodyParam.idUser}'`
+        }if(bodyParam.status) {
+            query += `, status = '${bodyParam.status}'`
         }
         query += ` WHERE idProjeto = ${queryParam.idProjeto}`
         return query
