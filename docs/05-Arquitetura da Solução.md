@@ -4,7 +4,8 @@
 
 Definição de como o software é estruturado em termos dos componentes que fazem parte da solução e do ambiente de hospedagem da aplicação.
 
-![Arquitetura da Solução](img/02-mob-arch.png)
+![arquitetura](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/42b2e5a8-d970-4153-b47e-fcc5789b5bcc)
+
 
 ## Diagrama de Classes
 
@@ -22,7 +23,8 @@ O Modelo ER representa através de um diagrama como as entidades (coisas, objeto
 
 O Esquema Relacional corresponde à representação dos dados em tabelas juntamente com as restrições de integridade e chave primária.
  
-![esquema relacional](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/9dc8063d-8a75-4f5b-8b4a-1b9c66f30712)
+![esquema relacional novo](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/c9fab963-8174-4d0c-bb3f-092e0bc4e4b0)
+
 
 ## Modelo Físico
 
@@ -33,15 +35,17 @@ Entregar um arquivo banco.sql contendo os scripts de criação das tabelas do ba
 - Linguagem: JavaScript
 - Biblioteca: React Native
 - IDE: Visual Studio Code e Expo.dev
+- Ferramentas apoio Backend: Postman e MySql WorkBench
 - Ferramenta Wireframes: Figma
 - Ferramenta de Comunicação: Whatsapp e Teams
 - Ferramenta de Gestão de Projeto: Trello
 
-![tecnologias utilizadas](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/53a4605c-c7b2-4e10-86a6-0cfd9067bcb8)
+![tecnologias utilizadas nova](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/c5bcd72c-a7d2-4369-9fb2-ffffdabd1a1f)
+
 
 ## Hospedagem
 
-Por enquanto, a equipe optou por utilizar a orientação da instituição e não usar um banco de dados estruturado e uma hospedagem que comporte essa estrutura. Assim sendo, usaremos JSON server para buscar os dados necessários para demonstrarmos o projeto.
+Por enquanto, a equipe optou por utilizar a orientação da instituição e não usar um banco de dados estruturado e uma hospedagem que comporte essa estrutura. Assim sendo, usaremos NODE para buscar os dados necessários para demonstrarmos o projeto.
 
 ## Qualidade de Software
 
