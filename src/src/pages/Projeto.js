@@ -52,7 +52,7 @@ const Projeto = ({ navigation }) => {
   const showModal = () => setVisible(true);
   const hideModal = () => setVisible(false);
   const containerStyle = { backgroundColor: 'white', padding: 20 };
-  console.log(item)
+ 
   return (
 
     <Container>
@@ -72,24 +72,11 @@ const Projeto = ({ navigation }) => {
           keyExtractor={(item) => item.id}
         />
       </Body>
-      <FAB
-        icon="plus"
-        label='Criar projeto'
-        style={styles.fab}
-        onPress={() => navigation.navigate('novoProjeto')}
-      />
     </Container>
   );
 };
 
 const styles = StyleSheet.create({
-  fab: {
-    position: 'absolute',
-    margin: 16,
-    right: 0,
-    bottom: 0,
-    backgroundColor: '#659cf4',
-  },
   viewBox: {
     flexDirection: 'row',
     justifyContent: 'space-between',

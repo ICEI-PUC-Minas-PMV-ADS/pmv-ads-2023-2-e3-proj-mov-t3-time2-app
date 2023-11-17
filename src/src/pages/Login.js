@@ -9,10 +9,8 @@ import Body from '../components/Body.js';
 import Logo from '../components/Logo.js';
 import Input from '../components/Input';
 
-
 import { useUser } from '../contexts/UserContext'
 import { login } from '../services/auth.services';
-
 
 const Login = () => {
 
@@ -22,6 +20,10 @@ const Login = () => {
   const [email, setEmail] = useState('juniacamposjc@gmail');
   const [password, setPassword] = useState('pucminas');
 
+  // TESTE LOGIN TRUE
+  const handleLoginTrue = () => {
+    setSigned(true)
+  }
   const handleLogin = () => {
     login({
       email: email,
@@ -66,7 +68,7 @@ const Login = () => {
         <Button
           style={styles.button}
           mode="contained"
-          onPress={handleLogin()}>
+          onPress={() => handleLoginTrue()}>
           Login
         </Button>
         <Button

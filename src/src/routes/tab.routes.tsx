@@ -1,12 +1,8 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
-import Home from '../pages/Home'
 import Perfil from '../pages/Perfil'
-import { StackRoutes } from './stack.routes';
 import { IndexRoutes } from '.';
-import Login from '../pages/Login';
-import Register from '../pages/Register';
 
 const { Screen, Navigator } = createBottomTabNavigator()
 
@@ -24,7 +20,7 @@ export default function TabRoutes() {
             />
             <Screen
                 name='Perfil'
-                component={Register}
+                component={Perfil}
                 options={{
                     tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name='account-edit' size={36} color={color} />
                 }}
