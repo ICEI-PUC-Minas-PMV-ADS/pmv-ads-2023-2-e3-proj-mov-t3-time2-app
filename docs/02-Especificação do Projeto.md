@@ -50,8 +50,8 @@ As tabelas que se seguem apresentam os requisitos funcionais e não funcionais q
 |ID    | Descrição do Requisito  | Prioridade |
 |------|-----------------------------------------|----|
 |RF-001| O sistema deve autenticar cada usuário | ALTA |
-|RF-002| Permitir que o gestor cadastre projetos  e tarefas | ALTA |
-|RF-003| Permitir que a alocação dos funcionários entre projetos e tarefas | ALTA |
+|RF-002| Permitir que o usuário cadastre projetos  e tarefas | ALTA |
+|RF-003| Permitir a alocação dos usuários entre projetos e tarefas | ALTA |
 |RF-004| Permitir o acompanhamento em tempo real das tarefas por todos os usuários do projeto | MÉDIA |
 |RF-005| Emitir um relatório de tarefas no mês | MÉDIA |
 |RF-006| Deve permitir que projetos sejam reabertos ou replicados |  MÉDIA |
@@ -87,13 +87,6 @@ A matriz deve contemplar todos os elementos relevantes que fazem parte do sistem
 
 	
 ![image](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/79220860/d3b71079-2c67-4401-af4e-a3d788cc9082)
-
-
-> **Links Úteis**:
-> - [Artigo Engenharia de Software 13 - Rastreabilidade](https://www.devmedia.com.br/artigo-engenharia-de-software-13-rastreabilidade/12822/)
-> - [Verificação da rastreabilidade de requisitos usando a integração do IBM Rational RequisitePro e do IBM ClearQuest Test Manager](https://developer.ibm.com/br/tutorials/requirementstraceabilityverificationusingrrpandcctm/)
-> - [IBM Engineering Lifecycle Optimization – Publishing](https://www.ibm.com/br-pt/products/engineering-lifecycle-optimization/publishing/)
-
 
 # Gerenciamento de Projeto
 

@@ -4,25 +4,29 @@
 
 Definição de como o software é estruturado em termos dos componentes que fazem parte da solução e do ambiente de hospedagem da aplicação.
 
-![Arquitetura da Solução](img/02-mob-arch.png)
+![arquitetura](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/42b2e5a8-d970-4153-b47e-fcc5789b5bcc)
+
 
 ## Diagrama de Classes
 
 O diagrama de classes ilustra graficamente como será a estrutura do software, e como cada uma das classes da sua estrutura estarão interligadas. Essas classes servem de modelo para materializar os objetos que executarão na memória.
 
-![DIAGRAMA DE CLASSE](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/6d36e3ab-5813-4243-8e87-8a05d90bb1d8)
+![DIAGRAMA DE CLASSE novo](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/71b42326-b300-4a7c-9686-12b29d6d4c45)
+
 
 ## Modelo ER
 
 O Modelo ER representa através de um diagrama como as entidades (coisas, objetos) se relacionam entre si na aplicação interativa.]
 
-![modelo ER](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/bbe46060-a642-40fa-9009-aa84a7836d75)
+![modelo ER novo](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/d880978b-5557-46d1-8cac-b155f2205f9e)
+
 
 ## Esquema Relacional
 
 O Esquema Relacional corresponde à representação dos dados em tabelas juntamente com as restrições de integridade e chave primária.
  
-![esquema relacional](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/9dc8063d-8a75-4f5b-8b4a-1b9c66f30712)
+![esquema relacional novo](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/c9fab963-8174-4d0c-bb3f-092e0bc4e4b0)
+
 
 ## Modelo Físico
 
@@ -33,15 +37,17 @@ Entregar um arquivo banco.sql contendo os scripts de criação das tabelas do ba
 - Linguagem: JavaScript
 - Biblioteca: React Native
 - IDE: Visual Studio Code e Expo.dev
+- Ferramentas apoio Backend: Postman e MySql WorkBench
 - Ferramenta Wireframes: Figma
 - Ferramenta de Comunicação: Whatsapp e Teams
 - Ferramenta de Gestão de Projeto: Trello
 
-![tecnologias utilizadas](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/53a4605c-c7b2-4e10-86a6-0cfd9067bcb8)
+![tecnologias utilizadas nova](https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app/assets/113808083/c5bcd72c-a7d2-4369-9fb2-ffffdabd1a1f)
+
 
 ## Hospedagem
 
-Por enquanto, a equipe optou por utilizar a orientação da instituição e não usar um banco de dados estruturado e uma hospedagem que comporte essa estrutura. Assim sendo, usaremos JSON server para buscar os dados necessários para demonstrarmos o projeto.
+Por enquanto, a equipe optou por utilizar a orientação da instituição e não usar um banco de dados estruturado e uma hospedagem que comporte essa estrutura. Assim sendo, usaremos NODE para buscar os dados necessários para demonstrarmos o projeto.
 
 ## Qualidade de Software
 
