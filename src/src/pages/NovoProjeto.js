@@ -20,28 +20,41 @@ const NovoProjeto = ({ route }) => {
   const [selected, setSelected] = React.useState("");
   const [usuarios, setUsuarios] = useState([]);
   const [tarefas, setTarefas] = useState([]);
-  const [usuarioSelecionado, setUsuarioSelecionado] = useState([]);
+  const [usuariosSelecionados, setUsuariosSelecionados] = useState([]);   
+  const [idUsuariosSelecionados, setIdUsuariosSelecionados] = useState([]);
   const [tarefaSelecionada, setTarefaSelecionada] = useState([]);
 
   useEffect(() => {
     axios.get(baseURL + 'user').then((dados) => {
       setUsuarios(dados.data.lista)
-      console.log("Retornando dados de usuario:", dados.data.lista)
+     // console.log("Retornando dados de usuario:", dados.data.lista)
     });
     axios.get(baseURL + 'task').then((dados) => {
       setTarefas(dados.data.lista)
-      console.log("Retornando dados de tarefa", dados.data.lista)
+     // console.log("Retornando dados de tarefa", dados.data.lista)
     })
   }, []);
 
-  const handleSelectChange = (usuario) => {
-    setUsuarioSelecionado(usuario);
-    console.log(usuario);
+  const handleSelectChange = (selectedItems) => {
+    
+    const selectedNomes = Array.isArray(selectedItems) ?
+      selectedItems.map(item => item.value) :
+      [];
+      console.log(selectedNomes)
+    setUsuariosSelecionados(selectedNomes);
+
+    // Aqui, você pode acessar os ids dos usuários selecionados
+    const idsSelecionados = usuarios
+      .filter(usuario => selectedNomes.includes(usuario.nome))
+      .map(usuario => usuario.idUser);
+
+    setIdUsuariosSelecionados(idsSelecionados);
+    console.log('IDs dos usuários selecionados:', idsSelecionados);
   };
 
   const handleSelectChangeTarefa = (tarefa) => {
     setTarefaSelecionada(tarefa);
-    console.log(tarefa);
+    console.log(tarefaSelecionada);
   };
 
 
@@ -55,7 +68,7 @@ const NovoProjeto = ({ route }) => {
     { key: '7', value: 'João Silva' },
   ] */
 
-  const dataTarefa = [
+ /* const dataTarefa = [
     { key: '1', value: 'Task1', disabled: true },
     { key: '2', value: 'Task2' },
     { key: '3', value: 'Task3' },
@@ -63,7 +76,7 @@ const NovoProjeto = ({ route }) => {
     { key: '5', value: 'Task5' },
     { key: '6', value: 'Task6' },
     { key: '7', value: 'Task7' },
-  ]
+  ]*/
 
   const navigation = useNavigation();
   const { item } = route.params ? route.params : {};
@@ -159,8 +172,9 @@ const NovoProjeto = ({ route }) => {
           />
 
 
-          <SelectList
+          <MultipleSelectList
             placeholder='Colaborador'
+            label="Colaborador"
             setSelected={handleSelectChange}
             data={usuarios.map(usuario => ({ value: usuario.nome, label: usuario.nome }))}
             save="value"
@@ -220,8 +234,8 @@ const NovoProjeto = ({ route }) => {
             placeholder='Tarefas'
             label='Tarefa'
             setSelected={handleSelectChangeTarefa}
-            data={dataTarefa}
-            /* data={tarefas.map(tarefa => ({ value: tarefa.descricao, label: tarefa.descricao }))} */
+            //data={dataTarefa}
+            data={tarefas.map(tarefa => ({ value: tarefa.descricao, label: tarefa.descricao }))} 
             save="value"
             boxStyles={{ borderRadius: 5, backgroundColor: "#FFF", borderWidth: 0, marginBottom: 4 }}
             dropdownStyles={{ borderRadius: 5, backgroundColor: "#FFF", borderWidth: 0, marginBottom: 4, marginTop: 2 }}
