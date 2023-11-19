@@ -74,7 +74,7 @@ projetoRouter.put('/idProjeto',
                     'string.empty': 'Define any string',
                     'string.pattern': 'Define any string inside pattern'
                 }),
-                status: Joi.string()
+                status: Joi.boolean()
                 .required()
                 .messages({
                     'string.baseq3': 'Param address needs to be a string',
@@ -129,7 +129,7 @@ projetoRouter.post('/',
                     'string.empty': 'Define any string',
                     'string.pattern': 'Define any string inside pattern'
                 }),
-            status: Joi.string()
+            status: Joi.boolean()
                 .required()
                 .messages({
                     'string.baseq3': 'Param name needs to be a string',
