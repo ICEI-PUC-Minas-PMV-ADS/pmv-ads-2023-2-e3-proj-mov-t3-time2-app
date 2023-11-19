@@ -1,0 +1,20 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "Debug Expo",
+        "program": "${workspaceFolder}/node_modules/expo/bin/cli.js",
+        "request": "launch",
+        "type": "node",
+        "args": [
+          "start"
+        ],
+        "cwd": "${workspaceFolder}",
+        "runtimeArgs": [
+          "--nolazy"
+        ],
+        "sourceMaps": true,
+        "outFiles": ["${workspaceFolder}/.vscode/.react"]
+      }
+    ]
+  }
