@@ -34,37 +34,23 @@ const Tarefa = ({ navigation }) => {
     <View style={styles.viewBox}>
       <View style={styles.viewList}>
         <List.Item
-          title={'Tarefa ' + item.nome}
           description={item.descricao}
           left={(props) => <List.Icon {...props} icon="calendar" />}
         />
       </View>
       <View style={styles.button}>
         <Button icon="lead-pencil" color="#45e" mode="elevated" onPress={() => navigation.navigate('novaTarefa', { item })}>Editar</Button>
-        <Button icon="eye-outline" color="green" mode="elevated" onPress={showModal}>abrir</Button>
+        <Button icon="eye-outline" color="green" mode="elevated">abrir</Button>
       </View>
 
     </View>
 
   );
-  //Modal - 4 constantes
-  const [visible, setVisible] = React.useState(false);
-  const showModal = () => setVisible(true);
-  const hideModal = () => setVisible(false);
-  const containerStyle = { backgroundColor: 'white', padding: 20 };
+  
  
   return (
 
     <Container>
-      <Portal>
-        <Modal visible={visible} onDismiss={hideModal} contentContainerStyle={containerStyle}>
-        <FlatList
-          data={item}
-          renderItem={renderitem}
-          keyExtractor={(item) => item.id}
-        />
-        </Modal>
-      </Portal>
       <Body>
         <FlatList
           data={tarefa}
