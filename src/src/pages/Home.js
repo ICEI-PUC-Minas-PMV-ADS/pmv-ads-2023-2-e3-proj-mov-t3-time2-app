@@ -13,8 +13,8 @@ const ProjetoHome = ({navigation}) => {
     <Container>
       <Header title="TaskBook" />
       <View style={styles.usuario}>
-        <Avatar.Text size={48} label="H" />
-        <Text style={styles.usuarioTxt}> Hugo Ferreira</Text>
+        <Avatar.Text size={48} label="J" />
+        <Text style={styles.usuarioTxt}> Junia Campos</Text>
       </View>
       <View style={styles.button}>
         <View>
@@ -39,6 +39,7 @@ const ProjetoHome = ({navigation}) => {
     </Container>
   );
 };
+
 
 const styles = StyleSheet.create({
   usuario: {
