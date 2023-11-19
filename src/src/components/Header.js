@@ -17,7 +17,7 @@ const Header = ({ title, goBack, children }) => {
       }
       <Appbar.Content style={styles.content} title={title} />
       {children}
-       <Appbar.Action icon="logout" onPress={console.log('deslogado')} />
+       {/* <Appbar.Action icon="logout" onPress={console.log('deslogado')} /> */}
     </Appbar.Header>);
 };
 
