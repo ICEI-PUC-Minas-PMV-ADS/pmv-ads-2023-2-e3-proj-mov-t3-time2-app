@@ -58,14 +58,6 @@ userRouter.put('/idUser',
                     'string.empty': 'Define any string',
                     'string.pattern': 'Define any string inside pattern'
                 }),
-                idade: Joi.number()
-                .required()
-                .messages({
-                    'string.baseq3': 'Param address needs to be a string',
-                    'any.required': 'Define any required',
-                    'string.empty': 'Define any string',
-                    'string.pattern': 'Define any string inside pattern'
-                }),
                 idCargo: Joi.number()
                 .required()
                 .messages({
@@ -98,14 +90,6 @@ userRouter.post('/',
                     'string.pattern': 'Define any string inside pattern'
                 }),
             senha: Joi.string()
-                .required()
-                .messages({
-                    'string.baseq3': 'Param name needs to be a string',
-                    'any.required': 'Define any required',
-                    'string.empty': 'Define any string',
-                    'string.pattern': 'Define any string inside pattern'
-                }),
-            idade: Joi.number()
                 .required()
                 .messages({
                     'string.baseq3': 'Param name needs to be a string',
