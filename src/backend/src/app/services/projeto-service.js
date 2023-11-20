@@ -21,6 +21,18 @@ module.exports = {
             throw error
         }
     },
+
+    async loadGetProjetoNomeService(context) {
+        try {
+            let query = null
+            query = await querysProjetos.queryProjetoNome(context)
+            const getProjetoNome = await mysqlHelper.simpleExecute(query)
+            return getProjetoNome
+        } catch (error) {
+            throw error
+        }
+    },
+
     async loadPutProjetoIdService(context) {
         try {
             let query = null

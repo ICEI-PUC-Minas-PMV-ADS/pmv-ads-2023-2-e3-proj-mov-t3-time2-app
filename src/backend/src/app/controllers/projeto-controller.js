@@ -35,6 +35,24 @@ module.exports = {
         }
     },
 
+    async loadGetProjetoNomeController(httpRequest) {
+        try {
+            let lista = null
+            const projeto = await projetoService.loadGetProjetoNomeService(httpRequest.query)
+            lista = projeto
+            return {
+                statusCode: 200,
+                body: { lista }
+            }
+        } catch (error) {
+            return {
+                statusCode: 500,
+                body: { message: error }
+
+            }
+        }
+    },
+
     async loadPutProjetoIdController(httpRequest) {
         try {
             await projetoService.loadPutProjetoIdService(httpRequest)

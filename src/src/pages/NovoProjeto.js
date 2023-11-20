@@ -19,6 +19,7 @@ const baseURL = "http://192.168.18.25:3000/v1/api/";
 const NovoProjeto = ({ route }) => {
   const [selected, setSelected] = React.useState("");
   const [usuarios, setUsuarios] = useState([]);
+  const [projeto, setProjetos] = useState([]);
   const [tarefas, setTarefas] = useState([]);
   const [usuariosSelecionados, setUsuariosSelecionados] = useState([]);   
   const [idUsuariosSelecionados, setIdUsuariosSelecionados] = useState([]);
@@ -27,11 +28,11 @@ const NovoProjeto = ({ route }) => {
   useEffect(() => {
     axios.get(baseURL + 'user').then((dados) => {
       setUsuarios(dados.data.lista)
-     // console.log("Retornando dados de usuario:", dados.data.lista)
+    // console.log("Retornando dados de usuario:", dados.data.lista)
     });
     axios.get(baseURL + 'task').then((dados) => {
       setTarefas(dados.data.lista)
-     // console.log("Retornando dados de tarefa", dados.data.lista)
+    // console.log("Retornando dados de tarefa", dados.data.lista)
     })
   }, []);
 
@@ -40,43 +41,22 @@ const NovoProjeto = ({ route }) => {
     const selectedNomes = Array.isArray(selectedItems) ?
       selectedItems.map(item => item.value) :
       [];
-      console.log(selectedNomes)
+     // console.log(selected)
     setUsuariosSelecionados(selectedNomes);
 
     // Aqui, você pode acessar os ids dos usuários selecionados
     const idsSelecionados = usuarios
-      .filter(usuario => selectedNomes.includes(usuario.nome))
+      .filter(usuario => selected.includes(usuario.nome))
       .map(usuario => usuario.idUser);
 
     setIdUsuariosSelecionados(idsSelecionados);
-    console.log('IDs dos usuários selecionados:', idsSelecionados);
+   // console.log('IDs dos usuários selecionados:', idsSelecionados);
   };
 
   const handleSelectChangeTarefa = (tarefa) => {
     setTarefaSelecionada(tarefa);
-    console.log(tarefaSelecionada);
+   // console.log(tarefaSelecionada);
   };
-
-
-  /* const data = [
-    { key: '1', value: 'João', disabled: true },
-    { key: '2', value: 'Maria' },
-    { key: '3', value: 'Márcia' },
-    { key: '4', value: 'Ana', disabled: true },
-    { key: '5', value: 'Pedro' },
-    { key: '6', value: 'Jairo' },
-    { key: '7', value: 'João Silva' },
-  ] */
-
- /* const dataTarefa = [
-    { key: '1', value: 'Task1', disabled: true },
-    { key: '2', value: 'Task2' },
-    { key: '3', value: 'Task3' },
-    { key: '4', value: 'Task4', disabled: true },
-    { key: '5', value: 'Task5' },
-    { key: '6', value: 'Task6' },
-    { key: '7', value: 'Task7' },
-  ]*/
 
   const navigation = useNavigation();
   const { item } = route.params ? route.params : {};
@@ -94,14 +74,31 @@ const NovoProjeto = ({ route }) => {
     showMode(date);
   };
 
+  const formatarData = (dataString) => {
+      const [dia, mes, ano] = dataString.split('/');
+      const data = new Date(`${ano}-${mes}-${dia}T00:00:00.000Z`);
+      const anoFormatado = data.getUTCFullYear();
+      const mesFormatado = ('0' + (data.getUTCMonth() + 1)).slice(-2);
+      const diaFormatado = ('0' + data.getUTCDate()).slice(-2);
+      const horasFormatadas = ('0' + data.getUTCHours()).slice(-2);
+      const minutosFormatados = ('0' + data.getUTCMinutes()).slice(-2);
+      const segundosFormatados = ('0' + data.getUTCSeconds()).slice(-2);
+    
+      const dataFormatada = `${anoFormatado}-${mesFormatado}-${diaFormatado}T${horasFormatadas}:${minutosFormatados}:${segundosFormatados}.000Z`;
+    
+      return dataFormatada;
+    
+  }
+
   const [nome, setNome] = useState('');
   const [descricao, setDescricao] = useState('');
   const [colaborador, setColaborador] = useState('');
-  const [dataInicio, setDataInicio] = useState(new Date().toLocaleDateString('pt-BR'));
-  const [dataFim, setDataFim] = useState(new Date().toLocaleDateString('pt-BR'));
+  const [dataInicio, setDataInicio] = useState(new Date());
+  const [dataFim, setDataFim] = useState(new Date());
   const [tarefa, setTarefa] = useState('');
   const [showInicio, setShowInicio] = useState(false);
   const [showFim, setShowFim] = useState(false);
+  const [status, setStatus] = useState('');
 
   useEffect(() => {
     if (item) {
@@ -111,12 +108,55 @@ const NovoProjeto = ({ route }) => {
       setDataInicio(item.datainicio);
       setDataFim(item.datafim);
       setTarefa(item.tarefa);
+      setStatus(item.status);
     }
   }, [item]);
 
   const handleSalvar = () => {
-    if (item) {
-      updateProjetos(
+   // if (item) {
+     //useEffect(() => {
+      console.log(baseURL + 'projeto/nome?nome='+'"'+nome+'"')
+       axios.get(baseURL + 'projeto/nome?nome='+'"'+nome+'"'
+        ).then((dados) => {
+         console.log(dados.data.lista)
+          setProjetos(dados.data.lista)
+         axios.put(baseURL + 'projeto/idProjeto?idProjeto='+dados.data.lista[0].idProjeto,
+          {
+            nome: nome,
+            descricao: descricao,
+            dataInicio: formatarData(dataInicio),
+            dataConclusao: formatarData(dataFim),
+            status: novoStatus
+          }
+        ).then((dados) => {
+          setUsuarios(dados.data.lista)
+          console.log("Retornando dados de usuario:", dados.data.lista)
+        });
+          console.log("Retornando dados de projetos:", dados.data.lista)
+        });
+     // }, []);
+
+        console.log("dados de projeto",projeto)
+        const novoStatus = status ? true : false
+        
+
+        /*selected.map(item => {
+          useEffect(() => {
+            axios.post(baseURL + 'user_projeto',
+              {
+                nome: nome,
+                descricao: descricao,
+                dataInicio: dataInicio,
+                dataConclusao: dataFim,
+              }
+            ).then((dados) => {
+              setUsuarios(dados.data.lista)
+              console.log("Retornando dados de usuario:", dados.data.lista)
+            });
+          }, []);})*/
+
+
+      /*updateProjetos(
         {
           nome: nome,
           descricao: descricao,
@@ -126,19 +166,19 @@ const NovoProjeto = ({ route }) => {
           tarefa: tarefa,
           id: item.id
         }
-      ).then();
-    } else {
-      insertProjetos(
-        {
-          nome: nome,
-          descricao: descricao,
-          colaborador: colaborador,
-          datainicio: dataInicio,
-          datafim: dataFim,
-          tarefa: tarefa
-        }
-      ).then();
-    }
+      ).then();*/
+    //} else {
+    //  insertProjetos(
+     //   {
+     //     nome: nome,
+     //     descricao: descricao,
+     //     colaborador: colaborador,
+     //     datainicio: dataInicio,
+      //    datafim: dataFim,
+     //     tarefa: tarefa
+      //  }
+     // ).then();
+   // }
     navigation.goBack()
   }
   const handleExcluir = () => {
@@ -175,7 +215,9 @@ const NovoProjeto = ({ route }) => {
           <MultipleSelectList
             placeholder='Colaborador'
             label="Colaborador"
-            setSelected={handleSelectChange}
+            setSelected={(val) => setSelected(val)}
+            onSelect={handleSelectChange}
+            serch={true}
             data={usuarios.map(usuario => ({ value: usuario.nome, label: usuario.nome }))}
             save="value"
             boxStyles={{ borderRadius: 5, backgroundColor: "#FFF", borderWidth: 0, marginBottom: 4 }}
