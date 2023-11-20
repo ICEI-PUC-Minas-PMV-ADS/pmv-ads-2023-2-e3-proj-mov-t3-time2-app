@@ -9,8 +9,8 @@ module.exports = {
         return query
     },
     async queryPostUser(context) {
-        let query = `INSERT INTO taskbook.user(nome,email,senha,idCargo)`
-        query += ` VALUES ('${context.nome}', '${context.email}','${context.senha}','${context.idCargo}')`
+        let query = `INSERT INTO taskbook.user(nome,email,senha)`
+        query += ` VALUES ('${context.nome}', '${context.email}','${context.senha}')`
         return query
     },
     async queryDeleteUserId(context) {
@@ -29,8 +29,6 @@ module.exports = {
             query += `, email = '${bodyParam.email}'`
         }if(bodyParam.senha) {
             query += `, senha = '${bodyParam.senha}'`
-        }if(bodyParam.idCargo) {
-            query += `, idCargo = '${bodyParam.idCargo}'`
         }
         query += ` WHERE idUser = ${queryParam.idUser}`
         return query
