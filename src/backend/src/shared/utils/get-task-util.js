@@ -15,8 +15,8 @@ module.exports = {
         let dataConc = moment(context.dataConclusao)
         dataIni = dataIni.format('YYYY-MM-DD HH:mm:ss')
         dataConc = dataConc.format('YYYY-MM-DD HH:mm:ss')
-        let query = `INSERT INTO taskbook.task(descricao,status,dataInicio,dataConclusao,idUser)`
-        query += ` VALUES ('${context.descricao}', '${context.status}','${dataIni}', '${dataConc}','${context.idUser}')`
+        let query = `INSERT INTO taskbook.task(descricao,dataInicio,dataConclusao,idUser,status)`
+        query += ` VALUES ('${context.descricao}','${dataIni}', '${dataConc}','${context.status}')`
         return query
     },
     async queryDeleteTaskId(context) {
@@ -31,9 +31,7 @@ module.exports = {
         if (bodyParam.descricao) {
             query += ` SET descricao = '${bodyParam.descricao}'`
         }
-        if(bodyParam.status) {
-            query += `, status = '${bodyParam.status}'`
-        }if(bodyParam.dataInicio) {
+        if(bodyParam.dataInicio) {
             let dataIni = moment(bodyParam.dataInicial)  
             dataIni = dataIni.format('YYYY-MM-DD HH:mm:ss')     
             query += `, dataInicio = '${dataIni}'`
@@ -41,8 +39,8 @@ module.exports = {
             let dataConc = moment(bodyParam.dataConclusao)
             dataConc = dataConc.format('YYYY-MM-DD HH:mm:ss')
             query += `, dataConclusao = '${dataConc}'`
-        }if(bodyParam.idUser) {
-            query += `, idUser = '${bodyParam.idUser}'`
+        }if(bodyParam.status) {
+            query += `, status = '${bodyParam.status}'`
         }
         query += ` WHERE idTask = ${queryParam.idTask}`
         return query

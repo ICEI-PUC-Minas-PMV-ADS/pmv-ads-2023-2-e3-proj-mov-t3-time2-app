@@ -4,7 +4,7 @@ const pjson = require('../../../../package.json')
 const userRouter = require('../../../app/routes/user-router')
 const projetoRouter = require('../../../app/routes/projeto-router')
 const taskRouter = require('../../../app/routes/task-router')
-const cargoRouter = require('../../../app/routes/cargo-router')
+const userProjetoRouter = require('../../../app/routes/user-projeto-router')
 
 const routes = Router()
 
@@ -28,6 +28,6 @@ routes.get('/', (req, res) => {
 routes.use('/v1/api/user', userRouter)
 routes.use('/v1/api/projeto', projetoRouter)
 routes.use('/v1/api/task', taskRouter)
-routes.use('/v1/api/cargo', cargoRouter)
+routes.use('/v1/api/user_projeto', userProjetoRouter)
 
 module.exports = routes

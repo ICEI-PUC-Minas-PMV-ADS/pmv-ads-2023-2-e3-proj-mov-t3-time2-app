@@ -1,17 +1,63 @@
 import React, { useState, useEffect } from 'react';
-import { StyleSheet, ScrollView, TouchableOpacity } from 'react-native';
-import { Button, Appbar, TextInput } from 'react-native-paper';
+import { StyleSheet, ScrollView, TouchableOpacity, View } from 'react-native';
+import { Button, Appbar, TextInput, Text } from 'react-native-paper';
+
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { useNavigation } from '@react-navigation/native';
+import { insertProjetos, deleteProjetos, updateProjetos } from '../services/ProjetosServicesDB';
+import { SelectList, MultipleSelectList } from 'react-native-dropdown-select-list'
+import axios from "axios"
 
 import Container from '../components/Container';
 import Header from '../components/Header';
 import Body from '../components/Body';
 import Input from '../components/Input';
+import Status from '../components/Status';
 
-import { insertProjetos, deleteProjetos, updateProjetos } from '../services/ProjetosServicesDB';
+const baseURL = "http://192.168.18.25:3000/v1/api/";
 
 const NovoProjeto = ({ route }) => {
+  const [selected, setSelected] = React.useState("");
+  const [usuarios, setUsuarios] = useState([]);
+  const [projeto, setProjetos] = useState([]);
+  const [tarefas, setTarefas] = useState([]);
+  const [usuariosSelecionados, setUsuariosSelecionados] = useState([]);   
+  const [idUsuariosSelecionados, setIdUsuariosSelecionados] = useState([]);
+  const [tarefaSelecionada, setTarefaSelecionada] = useState([]);
+
+  useEffect(() => {
+    axios.get(baseURL + 'user').then((dados) => {
+      setUsuarios(dados.data.lista)
+    // console.log("Retornando dados de usuario:", dados.data.lista)
+    });
+    axios.get(baseURL + 'task').then((dados) => {
+      setTarefas(dados.data.lista)
+    // console.log("Retornando dados de tarefa", dados.data.lista)
+    })
+  }, []);
+
+  const handleSelectChange = (selectedItems) => {
+    
+    const selectedNomes = Array.isArray(selectedItems) ?
+      selectedItems.map(item => item.value) :
+      [];
+     // console.log(selected)
+    setUsuariosSelecionados(selectedNomes);
+
+    // Aqui, você pode acessar os ids dos usuários selecionados
+    const idsSelecionados = usuarios
+      .filter(usuario => selected.includes(usuario.nome))
+      .map(usuario => usuario.idUser);
+
+    setIdUsuariosSelecionados(idsSelecionados);
+   // console.log('IDs dos usuários selecionados:', idsSelecionados);
+  };
+
+  const handleSelectChangeTarefa = (tarefa) => {
+    setTarefaSelecionada(tarefa);
+   // console.log(tarefaSelecionada);
+  };
+
   const navigation = useNavigation();
   const { item } = route.params ? route.params : {};
 
@@ -27,14 +73,32 @@ const NovoProjeto = ({ route }) => {
   const showDatepicker = () => {
     showMode(date);
   };
+
+  const formatarData = (dataString) => {
+      const [dia, mes, ano] = dataString.split('/');
+      const data = new Date(`${ano}-${mes}-${dia}T00:00:00.000Z`);
+      const anoFormatado = data.getUTCFullYear();
+      const mesFormatado = ('0' + (data.getUTCMonth() + 1)).slice(-2);
+      const diaFormatado = ('0' + data.getUTCDate()).slice(-2);
+      const horasFormatadas = ('0' + data.getUTCHours()).slice(-2);
+      const minutosFormatados = ('0' + data.getUTCMinutes()).slice(-2);
+      const segundosFormatados = ('0' + data.getUTCSeconds()).slice(-2);
+    
+      const dataFormatada = `${anoFormatado}-${mesFormatado}-${diaFormatado}T${horasFormatadas}:${minutosFormatados}:${segundosFormatados}.000Z`;
+    
+      return dataFormatada;
+    
+  }
+
   const [nome, setNome] = useState('');
   const [descricao, setDescricao] = useState('');
   const [colaborador, setColaborador] = useState('');
-  const [dataInicio, setDataInicio] = useState(new Date().toLocaleDateString('pt-BR'));
-  const [dataFim, setDataFim] = useState(new Date().toLocaleDateString('pt-BR'));
+  const [dataInicio, setDataInicio] = useState(new Date());
+  const [dataFim, setDataFim] = useState(new Date());
   const [tarefa, setTarefa] = useState('');
   const [showInicio, setShowInicio] = useState(false);
   const [showFim, setShowFim] = useState(false);
+  const [status, setStatus] = useState('');
 
   useEffect(() => {
     if (item) {
@@ -44,12 +108,55 @@ const NovoProjeto = ({ route }) => {
       setDataInicio(item.datainicio);
       setDataFim(item.datafim);
       setTarefa(item.tarefa);
+      setStatus(item.status);
     }
   }, [item]);
 
   const handleSalvar = () => {
-    if (item) {
-      updateProjetos(
+   // if (item) {
+     //useEffect(() => {
+      console.log(baseURL + 'projeto/nome?nome='+'"'+nome+'"')
+       axios.get(baseURL + 'projeto/nome?nome='+'"'+nome+'"'
+        ).then((dados) => {
+         console.log(dados.data.lista)
+          setProjetos(dados.data.lista)
+         axios.put(baseURL + 'projeto/idProjeto?idProjeto='+dados.data.lista[0].idProjeto,
+          {
+            nome: nome,
+            descricao: descricao,
+            dataInicio: formatarData(dataInicio),
+            dataConclusao: formatarData(dataFim),
+            status: novoStatus
+          }
+        ).then((dados) => {
+          setUsuarios(dados.data.lista)
+          console.log("Retornando dados de usuario:", dados.data.lista)
+        });
+          console.log("Retornando dados de projetos:", dados.data.lista)
+        });
+     // }, []);
+
+        console.log("dados de projeto",projeto)
+        const novoStatus = status ? true : false
+        
+
+        /*selected.map(item => {
+          useEffect(() => {
+            axios.post(baseURL + 'user_projeto',
+              {
+                nome: nome,
+                descricao: descricao,
+                dataInicio: dataInicio,
+                dataConclusao: dataFim,
+              }
+            ).then((dados) => {
+              setUsuarios(dados.data.lista)
+              console.log("Retornando dados de usuario:", dados.data.lista)
+            });
+          }, []);})*/
+
+
+      /*updateProjetos(
         {
           nome: nome,
           descricao: descricao,
@@ -59,25 +166,26 @@ const NovoProjeto = ({ route }) => {
           tarefa: tarefa,
           id: item.id
         }
-      ).then();
-    } else {
-      insertProjetos(
-        {
-          nome: nome,
-          descricao: descricao,
-          colaborador: colaborador,
-          datainicio: dataInicio,
-          datafim: dataFim,
-          tarefa: tarefa
-        }
-        ).then();
-    }
+      ).then();*/
+    //} else {
+    //  insertProjetos(
+     //   {
+     //     nome: nome,
+     //     descricao: descricao,
+     //     colaborador: colaborador,
+     //     datainicio: dataInicio,
+      //    datafim: dataFim,
+     //     tarefa: tarefa
+      //  }
+     // ).then();
+   // }
     navigation.goBack()
   }
   const handleExcluir = () => {
     deleteProjetos(item.id).then();
     navigation.goBack();
   };
+
   return (
     <Container>
       <Header
@@ -91,7 +199,7 @@ const NovoProjeto = ({ route }) => {
       </Header>
       <ScrollView>
         <Body>
-
+          <Status />
           <Input
             label="Nome do Projeto"
             value={nome}
@@ -102,12 +210,19 @@ const NovoProjeto = ({ route }) => {
             value={descricao}
             onChangeText={(text) => setDescricao(text)}
           />
-          <Input
-            label="Colaborador"
-            value={colaborador}
-            onChangeText={(text) => setColaborador(text)}
-          />
 
+
+          <MultipleSelectList
+            placeholder='Colaborador'
+            label="Colaborador"
+            setSelected={(val) => setSelected(val)}
+            onSelect={handleSelectChange}
+            serch={true}
+            data={usuarios.map(usuario => ({ value: usuario.nome, label: usuario.nome }))}
+            save="value"
+            boxStyles={{ borderRadius: 5, backgroundColor: "#FFF", borderWidth: 0, marginBottom: 4 }}
+            dropdownStyles={{ borderRadius: 5, backgroundColor: "#FFF", borderWidth: 0, marginBottom: 4, marginTop: 2 }}
+          />
           {showInicio && (
             <DateTimePicker
               testID="dateTimePicker"
@@ -156,16 +271,21 @@ const NovoProjeto = ({ route }) => {
               editable={false}
             />
           </TouchableOpacity>
-          <Input
-            label="Tarefa"
-            value={tarefa}
-            onChangeText={(text) => setTarefa(text)}
-          />
 
+          <MultipleSelectList
+            placeholder='Tarefas'
+            label='Tarefa'
+            setSelected={handleSelectChangeTarefa}
+            //data={dataTarefa}
+            data={tarefas.map(tarefa => ({ value: tarefa.descricao, label: tarefa.descricao }))} 
+            save="value"
+            boxStyles={{ borderRadius: 5, backgroundColor: "#FFF", borderWidth: 0, marginBottom: 4 }}
+            dropdownStyles={{ borderRadius: 5, backgroundColor: "#FFF", borderWidth: 0, marginBottom: 4, marginTop: 2 }}
+          />
           <Button
             mode="contained"
             style={styles.buttom}
-            color={'#659cf4'}
+            color={'#4682B4'}
             onPress={handleSalvar}>
             Salvar
           </Button>
@@ -186,8 +306,21 @@ const NovoProjeto = ({ route }) => {
 };
 
 const styles = StyleSheet.create({
+  colabField: {
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    flexDirection: 'row'
+  },
+  colabFieldBox: {
+    width: 300,
+    backgroundColor: '#fff',
+    marginBottom: 4
+  },
   buttom: {
     margin: 8
+  },
+  colabButton: {
+    alignSelf: 'center'
   }
 });
 

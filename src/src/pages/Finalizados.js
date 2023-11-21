@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { StyleSheet, FlatList, View } from 'react-native';
 import { List, Button } from 'react-native-paper';
-import axios from "axios";
 
 import Container from '../components/Container';
 import Body from '../components/Body';
@@ -9,16 +8,14 @@ import Body from '../components/Body';
 import { getProjetos } from '../services/ProjetosServicesDB';
 import { useIsFocused } from '@react-navigation/native';
 
-const EmAndamento = () => {
+const Finalizado = () => {
 
   const isFocused = useIsFocused();
   const [projeto, setProjeto] = useState([]);
-  const baseURL = "http://192.168.18.25:3000/v1/api/";
 
   useEffect(() => {
-    axios.get(baseURL+'projeto').then((dados) => {
-      setProjeto(dados.data.lista)
-      console.log(dados.data.lista)
+    getProjetos().then((dados) => {
+      setProjeto(dados);
     });
   }, [isFocused]);
 
@@ -32,7 +29,7 @@ const EmAndamento = () => {
         />
       </View>
       <View>
-      <Button color="#620B66" mode="contained">Em andamento</Button>
+      <Button color="#0D7634" mode="contained">Finalizado</Button>
       </View>
     </View>
   );
@@ -71,4 +68,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default EmAndamento;
+export default Finalizado;

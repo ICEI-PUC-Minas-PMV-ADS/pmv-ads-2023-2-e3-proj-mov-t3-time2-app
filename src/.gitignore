@@ -1,12 +1,16 @@
 # Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 
 # dependencies
+package-lock.json
 node_modules/
 
 # Expo
 .expo/
 dist/
 web-build/
+
+# android
+android
 
 # Native
 *.orig.*

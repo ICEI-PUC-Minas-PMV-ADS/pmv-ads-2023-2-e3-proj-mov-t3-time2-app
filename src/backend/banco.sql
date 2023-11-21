@@ -43,9 +43,10 @@ CREATE TABLE PROJETO (
   dataConclusao DATE,
   idUser INT,
   FOREIGN KEY (idUser) REFERENCES USER(idUser)
+  status VARCHAR(255),
   );
   
-   INSERT INTO projeto(nome,descricao,dataInicio,dataConclusao,idUser) VALUES('Limpa Arquivo','Devolver documentos para os clientes',sysdate(),sysdate()+5,'2');
+   INSERT INTO projeto(nome,descricao,dataInicio,dataConclusao,idUser,status) VALUES('Limpa Arquivo','Devolver documentos para os clientes',sysdate(),sysdate()+5,'2','em andamento');
 
 ## Tabela Tarefas
 

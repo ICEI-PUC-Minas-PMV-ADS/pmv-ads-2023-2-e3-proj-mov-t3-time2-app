@@ -2,26 +2,28 @@ import React, { Component, useState } from 'react';
 import { TextInput, Button, Text, Appbar } from 'react-native-paper';
 import { StyleSheet, View, Alert } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
-import {useNavigation} from '@react-navigation/native'
+import { useNavigation } from '@react-navigation/native'
 
 import Container from '../components/Container.js';
 import Body from '../components/Body.js';
 import Logo from '../components/Logo.js';
 import Input from '../components/Input';
 
-
-import {useUser} from '../contexts/UserContext'
-import {login} from '../services/auth.services';
-
+import { useUser } from '../contexts/UserContext'
+import { login } from '../services/auth.services';
 
 const Login = () => {
 
   const navigation = useNavigation();
-  const {setSigned, setName} = useUser();
+  const { setSigned, setName } = useUser();
 
   const [email, setEmail] = useState('juniacamposjc@gmail');
   const [password, setPassword] = useState('pucminas');
 
+  // TESTE LOGIN TRUE
+  const handleLoginTrue = () => {
+    setSigned(true)
+  }
   const handleLogin = () => {
     login({
       email: email,
@@ -34,7 +36,7 @@ const Login = () => {
         setName(res.user.name);
         AsyncStorage.setItem('@TOKEN_KEY', res.accessToken).then();
       } else {
-        Alert.alert(
+        console.log(
           'Atenção',
           'Usuário ou senha inválidos!'
         );
@@ -42,63 +44,63 @@ const Login = () => {
     });
   };
 
-    return (
-      <Container>
+  return (
+    <Container>
 
       <View style={styles.header}>
-          <Logo/>
-      </View>          
-        <Body>
-        
-          <Input
-            label="Email"
-            value={email}
-            onChangeText={(text) => setEmail(text)}
-            left={<TextInput.Icon name="account"/>}
-          />
-          <Input
-            label="Senha"
-            value={password}
-            secureTextEntry
-            onChangeText={(text) => setPassword(text)}
-            left={<TextInput.Icon name="key"/>}
-          />
-          <Button
-            style={styles.button}
-            mode="contained"
-            onPress={handleLogin()}>
-            Login
-          </Button>
-          <Button
+        <Logo />
+      </View>
+      <Body>
+
+        <Input
+          label="Email"
+          value={email}
+          onChangeText={(text) => setEmail(text)}
+          left={<TextInput.Icon name="account" />}
+        />
+        <Input
+          label="Senha"
+          value={password}
+          secureTextEntry
+          onChangeText={(text) => setPassword(text)}
+          left={<TextInput.Icon name="key" />}
+        />
+        <Button
+          style={styles.button}
+          mode="contained"
+          onPress={() => handleLoginTrue()}>
+          Login
+        </Button>
+        <Button
           uppercase={false}
           mode="text"
           onPress={() => console.log('Pressed')}>
           Esqueci minha senha
         </Button>
-          <Button mode="outlined" 
+        <Button mode="outlined"
           onPress={() => navigation.navigate('Register')}>
-            Registrar
-          </Button>
-        </Body>
-       
-      </Container>
-      
-    );
-  
+          Registrar
+        </Button>
+      </Body>
+
+    </Container>
+
+  );
+
 }
 
 const styles = StyleSheet.create({
-  button:{
-    marginBottom:8,
-    marginTop:18,
+  button: {
+    marginBottom: 8,
+    marginTop: 18,
     backgroundColor: '#124698',
   },
-  header:{
-    alignItems:'center',
+  header: {
+    alignItems: 'center',
     marginTop: 30,
     marginBottom: 12
   },
-  
+
 });
 
 export default Login;

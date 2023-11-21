@@ -22,6 +22,21 @@ projetoRouter.get('/idProjeto',
     }),
     expressCallback(projetoController.loadGetProjetoIdController))
 
+projetoRouter.get('/nome',
+    celebrate({
+        [Segments.QUERY]: {
+           nome: Joi.string()
+                .required()
+                .messages({
+                    'number.baseq3': 'Param nome needs to be a string',
+                    'any.required': 'Define any required',
+                    'number.empty': 'Define any number',
+                    'number.pattern': 'Define any number inside pattern'
+                }),
+        }
+    }),
+    expressCallback(projetoController.loadGetProjetoNomeController))    
+
 projetoRouter.put('/idProjeto',
     celebrate({
         [Segments.QUERY]: {
@@ -66,7 +81,7 @@ projetoRouter.put('/idProjeto',
                     'string.empty': 'Define any string',
                     'string.pattern': 'Define any string inside pattern'
                 }),
-                idUser: Joi.number()
+                status: Joi.boolean()
                 .required()
                 .messages({
                     'string.baseq3': 'Param address needs to be a string',
@@ -113,7 +128,7 @@ projetoRouter.post('/',
                     'string.empty': 'Define any string',
                     'string.pattern': 'Define any string inside pattern'
                 }),
-            idUser: Joi.number()
+            status: Joi.boolean()
                 .required()
                 .messages({
                     'string.baseq3': 'Param name needs to be a string',

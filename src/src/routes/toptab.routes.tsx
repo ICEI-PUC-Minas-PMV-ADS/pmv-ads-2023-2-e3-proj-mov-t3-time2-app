@@ -3,10 +3,14 @@ import { createMaterialTopTabNavigator } from '@react-navigation/material-top-ta
 
 import { StackRoutes } from './stack.routes';
 import EmAndamento from '../pages/EmAndamento'
+import { Provider } from 'react-native-paper';
+import Finalizado from '../pages/Finalizados';
 
 function ProjetoScreen() {
       return (
-        <StackRoutes />
+        <Provider>
+            <StackRoutes />
+        </Provider>
     );
 }
 
@@ -18,9 +22,7 @@ function EmAndamentoScreen() {
 
 function FinalizadosScreen() {
     return (
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-            <Text>Finalizados</Text>
-        </View>
+        <Finalizado/>
     );
 }
 
