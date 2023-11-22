@@ -7,7 +7,7 @@ const authRouter = Router()
 authRouter.get('/',
     expressCallback(authController.loadGetAuthController))
 
-userRouter.get('/idUser',
+authRouter.get('/idUser',
     celebrate({
         [Segments.QUERY]: {
             idUser: Joi.number()

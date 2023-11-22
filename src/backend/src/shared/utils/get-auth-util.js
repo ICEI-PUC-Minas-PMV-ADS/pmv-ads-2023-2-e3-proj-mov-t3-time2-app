@@ -18,7 +18,7 @@ module.exports = {
         query += ` WHERE idUser = ${context.idUser}`
         return query
     },
-    async queryPutUserId(context) {
+    async queryPutAuthId(context) {
         let query = `UPDATE taskbook.auth `
         const queryParam = context.query
         const bodyParam = context.body

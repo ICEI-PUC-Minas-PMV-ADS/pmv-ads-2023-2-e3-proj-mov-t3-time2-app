@@ -30,6 +30,6 @@ routes.use('/v1/api/user', userRouter)
 routes.use('/v1/api/projeto', projetoRouter)
 routes.use('/v1/api/task', taskRouter)
 routes.use('/v1/api/user_projeto', userProjetoRouter)
-routes,use('/v1/api/auth', authRouter)
+routes.use('/v1/api/auth', authRouter)
 
 module.exports = routes
