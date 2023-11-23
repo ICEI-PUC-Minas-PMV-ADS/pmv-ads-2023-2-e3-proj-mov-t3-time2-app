@@ -3,31 +3,16 @@ module.exports = {
         const query = `SELECT * FROM taskbook.auth`
         return query
     },
-    async queryAuthId(context) {
+    async queryAuth(context) {
         let query = `SELECT * FROM taskbook.auth`
-        query += ' WHERE idUser = ' + context.idUser
+        query += ` WHERE idUser = '${context.idUser}' `
+        query += `  AND  email = '${context.email}' `
         return query
     },
     async queryPostAuth(context) {
-        let query = `INSERT INTO taskbook.auth(email,senha)`
-        query += ` VALUES ('${context.email}','${context.senha}')`
+        let query = `INSERT INTO taskbook.auth(idUser,email,senha)`
+        query += ` VALUES ('${context.idUser}','${context.email}',md5('${context.senha}'))`
         return query
     },
-    async queryDeleteAuthId(context) {
-        let query = `DELETE FROM taskbook.auth`
-        query += ` WHERE idUser = ${context.idUser}`
-        return query
-    },
-    async queryPutAuthId(context) {
-        let query = `UPDATE taskbook.auth `
-        const queryParam = context.query
-        const bodyParam = context.body
-        if(bodyParam.email) {
-            query += `, email = '${bodyParam.email}'`
-        }if(bodyParam.senha) {
-            query += `, senha = '${bodyParam.senha}'`
-        }
-        query += ` WHERE idUser = ${queryParam.idUser}`
-        return query
-    }
+   
 }

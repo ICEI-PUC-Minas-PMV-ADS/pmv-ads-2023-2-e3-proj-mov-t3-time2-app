@@ -4,12 +4,10 @@ const expressCallback = require('../utils/express-callback')
 const authController = require('../controllers/auth-controller')
 const authRouter = Router()
 
-authRouter.get('/',
-    expressCallback(authController.loadGetAuthController))
 
-authRouter.get('/idUser',
+authRouter.post('/user',
     celebrate({
-        [Segments.QUERY]: {
+        [Segments.BODY]: {
             idUser: Joi.number()
                 .required()
                 .messages({
@@ -18,42 +16,19 @@ authRouter.get('/idUser',
                     'number.empty': 'Define any number',
                     'number.pattern': 'Define any number inside pattern'
                 }),
-        }
-    }),
-    expressCallback(authController.loadGetAuthIdController))
-
-authRouter.put('/idUser',
-    celebrate({
-        [Segments.QUERY]: {
-            idUser: Joi.number()
-                .required()
-                .messages({
-                    'number.baseq3': 'Param id needs to be a number',
-                    'any.required': 'Define any required',
-                    'number.empty': 'Define any number',
-                    'number.pattern': 'Define any string inside pattern'
-                }),
-        },
-        [Segments.BODY]: {
             email: Joi.string()
                 .required()
                 .messages({
-                    'string.baseq3': 'Param address needs to be a string',
+                    'string.baseq3': 'Param id needs to be a string',
                     'any.required': 'Define any required',
                     'string.empty': 'Define any string',
                     'string.pattern': 'Define any string inside pattern'
                 }),
-                senha: Joi.string()
-                .required()
-                .messages({
-                    'string.baseq3': 'Param address needs to be a string',
-                    'any.required': 'Define any required',
-                    'string.empty': 'Define any string',
-                    'string.pattern': 'Define any string inside pattern'
-                }),
-        },
+        }
     }),
-    expressCallback(authController.loadPutAuthIdController))
+    expressCallback(authController.loadPostAuthUserController))
+
+
 
 authRouter.post('/',
     celebrate({
@@ -74,14 +49,6 @@ authRouter.post('/',
                     'string.empty': 'Define any string',
                     'string.pattern': 'Define any string inside pattern'
                 }),
-            
-        },
-    }),
-    expressCallback(authController.loadPostAuthController))
-
-authRouter.delete('/idUser',
-    celebrate({
-        [Segments.QUERY]: {
             idUser: Joi.number()
                 .required()
                 .messages({
@@ -90,8 +57,11 @@ authRouter.delete('/idUser',
                     'number.empty': 'Define any number',
                     'number.pattern': 'Define any number inside pattern'
                 }),
+            
         },
     }),
-    expressCallback(authController.loadDeleteAuthIdController))
+    expressCallback(authController.loadPostAuthController))
+
+
 
 module.exports = authRouter
