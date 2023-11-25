@@ -16,13 +16,13 @@ const Register = () => {
 
   const [nome, setNome] = useState('Junia Campos');
   const [email, setEmail] = useState('juniacamposjc@gmail.com');
-  const [password, setPassword] = useState('pucminas');
+  const [senha, setSenha] = useState('pucminas');
 
   const handleRegister = () => {
     register({
       nome: nome,
       email: email,
-      password: password,
+      senha: senha,
     }).then((res) => {
      console.log(res);
 
@@ -59,9 +59,9 @@ const Register = () => {
         />
         <Input
           label="Senha"
-          value={password}
+          value={senha}
           secureTextEntry
-          onChangeText={(text) => setPassword(text)}
+          onChangeText={(text) => setSenha(text)}
           left={<TextInput.Icon name="key" />}
         />
         <Button style={styles.button} mode="contained" onPress={handleRegister()}>
