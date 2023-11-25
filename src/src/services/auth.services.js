@@ -23,7 +23,7 @@ export const register = async (param) => {
 
 export const login = async (param) => {
   try {
-    return await axios.post(baseURL + 'user', param).then(
+    return await axios.get(baseURL + 'user', param).then(
       response => {
         return response.data;
       },

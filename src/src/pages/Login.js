@@ -17,8 +17,8 @@ const Login = () => {
   const navigation = useNavigation();
   const { setSigned, setNome } = useUser();
 
-  const [email, setEmail] = useState('juniacamposjc@gmail');
-  const [senha, setSenha] = useState('pucminas');
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
 
   // TESTE LOGIN TRUE
  // const handleLoginTrue = () => {
@@ -28,7 +28,7 @@ const Login = () => {
   const handleLogin = () => {
     login({
       email: email,
-      senha: senha,
+      senha: (senha),
     }).then((res) => {
       console.log(res);
 

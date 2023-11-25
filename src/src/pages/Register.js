@@ -14,16 +14,16 @@ import { useNavigation } from '@react-navigation/native';
 const Register = () => {
   const navigation = useNavigation();
 
-  const [nome, setNome] = useState('Junia Campos');
-  const [email, setEmail] = useState('juniacamposjc@gmail.com');
-  const [senha, setSenha] = useState('pucminas');
+  const [nome, setNome] = useState('');
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
 
   const handleRegister = () => {
     register({
       nome: nome,
       email: email,
       senha: senha,
-    }).then((res) => {
+    }).then(res => {
      console.log(res);
 
      if (res) {
@@ -64,10 +64,15 @@ const Register = () => {
           onChangeText={(text) => setSenha(text)}
           left={<TextInput.Icon name="key" />}
         />
-        <Button style={styles.button} mode="contained" onPress={handleRegister()}>
+        <Button 
+        style={styles.button} 
+        mode="contained" 
+        onPress={handleRegister}>
           Registrar
         </Button>
-        <Button mode="outlined" onPress={() => navigation.navigate('Login')}>
+        <Button 
+        mode="outlined" 
+        onPress={() => navigation.navigate('Login')}>
           Voltar
         </Button>
       </Body>
