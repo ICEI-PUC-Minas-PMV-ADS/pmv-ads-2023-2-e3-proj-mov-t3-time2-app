@@ -15,28 +15,29 @@ import { login } from '../services/auth.services';
 const Login = () => {
 
   const navigation = useNavigation();
-  const { setSigned, setName } = useUser();
+  const { setSigned, setNome } = useUser();
 
   const [email, setEmail] = useState('juniacamposjc@gmail');
-  const [password, setPassword] = useState('pucminas');
+  const [senha, setSenha] = useState('pucminas');
 
   // TESTE LOGIN TRUE
-  const handleLoginTrue = () => {
-    setSigned(true)
-  }
+ // const handleLoginTrue = () => {
+    //setSigned(true)
+ // }
+
   const handleLogin = () => {
     login({
       email: email,
-      password: password,
+      senha: senha,
     }).then((res) => {
       console.log(res);
 
       if (res && res.user) {
         setSigned(true);
-        setName(res.user.name);
+        setNome(res.user.nome);
         AsyncStorage.setItem('@TOKEN_KEY', res.accessToken).then();
       } else {
-        console.log(
+        Alert.alert(
           'Atenção',
           'Usuário ou senha inválidos!'
         );
@@ -60,15 +61,15 @@ const Login = () => {
         />
         <Input
           label="Senha"
-          value={password}
+          value={senha}
           secureTextEntry
-          onChangeText={(text) => setPassword(text)}
+          onChangeText={(text) => setSenha(text)}
           left={<TextInput.Icon name="key" />}
         />
         <Button
           style={styles.button}
           mode="contained"
-          onPress={() => handleLoginTrue()}>
+          onPress={() => handleLogin()}>
           Login
         </Button>
         <Button
