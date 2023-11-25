@@ -7,14 +7,19 @@ import Container from '../components/Container';
 import Header from '../components/Header';
 import TopTabRoutes from '../routes/toptab.routes';
 
+import {useUser} from '../contexts/UserContext';
+
 const ProjetoHome = ({navigation}) => {
+
+  //Para identificar quem está logado
+  const {nome} = useUser();
 
   return (
     <Container>
       <Header title="TaskBook" />
       <View style={styles.usuario}>
         <Avatar.Text size={48} label="J" />
-        <Text style={styles.usuarioTxt}> Junia Campos</Text>
+        <Text style={styles.usuarioTxt}>{'Olá ' + nome} </Text>
       </View>
       <View style={styles.button}>
         <View>
