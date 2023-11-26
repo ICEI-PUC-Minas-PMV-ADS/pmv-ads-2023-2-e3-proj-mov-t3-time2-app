@@ -28,14 +28,15 @@ const Login = () => {
   const handleLogin = () => {
     login({
       email: email,
-      senha: (senha),
+      senha: senha,
     }).then((res) => {
-      console.log(res);
+      console.log("handleLogin",res);
 
-      if (res && res.user) {
+      if (res && res.status == 200) {
         setSigned(true);
-        setNome(res.user.nome);
-        AsyncStorage.setItem('@TOKEN_KEY', res.accessToken).then();
+        console.log(res.user)
+        //setNome(res.user[0].nome);
+        setNome('Marcos Vini');
       } else {
         Alert.alert(
           'Atenção',

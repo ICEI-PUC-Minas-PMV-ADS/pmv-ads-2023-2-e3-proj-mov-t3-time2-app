@@ -22,14 +22,16 @@ export const register = async (param) => {
 };
 
 export const login = async (param) => {
-  try {
-    return await axios.get(baseURL + 'user', param).then(
+  try { console.log(param)
+    return await axios.post(baseURL + 'user/authUser', param).then(
       response => {
-        return response.data;
-      },
-      error => {
-        console.log(error);
-        return null;
+        if(response?.status){
+          return {status: response?.status,
+          user: response?.data.user}
+        }else{
+          return {status: 500,
+          user: response?.data.user}
+        }
       }
     );
   } catch (error) {

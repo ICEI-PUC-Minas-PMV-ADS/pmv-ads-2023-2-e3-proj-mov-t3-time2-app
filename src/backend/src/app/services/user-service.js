@@ -30,6 +30,16 @@ module.exports = {
             throw error
         }
     },
+    async loadPostUserEmailService(context) {
+        try {
+            let query = null
+            query = await querysUsers.queryPostUserEmail(context)
+          const user =  await mysqlHelper.simpleExecute(query)
+          return user
+        } catch (error) {
+            throw error
+        }
+    },
     async loadPostUserService(context) {
         try {
             let query = null

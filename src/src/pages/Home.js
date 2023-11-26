@@ -12,14 +12,14 @@ import {useUser} from '../contexts/UserContext';
 const ProjetoHome = ({navigation}) => {
 
   //Para identificar quem está logado
-  const {nome} = useUser();
+  const {nome} = useUser('');
 
   return (
     <Container>
       <Header title="TaskBook" />
       <View style={styles.usuario}>
-        <Avatar.Text size={48} label="J" />
-        <Text style={styles.usuarioTxt}>{'Olá ' + nome} </Text>
+        <Avatar.Text size={48} label="M" />
+        <Text style={styles.usuarioTxt}> Marcos </Text>
       </View>
       <View style={styles.button}>
         <View>
