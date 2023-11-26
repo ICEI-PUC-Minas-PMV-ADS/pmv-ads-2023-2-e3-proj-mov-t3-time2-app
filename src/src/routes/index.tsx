@@ -5,6 +5,7 @@ import ProjetoHome from '../pages/Home';
 import NovoProjeto from '../pages/NovoProjeto'
 import NovoColaborador from '../pages/NovoColaborador';
 import NovaTarefa from '../pages/NovaTarefa';
+import EditarProjeto from '../pages/EditarProjeto';
 
 const { Screen, Navigator } = createNativeStackNavigator();
 
@@ -25,6 +26,13 @@ export function IndexRoutes() {
                     headerShown: false,
                 }}
                 component={NovoProjeto}
+            />
+            <Screen
+                name='EditarProjeto'
+                options={{
+                    headerShown: false,
+                }}
+                component={EditarProjeto}
             />
             <Screen
                 name='NovoColaborador'

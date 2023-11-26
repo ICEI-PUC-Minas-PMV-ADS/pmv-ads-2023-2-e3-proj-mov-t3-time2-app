@@ -3,6 +3,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 import Projeto from '../pages/Projeto'
 import NovoProjeto from '../pages/NovoProjeto'
+import EditarProjeto from '../pages/EditarProjeto'
+
 
 const { Screen, Navigator } = createNativeStackNavigator();
 
@@ -23,6 +25,13 @@ export function StackRoutes() {
                     headerShown: false,
                 }}
                 component={NovoProjeto}
+            />
+            <Screen
+                name='editarProjeto'
+                options={{
+                    headerShown: false,
+                }}
+                component={EditarProjeto}
             />
         </Navigator>
     )

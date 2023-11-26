@@ -17,7 +17,7 @@ import Status from '../components/Status';
 const baseURL = "http://192.168.18.25:3000/v1/api/";
 
 const NovoProjeto = ({ route }) => {
-  const [selected, setSelected] = React.useState("");
+  const [selected, setSelected] = useState("");
   const [usuarios, setUsuarios] = useState([]);
   const [projeto, setProjetos] = useState([]);
   const [tarefas, setTarefas] = useState([]);
@@ -25,6 +25,7 @@ const NovoProjeto = ({ route }) => {
   const [idUsuariosSelecionados, setIdUsuariosSelecionados] = useState([]);
   const [tarefaSelecionada, setTarefaSelecionada] = useState([]);
 
+  
   useEffect(() => {
     axios.get(baseURL + 'user').then((dados) => {
       setUsuarios(dados.data.lista)
@@ -112,79 +113,57 @@ const NovoProjeto = ({ route }) => {
     }
   }, [item]);
 
-  const handleSalvar = () => {
-   // if (item) {
-     //useEffect(() => {
-      console.log(baseURL + 'projeto/nome?nome='+'"'+nome+'"')
-       axios.get(baseURL + 'projeto/nome?nome='+'"'+nome+'"'
-        ).then((dados) => {
-         console.log(dados.data.lista)
-          setProjetos(dados.data.lista)
-         axios.put(baseURL + 'projeto/idProjeto?idProjeto='+dados.data.lista[0].idProjeto,
-          {
-            nome: nome,
-            descricao: descricao,
-            dataInicio: formatarData(dataInicio),
-            dataConclusao: formatarData(dataFim),
-            status: novoStatus
-          }
-        ).then((dados) => {
-          setUsuarios(dados.data.lista)
-          console.log("Retornando dados de usuario:", dados.data.lista)
-        });
-          console.log("Retornando dados de projetos:", dados.data.lista)
-        });
-     // }, []);
 
-        console.log("dados de projeto",projeto)
-        const novoStatus = status ? true : false
-        
-
-        /*selected.map(item => {
-          useEffect(() => {
-            axios.post(baseURL + 'user_projeto',
-              {
-                nome: nome,
-                descricao: descricao,
-                dataInicio: dataInicio,
-                dataConclusao: dataFim,
-              }
-            ).then((dados) => {
-              setUsuarios(dados.data.lista)
-              console.log("Retornando dados de usuario:", dados.data.lista)
-            });
-          }, []);})*/
-
-
-      /*updateProjetos(
-        {
-          nome: nome,
-          descricao: descricao,
-          colaborador: colaborador,
-          datainicio: dataInicio,
-          datafim: dataFim,
-          tarefa: tarefa,
-          id: item.id
-        }
-      ).then();*/
-    //} else {
-    //  insertProjetos(
-     //   {
-     //     nome: nome,
-     //     descricao: descricao,
-     //     colaborador: colaborador,
-     //     datainicio: dataInicio,
-      //    datafim: dataFim,
-     //     tarefa: tarefa
-      //  }
-     // ).then();
-   // }
-    navigation.goBack()
-  }
-  const handleExcluir = () => {
-    deleteProjetos(item.id).then();
-    navigation.goBack();
-  };
+  const handleSalvar = async () => {
+    const novoStatus = status ? true : false;
+  
+    // Validar os campos necessários antes de prosseguir
+    if (!nome || !descricao || !dataInicio || !dataFim) {
+      // Adicione feedback ao usuário, por exemplo, uma mensagem de erro
+      console.error("Preencha todos os campos obrigatórios");
+      return;
+    }
+  
+    try { //console.log("descrição item",item)
+      // if (item) {
+         // Atualizar um projeto existente
+         console.log("descrição item handleSalvar", item)
+         const projetoAtualizado = {
+           nome: nome,
+           descricao: descricao,
+           dataInicio: formatarData(dataInicio),
+           dataConclusao: formatarData(dataFim),
+           status: novoStatus,
+         };
+ 
+         console.log("Projeto Atualizado", projetoAtualizado)
+         await axios.post(baseURL + 'projeto',
+           projetoAtualizado
+         );
+   
+         // Atualizar a relação entre usuários e projeto
+         console.log(idUsuariosSelecionados)
+           idUsuariosSelecionados.map(async userId => {
+             if(userId){
+               console.log("ids", item.idProjeto, userId)
+             await axios.post(baseURL + 'user_projeto', {
+               idProjeto: item.idProjeto,
+               idUser: userId,
+             });
+             }
+           })
+  
+   
+       // Adicione feedback ao usuário, por exemplo, uma mensagem de sucesso
+       //console.log("Projeto salvo com sucesso!");
+   
+       // Navegar de volta após o salvamento
+       navigation.goBack();
+     } catch (error) {
+       // Lidar com erros, adicionar feedback ao usuário se necessário
+       console.error("Erro ao salvar o projeto:", error);
+     }
+   };
 
   return (
     <Container>

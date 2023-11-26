@@ -5,6 +5,7 @@ import axios from "axios";
 import Container from '../components/Container';
 import Body from '../components/Body';
 
+
 import { getItems, getProjetos } from '../services/ProjetosServicesDB';
 import { useIsFocused } from '@react-navigation/native';
 
@@ -19,12 +20,9 @@ const Projeto = ({ navigation }) => {
   useEffect(() => {
     axios.get(baseURL+'projeto').then((dados) => {
       setProjeto(dados.data.lista)
-      console.log(dados.data.lista)
+      //console.log(dados.data.lista)
     });
-    //axios.get(baseURL+'user').then((user) => {
-   //   setProjeto(user.data.lista)
-   //   console.log(user.data.lista)
-   // })
+  
     getItems().then((dados) => {
       setItem(dados)
     })
@@ -40,7 +38,7 @@ const Projeto = ({ navigation }) => {
         />
       </View>
       <View style={styles.button}>
-        <Button icon="lead-pencil" color="#45e" mode="elevated" onPress={() => navigation.navigate('novoProjeto', { item })}>Editar</Button>
+        <Button icon="lead-pencil" color="#45e" mode="elevated" onPress={() => navigation.navigate('editarProjeto', { item })}>Editar</Button>
         <Button icon="eye-outline" color="green" mode="elevated" onPress={showModal}>abrir</Button>
       </View>
 
