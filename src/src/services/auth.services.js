@@ -1,9 +1,12 @@
 import API from './webapi.services';
-import {BASE_URL} from './urls';
+import axios from "axios"
+
+const baseURL = "http://192.168.18.25:3000/v1/api/";
+
 
 export const register = async (param) => {
   try {
-    return await API.post(`${BASE_URL}/register`, param).then(
+    return await axios.post(baseURL + 'user', param).then(
       response => {
         return response.data;
       },
@@ -19,14 +22,16 @@ export const register = async (param) => {
 };
 
 export const login = async (param) => {
-  try {
-    return await API.post(`${BASE_URL}/login`, param).then(
+  try { console.log(param)
+    return await axios.post(baseURL + 'user/authUser', param).then(
       response => {
-        return response.data;
-      },
-      error => {
-        console.log(error);
-        return null;
+        if(response?.status){
+          return {status: response?.status,
+          user: response?.data.user}
+        }else{
+          return {status: 500,
+          user: response?.data.user}
+        }
       }
     );
   } catch (error) {

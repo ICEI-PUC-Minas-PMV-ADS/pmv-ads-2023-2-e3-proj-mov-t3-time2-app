@@ -62,6 +62,31 @@ userRouter.put('/idUser',
     }),
     expressCallback(userController.loadPutUserIdController))
 
+    userRouter.post('/authUser',
+    celebrate({
+        [Segments.BODY]: {
+            email: Joi.string()
+                .required()
+                .messages({
+                    'string.baseq3': 'Param address needs to be a string',
+                    'any.required': 'Define any required',
+                    'string.empty': 'Define any string',
+                    'string.pattern': 'Define any string inside pattern'
+                }),
+            senha: Joi.string()
+                .required()
+                .messages({
+                    'string.baseq3': 'Param name needs to be a string',
+                    'any.required': 'Define any required',
+                    'string.empty': 'Define any string',
+                    'string.pattern': 'Define any string inside pattern'
+                }),
+            
+        },
+    }),
+    expressCallback(userController.loadPostUserEmailController))
+
+
 userRouter.post('/',
     celebrate({
         [Segments.BODY]: {
