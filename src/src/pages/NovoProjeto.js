@@ -4,8 +4,6 @@ import { Button, Appbar, TextInput, Text } from 'react-native-paper';
 
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { useNavigation } from '@react-navigation/native';
-import { insertProjetos, deleteProjetos, updateProjetos } from '../services/ProjetosServicesDB';
-import { SelectList, MultipleSelectList } from 'react-native-dropdown-select-list'
 import axios from "axios"
 
 import Container from '../components/Container';
@@ -17,47 +15,6 @@ import Status from '../components/Status';
 const baseURL = "http://192.168.18.25:3000/v1/api/";
 
 const NovoProjeto = ({ route }) => {
-  const [selected, setSelected] = useState("");
-  const [usuarios, setUsuarios] = useState([]);
-  const [projeto, setProjetos] = useState([]);
-  const [tarefas, setTarefas] = useState([]);
-  const [usuariosSelecionados, setUsuariosSelecionados] = useState([]);   
-  const [idUsuariosSelecionados, setIdUsuariosSelecionados] = useState([]);
-  const [tarefaSelecionada, setTarefaSelecionada] = useState([]);
-
-  
-  useEffect(() => {
-    axios.get(baseURL + 'user').then((dados) => {
-      setUsuarios(dados.data.lista)
-    // console.log("Retornando dados de usuario:", dados.data.lista)
-    });
-    axios.get(baseURL + 'task').then((dados) => {
-      setTarefas(dados.data.lista)
-    // console.log("Retornando dados de tarefa", dados.data.lista)
-    })
-  }, []);
-
-  const handleSelectChange = (selectedItems) => {
-    
-    const selectedNomes = Array.isArray(selectedItems) ?
-      selectedItems.map(item => item.value) :
-      [];
-     // console.log(selected)
-    setUsuariosSelecionados(selectedNomes);
-
-    // Aqui, você pode acessar os ids dos usuários selecionados
-    const idsSelecionados = usuarios
-      .filter(usuario => selected.includes(usuario.nome))
-      .map(usuario => usuario.idUser);
-
-    setIdUsuariosSelecionados(idsSelecionados);
-   // console.log('IDs dos usuários selecionados:', idsSelecionados);
-  };
-
-  const handleSelectChangeTarefa = (tarefa) => {
-    setTarefaSelecionada(tarefa);
-   // console.log(tarefaSelecionada);
-  };
 
   const navigation = useNavigation();
   const { item } = route.params ? route.params : {};
@@ -93,10 +50,8 @@ const NovoProjeto = ({ route }) => {
 
   const [nome, setNome] = useState('');
   const [descricao, setDescricao] = useState('');
-  const [colaborador, setColaborador] = useState('');
   const [dataInicio, setDataInicio] = useState(new Date());
   const [dataFim, setDataFim] = useState(new Date());
-  const [tarefa, setTarefa] = useState('');
   const [showInicio, setShowInicio] = useState(false);
   const [showFim, setShowFim] = useState(false);
   const [status, setStatus] = useState('');
@@ -105,10 +60,8 @@ const NovoProjeto = ({ route }) => {
     if (item) {
       setNome(item.nome);
       setDescricao(item.descricao);
-      setColaborador(item.colaborador);
       setDataInicio(item.datainicio);
       setDataFim(item.datafim);
-      setTarefa(item.tarefa);
       setStatus(item.status);
     }
   }, [item]);
@@ -124,8 +77,7 @@ const NovoProjeto = ({ route }) => {
       return;
     }
   
-    try { //console.log("descrição item",item)
-      // if (item) {
+    try { 
          // Atualizar um projeto existente
          console.log("descrição item handleSalvar", item)
          const projetoAtualizado = {
@@ -141,23 +93,9 @@ const NovoProjeto = ({ route }) => {
            projetoAtualizado
          );
    
-         // Atualizar a relação entre usuários e projeto
-         console.log(idUsuariosSelecionados)
-           idUsuariosSelecionados.map(async userId => {
-             if(userId){
-               console.log("ids", item.idProjeto, userId)
-             await axios.post(baseURL + 'user_projeto', {
-               idProjeto: item.idProjeto,
-               idUser: userId,
-             });
-             }
-           })
-  
-   
        // Adicione feedback ao usuário, por exemplo, uma mensagem de sucesso
        //console.log("Projeto salvo com sucesso!");
    
-       // Navegar de volta após o salvamento
        navigation.goBack();
      } catch (error) {
        // Lidar com erros, adicionar feedback ao usuário se necessário
@@ -172,9 +110,7 @@ const NovoProjeto = ({ route }) => {
         title={'Novo Projeto'} goBack={() => navigation.goBack()} >
 
         <Appbar.Action icon="check" onPress={handleSalvar} />
-        {
-          <Appbar.Action icon="trash-can" onPress={handleExcluir} />
-        }
+        
       </Header>
       <ScrollView>
         <Body>
@@ -190,18 +126,6 @@ const NovoProjeto = ({ route }) => {
             onChangeText={(text) => setDescricao(text)}
           />
 
-
-          <MultipleSelectList
-            placeholder='Colaborador'
-            label="Colaborador"
-            setSelected={(val) => setSelected(val)}
-            onSelect={handleSelectChange}
-            serch={true}
-            data={usuarios.map(usuario => ({ value: usuario.nome, label: usuario.nome }))}
-            save="value"
-            boxStyles={{ borderRadius: 5, backgroundColor: "#FFF", borderWidth: 0, marginBottom: 4 }}
-            dropdownStyles={{ borderRadius: 5, backgroundColor: "#FFF", borderWidth: 0, marginBottom: 4, marginTop: 2 }}
-          />
           {showInicio && (
             <DateTimePicker
               testID="dateTimePicker"
@@ -250,17 +174,6 @@ const NovoProjeto = ({ route }) => {
               editable={false}
             />
           </TouchableOpacity>
-
-          <MultipleSelectList
-            placeholder='Tarefas'
-            label='Tarefa'
-            setSelected={handleSelectChangeTarefa}
-            //data={dataTarefa}
-            data={tarefas.map(tarefa => ({ value: tarefa.descricao, label: tarefa.descricao }))} 
-            save="value"
-            boxStyles={{ borderRadius: 5, backgroundColor: "#FFF", borderWidth: 0, marginBottom: 4 }}
-            dropdownStyles={{ borderRadius: 5, backgroundColor: "#FFF", borderWidth: 0, marginBottom: 4, marginTop: 2 }}
-          />
           <Button
             mode="contained"
             style={styles.buttom}
@@ -269,15 +182,6 @@ const NovoProjeto = ({ route }) => {
             Salvar
           </Button>
 
-          {
-            <Button
-              mode="contained"
-              color={'red'}
-              style={styles.buttom}
-              onPress={handleExcluir}>
-              Excluir
-            </Button>
-          }
         </Body>
       </ScrollView>
     </Container >
