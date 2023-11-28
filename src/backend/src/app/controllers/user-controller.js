@@ -52,6 +52,25 @@ module.exports = {
         }
     },
 
+    async loadPostUserEmailController(httpRequest) {
+        try {
+            const users = await userService.loadPostUserEmailService(httpRequest.body)
+            let lista = users
+            console.log(users.length)
+            return {
+                statusCode: users.length > 0 ? 200 : 404,
+                body: { message: users.length > 0 ? 'Retornando usuario com sucesso' : 'Usuario não existente na base de dados',
+            user: lista }
+            } 
+        } catch (error) {
+            return {
+                statusCode: 500,
+                body: { message: error }
+
+            }
+        }
+    },
+
     async loadPostUserController(httpRequest) {
         try {
             await userService.loadPostUserService(httpRequest.body)
