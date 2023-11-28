@@ -5,7 +5,7 @@ import { Avatar, Button } from 'react-native-paper';
 
 import Container from '../components/Container';
 import Header from '../components/Header';
-import TopTabRoutes from '../routes/toptab.routes';
+import TaskRoutes from '../routes/tasktab.routes';
 
 import {useUser} from '../contexts/UserContext';
 
@@ -13,7 +13,7 @@ const Tarefa = ({navigation}) => {
   return (
     <SafeAreaView style={{ flex: 1, marginTop: 25 }}>
       <NavigationContainer independent={true}>
-        <TopTabRoutes />
+        <TaskRoutes />
       </NavigationContainer>
     </SafeAreaView>
   );
