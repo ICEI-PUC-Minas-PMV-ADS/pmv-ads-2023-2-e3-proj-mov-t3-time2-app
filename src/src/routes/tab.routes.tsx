@@ -22,7 +22,7 @@ export default function TabRoutes() {
                 name='Tarefa'
                 component={Tarefa}
                 options={{
-                    tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name='account-edit' size={36} color={color} />
+                    tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name='book-edit' size={36} color={color} />
                 }}
             />
             <Screen
