@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, SafeAreaView, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { Avatar, Button } from 'react-native-paper';
 
@@ -10,17 +10,14 @@ import TopTabRoutes from '../routes/toptab.routes';
 import {useUser} from '../contexts/UserContext';
 
 const Tarefa = ({navigation}) => {
-
-  
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={{ flex: 1, marginTop: 25 }}>
       <NavigationContainer independent={true}>
         <TopTabRoutes />
       </NavigationContainer>
     </SafeAreaView>
   );
 };
-
 
 const styles = StyleSheet.create({
   usuario: {

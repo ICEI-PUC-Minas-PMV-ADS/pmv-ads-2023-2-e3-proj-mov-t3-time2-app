@@ -2,7 +2,7 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 import Perfil from '../pages/Perfil'
-import Tarefa from '../pages/Tarefa'
+import HomeTarefa from '../pages/HomeTarefa'
 import { IndexRoutes } from '.';
 
 const { Screen, Navigator } = createBottomTabNavigator()
@@ -20,7 +20,7 @@ export default function TabRoutes() {
             />
             <Screen
                 name='Tarefa'
-                component={Tarefa}
+                component={HomeTarefa}
                 options={{
                     tabBarIcon: ({ color, size }) => <MaterialCommunityIcons name='book-edit' size={36} color={color} />
                 }}
