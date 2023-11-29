@@ -6,6 +6,7 @@ import NovoProjeto from '../pages/NovoProjeto'
 import NovoColaborador from '../pages/NovoColaborador';
 import NovaTarefa from '../pages/NovaTarefa';
 import EditarProjeto from '../pages/EditarProjeto';
+import EditarTarefa from '../pages/EditarTarefa';
 
 const { Screen, Navigator } = createNativeStackNavigator();
 
@@ -47,6 +48,13 @@ export function IndexRoutes() {
                     headerShown: false,
                 }}
                 component={NovaTarefa}
+            />
+            <Screen
+                name='EditarTarefa'
+                options={{
+                    headerShown: false,
+                }}
+                component={EditarTarefa}
             />
         </Navigator>
     )
