@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { StyleSheet, ScrollView} from 'react-native';
-import { Button, Appbar} from 'react-native-paper';
+import { Button, Appbar, TextInput} from 'react-native-paper';
 
 import { useNavigation } from '@react-navigation/native';
 import { insertColaborador, updateColaborador, deleteColaborador } from '../services/ProjetosServicesDB';
@@ -16,6 +16,9 @@ const NovoColaborador = ({ route }) => {
   const { item } = route.params ? route.params : {};
 
   const [colaborador, setColaborador] = useState('');
+
+  const [nome, setNome] = useState('');
+  const [email, setEmail] = useState('');
 
   useEffect(() => {
     if (item) {
@@ -58,11 +61,18 @@ const NovoColaborador = ({ route }) => {
       </Header>
       <ScrollView>
         <Body>
-          <Input
-            label="Adicionar Colaborador"
-            value={colaborador}
-            onChangeText={(text) => setColaborador(text)}
-          />
+        <Input
+          label="Nome"
+          value={nome}
+          onChangeText={(text) => setNome(text)}
+          left={<TextInput.Icon name="account" />}
+        />
+        <Input
+          label="Email"
+          value={email}
+          onChangeText={(text) => setEmail(text)}
+          left={<TextInput.Icon name="email" />}
+        />
           <Button
             mode="contained"
             style={styles.buttom}

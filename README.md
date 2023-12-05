@@ -25,6 +25,18 @@ Aplicativo de tarefas pré determinadas e agrupadas por projeto, que possa ser u
 
 Assim que a primeira versão do sistema estiver disponível, deverá complementar com as instruções de utilização. Descreva como instalar eventuais dependências e como executar a aplicação.
 
+Para ver a aplicação desenvolvida, baixe o MySql Workbench e faça todas as configurações necessária. O escopo do banco está no arquivo banco.sql dentro de src/banco.sql.
+
+Para testes, utilizamos o Postman para testar as chamadas na API. A estrutura do Postman encontra-se em Collections API Taskbook.postman_collection.json.
+
+No terminal, ao entrar na pasta do projeto (onde está o APP) digite npm start para rodar a aplicação (caso não esteja na pasta, digite cd src para entrar). Vai aparecer as opções para você escolher como abrir o APP (emulador (terá que baixar em sua máquina), web (terá que fazer as configurações necessárias) ou utilizando o QRCode, para isso, você terá que ter o APP EXPO baixado no seu celular (no celular, você terá que liberar para modo desenvolvedor)).
+
+Depois abra outro terminal e entre na pasta backend (digite os comandos: cd src e aperte enter. Depois cd backend e aperte enter) e digite o comando npm run dev para rodar a API. Se rodar de forma correta, irá aparecer a porta que está sendo utilizada.
+
+Lembre-se de trocar o IP nas URL's em cada arquivo para poder funcionar na sua máquina.
+
+Após realizar os procedimento acima, você consiguira ver a aplicação desenvolvida.
+
 # Documentação
 
 <ol>

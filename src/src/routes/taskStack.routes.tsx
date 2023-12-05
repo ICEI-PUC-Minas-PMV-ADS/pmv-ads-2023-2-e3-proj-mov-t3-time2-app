@@ -1,9 +1,10 @@
 import React from 'react';
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-import Projeto from '../pages/Projeto'
-import NovoProjeto from '../pages/NovoProjeto'
-import EditarProjeto from '../pages/EditarProjeto'
+import Tarefa from '../pages/Tarefa'
+import NovaTarefa from '../pages/NovaTarefa'
+import EditarTarefa from '../pages/EditarTarefa'
+
 
 
 const { Screen, Navigator } = createNativeStackNavigator();
@@ -11,27 +12,27 @@ const { Screen, Navigator } = createNativeStackNavigator();
 export function StackRoutes() {
     
     return (
-        <Navigator initialRouteName='viewProjeto' >
+        <Navigator initialRouteName='viewTarefa' >
             <Screen
-                name='projeto'
+                name='tarefa'
                 options={{
                     headerShown: false,
                 }}
-                component={Projeto}
+                component={Tarefa}
             />
             <Screen
-                name='novoProjeto'
+                name='novaTarefa'
                 options={{
                     headerShown: false,
                 }}
-                component={NovoProjeto}
+                component={NovaTarefa}
             />
             <Screen
-                name='editarProjeto'
+                name='editarTarefa'
                 options={{
                     headerShown: false,
                 }}
-                component={EditarProjeto}
+                component={EditarTarefa}
             />
         </Navigator>
     )
