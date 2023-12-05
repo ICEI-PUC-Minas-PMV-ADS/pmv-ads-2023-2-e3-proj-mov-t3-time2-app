@@ -4,7 +4,6 @@ import { Button, Appbar, TextInput, Text } from 'react-native-paper';
 
 import DateTimePicker from '@react-native-community/datetimepicker';
 import { useNavigation } from '@react-navigation/native';
-import { insertProjetos, deleteProjetos, updateProjetos } from '../services/ProjetosServicesDB';
 import { SelectList, MultipleSelectList } from 'react-native-dropdown-select-list'
 import axios from "axios"
 
@@ -253,7 +252,7 @@ const EditarTarefa = ({ route }) => {
             />
           </TouchableOpacity>
 
-          <MultipleSelectList
+          <SelectList
             placeholder='Projeto'
             label='Projeto'
             setSelected={handleSelectChangeProjeto}
