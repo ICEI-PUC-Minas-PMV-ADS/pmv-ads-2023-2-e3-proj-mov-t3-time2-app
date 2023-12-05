@@ -1,23 +1,35 @@
 import React, { useEffect } from 'react';
-import { StyleSheet, SafeAreaView, Text, View } from 'react-native';
+import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { Avatar, Button } from 'react-native-paper';
 
 import Container from '../components/Container';
 import Header from '../components/Header';
-import TaskRoutes from '../routes/tasktab.routes';
+import TopTabRoutes from '../routes/tasktab.routes';
 
 import {useUser} from '../contexts/UserContext';
 
-const Tarefa = ({navigation}) => {
+const ProjetoHome = ({navigation}) => {
+
+  //Para identificar quem está logado
+  const {nome} = useUser('');
+
   return (
-    <SafeAreaView style={{ flex: 1, marginTop: 25 }}>
+    <Container>
+      <Header title="TaskBook" />
+      
+      <View style={styles.button}>
+        <View>
+          
+        </View>
+      </View>
       <NavigationContainer independent={true}>
-        <TaskRoutes />
+        <TopTabRoutes />
       </NavigationContainer>
-    </SafeAreaView>
+    </Container>
   );
 };
+
 
 const styles = StyleSheet.create({
   usuario: {
@@ -40,4 +52,4 @@ const styles = StyleSheet.create({
   }
 });
 
-export default Tarefa;
+export default ProjetoHome;

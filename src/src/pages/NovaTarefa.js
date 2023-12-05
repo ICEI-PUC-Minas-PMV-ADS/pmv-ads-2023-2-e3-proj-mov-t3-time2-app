@@ -6,56 +6,40 @@ import DateTimePicker from '@react-native-community/datetimepicker';
 import { useNavigation } from '@react-navigation/native';
 import { insertTarefa, updateTarefa, deleteTarefa } from '../services/ProjetosServicesDB';
 import axios from "axios";
-import { MultipleSelectList } from 'react-native-dropdown-select-list'
+import { SelectList } from 'react-native-dropdown-select-list'
 
 import Container from '../components/Container';
 import Header from '../components/Header';
 import Body from '../components/Body';
 import Input from '../components/Input';
+import Status from '../components/Status';
 
 const baseURL = "http://192.168.18.25:3000/v1/api/";
 
 const NovaTarefa = ({ route }) => {
 
-  const [selected, setSelected] = React.useState("");
-  const [usuarios, setUsuarios] = useState([]);
+  const [selected, setSelected] = useState("");
   const [projetos, setProjetos] = useState([]);
-  const [usuariosSelecionados, setUsuariosSelecionados] = useState([]);   
-  const [idUsuariosSelecionados, setIdUsuariosSelecionados] = useState([]);
   const [projetoSelecionado, setProjetoSelecionado] = useState([]);
 
   useEffect(() => {
-    axios.get(baseURL + 'user').then((dados) => {
-      setUsuarios(dados.data.lista)
-     // console.log("Retornando dados de usuario:", dados.data.lista)
-    });
     axios.get(baseURL + 'projeto').then((dados) => {
       setProjetos(dados.data.lista)
-     // console.log("Retornando dados de tarefa", dados.data.lista)
+     console.log("Retornando dados de projeto", dados.data.lista)
     })
   }, []);
 
-  const handleSelectChange = (selectedItems) => {
-    
-    const selectedNomes = Array.isArray(selectedItems) ?
-      selectedItems.map(item => item.value) :
-      [];
-      console.log(selectedNomes)
-    setUsuariosSelecionados(selectedNomes);
 
+  const handleSelectChangeProjeto = (selectedItems) => {
     // Aqui, você pode acessar os ids dos usuários selecionados
-    const idsSelecionados = usuarios
-      .filter(usuario => selectedNomes.includes(usuario.nome))
-      .map(usuario => usuario.idUser);
+    const idsSelecionados = projetos
+      .filter(projeto => selected.includes(projeto.nome))
+      .map(projeto => projeto.idProjeto);
 
-    setIdUsuariosSelecionados(idsSelecionados);
-    console.log('IDs dos usuários selecionados:', idsSelecionados);
+    //setIdProjetosSelecionados(idsSelecionados);
+    console.log('IDs dos projetos selecionados:', idsSelecionados);
   };
 
-  const handleSelectChangeProjeto = (projeto) => {
-    setProjetoSelecionado(projeto);
-    console.log(projetoSelecionado);
-  };
 
   const navigation = useNavigation();
   const { item } = route.params ? route.params : {};
@@ -73,54 +57,81 @@ const NovaTarefa = ({ route }) => {
     showMode(date);
   };
 
+  const formatarData = (dataString) => {
+    const [dia, mes, ano] = dataString.split('/');
+    const data = new Date(`${ano}-${mes}-${dia}T00:00:00.000Z`);
+    const anoFormatado = data.getUTCFullYear();
+    const mesFormatado = ('0' + (data.getUTCMonth() + 1)).slice(-2);
+    const diaFormatado = ('0' + data.getUTCDate()).slice(-2);
+    const horasFormatadas = ('0' + data.getUTCHours()).slice(-2);
+    const minutosFormatados = ('0' + data.getUTCMinutes()).slice(-2);
+    const segundosFormatados = ('0' + data.getUTCSeconds()).slice(-2);
+  
+    const dataFormatada = `${anoFormatado}-${mesFormatado}-${diaFormatado}T${horasFormatadas}:${minutosFormatados}:${segundosFormatados}.000Z`;
+  
+    return dataFormatada;
+  
+}
+
   const [descricao, setDescricao] = useState('');
-  const [colaborador, setColaborador] = useState('');
   const [dataInicio, setDataInicio] = useState(new Date().toLocaleDateString('pt-BR'));
   const [dataConclusao, setDataConclusao] = useState(new Date().toLocaleDateString('pt-BR'));
   const [projeto, setProjeto] = useState('');
   const [showInicio, setShowInicio] = useState(false);
   const [showFim, setShowFim] = useState(false);
+  const [status, setStatus] = useState('');
 
   useEffect(() => {
     if (item) {
       setDescricao(item.descricao);
-      setColaborador(item.colaborador);
       setDataInicio(item.datainicio);
       setDataConclusao(item.dataConclusao);
-      setProjeto(item.Projeto);
+      setStatus(item.status);
     }
   }, [item]);
 
-  const handleSalvar = () => {
-    if (item) {
-      updateTarefa(
-        {
-          descricao: descricao,
-          colaborador: colaborador,
-          datainicio: dataInicio,
-          dataConclusao: dataConclusao,
-          projeto: projeto,
-          id: item.id
-        }
-      ).then();
-    } else {
-      insertTarefa(
-        {
-          descricao: descricao,
-          colaborador: colaborador,
-          datainicio: dataInicio,
-          dataConclusao: dataConclusao,
-          projeto: projeto
-        }
-      ).then();
+  const handleSalvar = async () => {
+    const novoStatus = status ? true : false;
+  
+    // Validar os campos necessários antes de prosseguir
+    if ( !descricao || !dataInicio || !dataConclusao) {
+      // Adicione feedback ao usuário, por exemplo, uma mensagem de erro
+      console.error("Preencha todos os campos obrigatórios");
+      return;
     }
-    navigation.goBack()
-  }
-  const handleExcluir = () => {
-    deleteTarefa(item.id).then();
-    navigation.goBack();
-  };
+  
+    try { 
+    console.log(selected)
+     const idSelecionado = projetos
+      .filter(projeto => selected===projeto.nome)
+      .map(projeto => projeto.idProjeto);
 
+         // Atualizar um projeto existente
+         //console.log("descrição item handleSalvar", item)
+         const tarefaAtualizada = {
+           descricao: descricao,
+           dataInicio: formatarData(dataInicio),
+           dataConclusao: formatarData(dataConclusao),
+           status: novoStatus,
+           idProjeto: idSelecionado[0]
+         };
+         console.log(selected)
+         console.log("Tarefa Criada", tarefaAtualizada)
+         await axios.post(baseURL + 'task',
+         tarefaAtualizada
+         );
+   
+       // Adicione feedback ao usuário, por exemplo, uma mensagem de sucesso
+       //console.log("Projeto salvo com sucesso!");
+   
+       navigation.goBack();
+     } catch (error) {
+       // Lidar com erros, adicionar feedback ao usuário se necessário
+       console.error("Erro ao salvar a tarefa:", error);
+     }
+   };
+
+   
   return (
     <Container>
       <Header
@@ -128,12 +139,10 @@ const NovaTarefa = ({ route }) => {
         title={'Cadastrar Tarefas'} goBack={() => navigation.goBack()} >
 
         <Appbar.Action icon="check" onPress={handleSalvar} />
-        {
-          <Appbar.Action icon="trash-can" onPress={handleExcluir} />
-        }
       </Header>
       <ScrollView>
         <Body>
+        <Status />
           <Input
             label="Descrição da Tarefa"
             value={descricao}
@@ -184,19 +193,10 @@ const NovaTarefa = ({ route }) => {
             />
           </TouchableOpacity>
 
-          <MultipleSelectList
-            placeholder='Colaborador'
-            label="Colaborador"
-            setSelected={handleSelectChange}
-            data={usuarios.map(usuario => ({ value: usuario.nome, label: usuario.nome }))}
-            save="value"
-            boxStyles={{ borderRadius: 5, backgroundColor: "#FFF", borderWidth: 0, marginBottom: 4 }}
-            dropdownStyles={{ borderRadius: 5, backgroundColor: "#FFF", borderWidth: 0, marginBottom: 4, marginTop: 2 }}
-          />
-          <MultipleSelectList
+          <SelectList
             placeholder='Projeto'
             label='Projeto'
-            setSelected={handleSelectChangeProjeto}
+            setSelected={(val) => setSelected(val)} 
             data={projetos.map(projeto => ({ value: projeto.nome, label: projeto.nome }))} 
             save="value"
             boxStyles={{ borderRadius: 5, backgroundColor: "#FFF", borderWidth: 0, marginBottom: 4 }}
@@ -210,15 +210,6 @@ const NovaTarefa = ({ route }) => {
             Salvar
           </Button>
 
-          {
-            <Button
-              mode="contained"
-              color={'red'}
-              style={styles.buttom}
-              onPress={handleExcluir}>
-              Excluir
-            </Button>
-          }
         </Body>
       </ScrollView>
     </Container >

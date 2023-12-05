@@ -8,10 +8,14 @@ CREATE TABLE USER (
   senha VARCHAR(255)
   );
   
+ ## SELECT * FROM taskbook.user;
+
+
+## INSERT INTO user(nome,email,senha) VALUES('Marcos Vinicius','marcosvinicius@pucmail.com',md5('pucminas'));
   ## ALTER TABLE USER DROP COLUMN idade;
   ## ALTER TABLE USER DROP FOREIGN KEY idCargo;
   
-   INSERT INTO user(nome,email,senha) VALUES('Junia Marina Campos','juniacampos@pucmail.com','pucminas');
+  
   
   ## ALTER TABLE USER ADD foreign key (idCargo) REFERENCES CARGO(idCargo);
   ## ALTER TABLE USER ADD idCargo INT;
@@ -19,11 +23,14 @@ CREATE TABLE USER (
 ## Tabela Autenticação
 
 CREATE TABLE AUTH (
-  email VARCHAR(255),
+  email VARCHAR(255) unique,
   senha VARCHAR(255),
   idUser INT,
+  PRIMARY KEY (idUser,email), 
   FOREIGN KEY (idUser) REFERENCES USER(idUser)
   );
+
+## select md5('pucminas');
 
 ## Tabela Projeto
 
@@ -36,7 +43,7 @@ CREATE TABLE PROJETO (
   status BOOLEAN
   );
 
-SELECT * FROM taskbook.projeto;
+## SELECT * FROM taskbook.projeto;
   
   CREATE TABLE USER_PROJETO (
   idProjeto INT,
@@ -46,7 +53,12 @@ SELECT * FROM taskbook.projeto;
   PRIMARY KEY (idUser, idProjeto)
   );
   
-INSERT INTO projeto(nome,descricao,dataInicio,dataConclusao,status) VALUES('Limpa Arquivo','Devolver documentos para os clientes',sysdate(),sysdate()+5,true);
+ ## SELECT * FROM taskbook.user_projeto;
+## INSERT INTO projeto(nome,descricao,dataInicio,dataConclusao,status) VALUES('Limpa Arquivo','Devolver documentos para os clientes',sysdate(),sysdate()+5,true);
+
+## SELECT * FROM taskbook.projeto;
+
+
 
 ## Tabela Tarefas
 
@@ -60,6 +72,8 @@ CREATE TABLE TASK (
   status BOOLEAN
   );
   
+ ## SELECT * FROM taskbook.task;
+  
   CREATE TABLE USER_TASK (
   idTask INT,
   idUser INT,
@@ -67,8 +81,8 @@ CREATE TABLE TASK (
   FOREIGN KEY (idTask) REFERENCES TASK(idTask),
   PRIMARY KEY (idUser, idTask)
   );
-  
-  INSERT INTO task(descricao,dataInicio,dataConclusao,idProjeto,status) VALUES('Organizar documentos',sysdate(),sysdate()+5,'1',true);
+  ## SELECT * FROM taskbook.user_task;
+  ## INSERT INTO task(descricao,dataInicio,dataConclusao,idProjeto,status) VALUES('Organizar documentos',sysdate(),sysdate()+5,'1',true);
   
   
   ## ALTER TABLE TASK ADD status boolean;
@@ -86,7 +100,7 @@ CREATE TABLE DOCUMENTO (
   FOREIGN KEY (idUser) REFERENCES USER(idUser)
   );
   
-  SELECT * FROM taskbook.user;
+  ## SELECT * FROM taskbook.user;
   
   ## ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY '32751339';
   

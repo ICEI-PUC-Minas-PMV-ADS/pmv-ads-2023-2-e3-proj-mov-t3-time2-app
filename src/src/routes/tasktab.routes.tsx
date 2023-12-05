@@ -1,14 +1,13 @@
 import { View, Text } from 'react-native';
 import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
-import { StackRoutes } from './stack.routes';
-import EmAndamento from '../pages/EmAndamento'
+import { StackRoutes } from './taskStack.routes';
+import TarefaEmAndamento from '../pages/TarefaEmAndamento'
 import { Provider } from 'react-native-paper';
-import Finalizado from '../pages/Finalizados';
-import Tarefa from '../pages/HomeTarefa';
-import NovaTarefa from '../pages/NovaTarefa';
+import TarefaFinalizada from '../pages/TarefaFinalizadas';
 
-function ProjetoScreen() {
+
+function TarefaScreen() {
       return (
         <Provider>
             <StackRoutes />
@@ -16,15 +15,15 @@ function ProjetoScreen() {
     );
 }
 
-function EmAndamentoScreen() {
+function TarefaEmAndamentoScreen() {
     return (
-        <EmAndamento />
+        <TarefaEmAndamento />
     );
 }
 
-function FinalizadosScreen() {
+function TarefaFinalizadasScreen() {
     return (
-        <Finalizado/>
+        <TarefaFinalizada/>
     );
 }
 
@@ -34,9 +33,9 @@ const TaskRoutes = () => {
 
     return (
         <Navigator>
-            <Screen name="Tarefa" component={NovaTarefa} /> 
-            <Screen name="Em Andamento" component={EmAndamentoScreen} />
-            <Screen name="Finalizados" component={FinalizadosScreen} />
+            <Screen name="Tarefa" component={TarefaScreen} /> 
+            <Screen name="Em Andamento" component={TarefaEmAndamentoScreen} />
+            <Screen name="Finalizados" component={TarefaFinalizadasScreen} />
         </Navigator>
     );
 };

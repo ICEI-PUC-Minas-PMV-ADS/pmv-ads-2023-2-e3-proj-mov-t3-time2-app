@@ -36,7 +36,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Testando api\",\r\n    \"descricao\": \"testar conexao api\",\r\n    \"dataInicio\": \"2023-11-14T03:00:00.000Z\",\r\n    \"dataConclusao\": \"2023-11-14T03:00:00.000Z\",\r\n    \"idUser\": 2,\r\n    \"status\": \"em andamento\"\r\n}",
+							"raw": "{\r\n    \"dataConclusao\": \"2023-11-21T00:00:00.000Z\",\r\n    \"dataInicio\": \"2023-11-19T00:00:00.000Z\",\r\n    \"descricao\": \"testar a usabilidade do app\",\r\n    \"nome\": \"teste usabilidade\",\r\n    \"status\": true\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -75,7 +75,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Testando api\",\r\n    \"descricao\": \"testar conexao api\",\r\n    \"dataInicio\": \"2023-11-14T03:00:00.000Z\",\r\n    \"dataConclusao\": \"2023-11-14T03:00:00.000Z\",\r\n    \"idUser\": 2,\r\n    \"status\": \"em andamento\"\r\n}",
+							"raw": "{\r\n    \"dataConclusao\": \"2023-11-21T00:00:00.000Z\",\r\n    \"dataInicio\": \"2023-11-19T00:00:00.000Z\",\r\n    \"descricao\": \"Devolver documentos para o cliente\",\r\n    \"nome\": \"Limpa Arquivo\",\r\n    \"status\": true\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -98,6 +98,45 @@
 								{
 									"key": "idProjeto",
 									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getProjetoNome",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Teste\",\r\n    \"descricao\": \"Teste\",\r\n    \"dataInicio\": \"2023-11-20T03:00:00.000Z\",\r\n    \"dataConclusao\": \"2023-11-23T03:00:00.000Z\",\r\n    \"status\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/api/projeto/nome?nome=Teste",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"api",
+								"projeto",
+								"nome"
+							],
+							"query": [
+								{
+									"key": "nome",
+									"value": "Teste"
 								}
 							]
 						}
@@ -119,7 +158,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/v1/api/projeto/idProjeto?idProjeto=2",
+							"raw": "localhost:3000/v1/api/projeto/idProjeto?idProjeto=3",
 							"host": [
 								"localhost"
 							],
@@ -133,7 +172,7 @@
 							"query": [
 								{
 									"key": "idProjeto",
-									"value": "2"
+									"value": "3"
 								}
 							]
 						}
@@ -147,7 +186,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Testando api\",\r\n    \"descricao\": \"testar conexao api\",\r\n    \"dataInicio\": \"2023-11-14T03:00:00.000Z\",\r\n    \"dataConclusao\": \"2023-11-14T03:00:00.000Z\",\r\n    \"idUser\": 2,\r\n    \"status\": \"em andamento\"\r\n}",
+							"raw": "{\r\n    \"nome\": \"Testando api\",\r\n    \"descricao\": \"testar conexao api\",\r\n    \"dataInicio\": \"2023-11-14T03:00:00.000Z\",\r\n    \"dataConclusao\": \"2023-11-14T03:00:00.000Z\",\r\n    \"status\": true\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -201,7 +240,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"descricao\": \"Fazer capas de identificação\",\r\n    \"status\": \"em andamento\",\r\n    \"dataInicio\": \"2023-10-31T03:00:00.000Z\",\r\n    \"dataConclusao\": \"2023-10-31T03:00:00.000Z\",\r\n    \"idUser\": 2,\r\n    \"idProjeto\": 2\r\n}",
+							"raw": "{\r\n    \"dataConclusao\": \"2023-11-28T00:00:00.000Z\",\r\n    \"dataInicio\": \"2023-11-26T00:00:00.000Z\",\r\n    \"descricao\": \"Teste tarefa\",\r\n    \"idProjeto\": 1,\r\n    \"status\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -230,7 +269,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"descricao\": \"Fazer capas de identificação\",\r\n    \"status\": \"em andamento\",\r\n    \"dataInicio\": \"2023-10-31T03:00:00.000Z\",\r\n    \"dataConclusao\": \"2023-10-31T03:00:00.000Z\",\r\n    \"responsavel\": \"Julio Campos\",\r\n    \"idUser\": 3\r\n}",
+							"raw": "{\r\n    \"descricao\": \"Organizar documentos\",\r\n    \"dataInicio\": \"2023-11-19T03:00:00.000Z\",\r\n    \"dataConclusao\": \"2023-11-19T03:00:00.000Z\",\r\n    \"idProjeto\": 2,\r\n    \"status\": false\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -277,7 +316,7 @@
 							}
 						},
 						"url": {
-							"raw": "localhost:3000/v1/api/task/idTask?idTask=2",
+							"raw": "localhost:3000/v1/api/task/idTask?idTask=1",
 							"host": [
 								"localhost"
 							],
@@ -291,7 +330,7 @@
 							"query": [
 								{
 									"key": "idTask",
-									"value": "2"
+									"value": "1"
 								}
 							]
 						}
@@ -366,7 +405,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Julia Cesar Nonato Campos\",\r\n    \"email\": \"juliocampos@pucmail.com\",\r\n    \"senha\": \"unaminas\",\r\n    \"idade\": 27,\r\n    \"idCargo\": \"1\"\r\n}",
+							"raw": "{\r\n    \"nome\": \"Julia Cesar Nonato Campos\",\r\n    \"email\": \"juliocampos@pucmail.com\",\r\n    \"senha\": \"unaminas\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -383,6 +422,36 @@
 								"v1",
 								"api",
 								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postUserEmail",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"arcosvinicius@pucmail.com\",\r\n    \"senha\": \"pucminas\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/api/user/authUser",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"api",
+								"user",
+								"authUser"
 							]
 						}
 					},
@@ -434,7 +503,7 @@
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"nome\": \"Julia Raquel Campos\",\r\n    \"email\": \"juliacamposjc@pucmail.com\",\r\n    \"senha\": \"unaminas\",\r\n    \"idade\": 27,\r\n    \"cargo\": \"analista contabil\"\r\n}",
+							"raw": "{\r\n    \"nome\": \"Julia Cesar Nonato Campos\",\r\n    \"email\": \"juliocampos@pucmail.com\",\r\n    \"senha\": \"unaminas\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -493,6 +562,264 @@
 								{
 									"key": "idUser",
 									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "teste auth",
+			"item": [
+				{
+					"name": "postAuthUser",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"marcosvinicius@pucmail.com\",\r\n    \"idUser\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/api/auth/user",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"api",
+								"auth",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postAuth",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"email\": \"marcosvinicius@pucmail.com\",\r\n     \"senha\": \"pucminas\",\r\n    \"idUser\": 1\r\n\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/api/auth",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"api",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "teste userProjeto",
+			"item": [
+				{
+					"name": "getUserProjeto",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/v1/api/user_projeto",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"api",
+								"user_projeto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postUserProjeto",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idUser\": \"1\",\r\n    \"idProjeto\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/api/user_projeto",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"api",
+								"user_projeto"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserProjetoId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Julia Raquel Campos\",\r\n    \"email\": \"juliacamposjc@pucmail.com\",\r\n    \"senha\": \"unaminas\",\r\n    \"idade\": 27,\r\n    \"cargo\": \"analista contabil\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/api/user_projeto/ids?idUser=1&idProjeto",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"api",
+								"user_projeto",
+								"ids"
+							],
+							"query": [
+								{
+									"key": "idUser",
+									"value": "1"
+								},
+								{
+									"key": "idProjeto",
+									"value": null
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "teste userTask",
+			"item": [
+				{
+					"name": "getUserTask",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:3000/v1/api/user_task",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"api",
+								"user_task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "postUserTask",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"idUser\": \"1\",\r\n    \"idTask\": \"1\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/api/user_task",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"api",
+								"user_task"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getUserTaskId",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"nome\": \"Julia Raquel Campos\",\r\n    \"email\": \"juliacamposjc@pucmail.com\",\r\n    \"senha\": \"unaminas\",\r\n    \"idade\": 27,\r\n    \"cargo\": \"analista contabil\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:3000/v1/api/user_task/ids?idUser=1&idTask",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"v1",
+								"api",
+								"user_task",
+								"ids"
+							],
+							"query": [
+								{
+									"key": "idUser",
+									"value": "1"
+								},
+								{
+									"key": "idTask",
+									"value": null
 								}
 							]
 						}
