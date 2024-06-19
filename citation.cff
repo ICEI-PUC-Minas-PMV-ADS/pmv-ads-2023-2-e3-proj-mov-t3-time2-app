@@ -1,0 +1,26 @@
+message: Please cite this software using these metadata.
+title: TaskBook
+authors:
+  - family-names: Carolina Mozelli
+    given-names:  Ana
+  - family-names: Clara Rocha Mota
+    given-names: Anna
+  - family-names: Homero do Couto Neto
+    given-names: Geraldo
+  - family-name: Silva Diniz
+    given-name: Gustavo
+  - family-names: César Candian Ferreira
+    given-names: Hugo
+  - family-names: Marina Campos
+    given-names: Júnia
+  - name-suffix: Professor
+    affiliation: PUC Minas
+    family-names: Curcino de Lima
+    given-names: Mateus
+keywords:
+  - Projeto
+  - Tarefas
+  - Gestão
+repository-code: https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app
+version: 1.0.0
+date-released: 2023-12-04
