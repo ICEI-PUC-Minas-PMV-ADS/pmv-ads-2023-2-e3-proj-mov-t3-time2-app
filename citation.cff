@@ -1,3 +1,4 @@
+cff-version: 1.0.1
 message: Please cite this software using these metadata.
 title: TaskBook
 authors:
@@ -22,5 +23,6 @@ keywords:
   - Tarefas
   - Gestão
 repository-code: https://github.com/ICEI-PUC-Minas-PMV-ADS/pmv-ads-2023-2-e3-proj-mov-t3-time2-app
+license: CC-BY-4.0
 version: 1.0.0
 date-released: 2023-12-04
